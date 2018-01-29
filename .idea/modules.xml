@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RxJava.iml" filepath="$PROJECT_DIR$/RxJava.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rxjava+retrofit+cutmvp/rxjava+retrofit+cutmvp.iml" filepath="$PROJECT_DIR$/rxjava+retrofit+cutmvp/rxjava+retrofit+cutmvp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TaoPao-Sample/rxjava+retrofit+cutmvp.iml" filepath="$PROJECT_DIR$/TaoPao-Sample/rxjava+retrofit+cutmvp.iml" />
     </modules>
   </component>
 </project>
