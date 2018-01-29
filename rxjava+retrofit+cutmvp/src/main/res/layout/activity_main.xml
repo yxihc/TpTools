@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.MainActivity">
+
+    <Button
+        android:onClick="weixinweb"
+        android:layout_width="match_parent"
+        android:text="仿微信带进度条的网页"
+        android:layout_height="wrap_content" />
+    <Button
+        android:text="CutMvp"
+        android:onClick="mvp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
