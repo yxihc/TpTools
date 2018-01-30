@@ -40,13 +40,29 @@ import com.taopao.rxjavaretrofitcutmvp.widget.FriendRefreshView;
 public class FrActivity extends BaseActivity implements FriendRefreshView.OnRefreshListener {
     private ListView lv;
     private FriendRefreshView frv;
-    private String citys[]=new String[]{
+    private String citys[] = new String[]{
+            "北京",
+            "上海",
+            "广州",
+            "成都",
+            "安徽",
+            "北京",
+            "上海",
+            "广州",
+            "成都",
+            "安徽",
+            "北京",
+            "上海",
+            "广州",
+            "成都",
+            "安徽",
             "北京",
             "上海",
             "广州",
             "成都",
             "安徽"
     };
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,9 +86,9 @@ public class FrActivity extends BaseActivity implements FriendRefreshView.OnRefr
         frv = (FriendRefreshView) findViewById(R.id.frv);
 
 
-        ArrayAdapter<String> dataAdpater=new ArrayAdapter<String>(
+        ArrayAdapter<String> dataAdpater = new ArrayAdapter<String>(
                 this,
-                android.R.layout.simple_list_item_1,citys);
+                android.R.layout.simple_list_item_1, citys);
         frv.setAdapter(dataAdpater);
         lv.setAdapter(dataAdpater);
 
@@ -81,7 +97,7 @@ public class FrActivity extends BaseActivity implements FriendRefreshView.OnRefr
 
     @Override
     public void onRefresh() {
-        new Thread(){
+        new Thread() {
             @Override
             public void run() {
                 super.run();

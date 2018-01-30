@@ -1,6 +1,7 @@
 package com.taopao.rxjavaretrofitcutmvp.ui.base;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.taopao.rxjavaretrofitcutmvp.R;
+import com.taopao.rxjavaretrofitcutmvp.app.App;
 import com.taopao.rxjavaretrofitcutmvp.widget.CustomDialog;
 
 import java.util.LinkedList;
@@ -82,6 +84,8 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
         synchronized (mActivities) {
             mActivities.add(this);
         }
+
+
     }
     public P getPresenter() {
         return mPresenter;
@@ -109,6 +113,11 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
         }
         mCompositeDisposable.add(disposable);
     }
+
+
+
+
+
 
     private CustomDialog mDialogWaiting;
     private MaterialDialog mMaterialDialog;
