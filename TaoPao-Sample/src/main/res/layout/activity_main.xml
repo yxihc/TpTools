@@ -8,6 +8,11 @@
     tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.MainActivity">
 
     <Button
+        android:onClick="fr"
+        android:layout_width="match_parent"
+        android:text="仿微信朋友圈下拉刷新"
+        android:layout_height="wrap_content" />
+    <Button
         android:onClick="weixinweb"
         android:layout_width="match_parent"
         android:text="仿微信带进度条的网页"

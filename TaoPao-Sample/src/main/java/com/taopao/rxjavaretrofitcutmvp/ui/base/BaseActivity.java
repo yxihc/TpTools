@@ -54,14 +54,15 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         init();
-        synchronized (mActivities) {
-            mActivities.add(this);
-        }
     }
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mPresenter.detachView();
+        //判断是否非空 以防子类并没有使用此架构
+        if(mPresenter!=null) {
+            mPresenter.detachView();
+        }
+
         //取消订阅者
         if (mCompositeDisposable != null) {
             mCompositeDisposable.clear();
@@ -74,7 +75,13 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
      */
     private void init() {
         mPresenter = createPresenter();
-        mPresenter.attachView(createView());
+        //判断是否非空 以防子类并没有使用此架构
+        if(mPresenter!=null) {
+            mPresenter.attachView(createView());
+        }
+        synchronized (mActivities) {
+            mActivities.add(this);
+        }
     }
     public P getPresenter() {
         return mPresenter;

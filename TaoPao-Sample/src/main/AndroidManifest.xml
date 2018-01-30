@@ -35,6 +35,7 @@
         </activity>
         <activity android:name=".ui.activity.CutMvpActivity" />
         <activity android:name=".ui.activity.WebViewActivity"></activity>
+        <activity android:name=".ui.activity.FrActivity"></activity>
     </application>
 
 </manifest>

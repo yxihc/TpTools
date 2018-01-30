@@ -45,4 +45,8 @@ public class MainActivity extends AppCompatActivity {
     public void mvp(View view){
         startActivity(new Intent(this,CutMvpActivity.class));
     }
+
+    public void fr(View view){
+        startActivity(new Intent(this,FrActivity.class));
+    }
 }
