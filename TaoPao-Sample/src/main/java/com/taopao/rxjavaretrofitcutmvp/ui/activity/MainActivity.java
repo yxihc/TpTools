@@ -51,4 +51,7 @@ public class MainActivity extends AppCompatActivity {
     public void dialog(View view){
         startActivity(new Intent(this,DialogActivity.class));
     }
+    public void random(View view){
+        startActivity(new Intent(this,RandomTextActivity.class));
+    }
 }

@@ -7,6 +7,16 @@
     android:layout_height="match_parent"
     tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.MainActivity">
     <Button
+        android:text="CutMvp"
+        android:onClick="mvp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:onClick="random"
+        android:layout_width="match_parent"
+        android:text="随机显示textview"
+        android:layout_height="wrap_content" />
+    <Button
         android:onClick="dialog"
         android:layout_width="match_parent"
         android:text="Dialog"
@@ -21,9 +31,5 @@
         android:layout_width="match_parent"
         android:text="仿微信带进度条的网页"
         android:layout_height="wrap_content" />
-    <Button
-        android:text="CutMvp"
-        android:onClick="mvp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+
 </LinearLayout>

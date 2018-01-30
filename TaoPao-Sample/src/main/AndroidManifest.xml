@@ -36,7 +36,8 @@
         <activity android:name=".ui.activity.CutMvpActivity" />
         <activity android:name=".ui.activity.WebViewActivity" />
         <activity android:name=".ui.activity.FrActivity" />
-        <activity android:name=".ui.activity.DialogActivity"></activity>
+        <activity android:name=".ui.activity.DialogActivity" />
+        <activity android:name=".ui.activity.RandomTextActivity"></activity>
     </application>
 
 </manifest>
