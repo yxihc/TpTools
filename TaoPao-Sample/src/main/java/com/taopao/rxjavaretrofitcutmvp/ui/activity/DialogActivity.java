@@ -1,15 +1,18 @@
 package com.taopao.rxjavaretrofitcutmvp.ui.activity;
 
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.taopao.rxjavaretrofitcutmvp.R;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
+import com.taopao.rxjavaretrofitcutmvp.utils.SnackbarUtils;
 import com.taopao.rxjavaretrofitcutmvp.utils.UIUtils;
 
 public class DialogActivity extends BaseActivity {
@@ -31,15 +34,17 @@ public class DialogActivity extends BaseActivity {
     }
 
     public void snake(View view){
-        //需要design包
-        final Snackbar make = Snackbar.make(view, "您确定要开启加速?", Snackbar.LENGTH_SHORT);
-        make.setAction("确定", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                make.dismiss();
-            }
-        });
-        make.show();
+//        //需要design包
+//        final Snackbar make = Snackbar.make(view, "您确定要开启加速?", Snackbar.LENGTH_SHORT);
+//        make.setAction("确定", new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                make.dismiss();
+//            }
+//        });
+//        make.show();
+
+        SnackbarUtils.ShortSnackbar(view,"您确定要开启加速",SnackbarUtils.Info).show();
     }
 
     public void customdia(View view){

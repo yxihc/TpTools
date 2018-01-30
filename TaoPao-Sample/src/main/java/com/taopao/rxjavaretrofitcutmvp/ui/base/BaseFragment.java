@@ -58,7 +58,7 @@ public abstract class BaseFragment<P extends BasePresenter<V>, V extends BaseVie
     public abstract V createView();
 
     /**
-     * 添加activity里的订阅者 对订阅者统一管理
+     * 添加Fragment里的订阅者 对订阅者统一管理
      * @param disposable
      */
     protected void addFragmentDisposable(Disposable disposable) {
@@ -67,7 +67,9 @@ public abstract class BaseFragment<P extends BasePresenter<V>, V extends BaseVie
         }
         mCompositeDisposable.add(disposable);
     }
-
+    public P getPresenter() {
+        return mPresenter;
+    }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
