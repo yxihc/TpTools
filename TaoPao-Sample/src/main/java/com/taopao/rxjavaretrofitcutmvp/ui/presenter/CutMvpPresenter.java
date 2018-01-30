@@ -1,5 +1,7 @@
 package com.taopao.rxjavaretrofitcutmvp.ui.presenter;
 
+import android.text.style.BulletSpan;
+
 import com.taopao.rxjavaretrofitcutmvp.http.ApiRetrofit;
 import com.taopao.rxjavaretrofitcutmvp.model.base.BaseResult;
 import com.taopao.rxjavaretrofitcutmvp.model.response.BannerInfo;
@@ -42,7 +44,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class CutMvpPresenter extends BasePresenter<CutMvpView> {
 
-    public void getBanner(String loaction){
+    public void getBanner(String loaction) {
         ApiRetrofit.getInstance()
                 .getBanner(loaction)
                 .subscribeOn(Schedulers.io())
@@ -50,10 +52,14 @@ public class CutMvpPresenter extends BasePresenter<CutMvpView> {
                 .subscribe(new RxObserver<BaseResult<ArrayList<BannerInfo>>>() {
                     @Override
                     public void onSuccess(BaseResult<ArrayList<BannerInfo>> arrayListBaseResult) {
-                        getView().onGetBannerResult(arrayListBaseResult);
+                        //这里非空判断可不写,因为在view层销毁的时候rxjava 订阅者也取消回调了,不会再回调了(最好写上 万无一失)
+                        if (getView() != null) {
+                            getView().onGetBannerResult(arrayListBaseResult);
+                        }
                     }
                     @Override
                     public void onSubscribe(Disposable d) {
+                        //统一管理订阅者(此步不可省略)
                         addDisposable(d);
                     }
                 });
