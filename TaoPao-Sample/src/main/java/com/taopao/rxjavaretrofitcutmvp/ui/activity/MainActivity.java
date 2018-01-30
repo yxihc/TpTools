@@ -39,8 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
     public void weixinweb(View view){
-        WebViewActivity.loadUrl(this,"https://www.baidu.com","");
-//        startActivity(new Intent(MainActivity.this,WebviewActivity.class));
+        WebViewActivity.loadUrl(this,"https://github.com/404NotFuond/RxJava-Retrofit-CutMvp");
     }
     public void mvp(View view){
         startActivity(new Intent(this,CutMvpActivity.class));
@@ -48,5 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void fr(View view){
         startActivity(new Intent(this,FrActivity.class));
+    }
+    public void dialog(View view){
+        startActivity(new Intent(this,DialogActivity.class));
     }
 }

@@ -10,24 +10,44 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.taopao.rxjavaretrofitcutmvp.R;
+import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
+import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
+import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
 import com.taopao.rxjavaretrofitcutmvp.widget.ProgressWebView;
 
-public class WebViewActivity extends AppCompatActivity {
+public class WebViewActivity extends BaseActivity {
 
     private ProgressWebView mWv;
     private boolean isLoading = false;
-    String mUrl = "";
-    private String mTitle;
+    private String mUrl = "";
+    private String mTitle = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
-        mUrl = getIntent().getExtras().getString("mUrl", "");
-        mTitle = getIntent().getExtras().getString("mTitle", "");
+        getData();
         initWebView();
     }
 
+    @Override
+    public BasePresenter createPresenter() {
+        return null;
+    }
+
+    @Override
+    public BaseView createView() {
+        return null;
+    }
+
+    private void getData(){
+        if (getIntent().hasExtra("mUrl")) {
+            mUrl = getIntent().getExtras().getString("mUrl", "");
+        }
+        if (getIntent().hasExtra("mTitle")) {
+            mTitle = getIntent().getExtras().getString("mTitle", "");
+        }
+    }
     private void initWebView() {
         mWv = (ProgressWebView) findViewById(R.id.wv);
         //设置webView
@@ -68,8 +88,7 @@ public class WebViewActivity extends AppCompatActivity {
 
 
     /**
-     * 打开网页:
-     *
+     * 打开网页:加上title
      * @param mContext 上下文
      * @param mUrl     要加载的网页url
      * @param mTitle   title
@@ -78,6 +97,16 @@ public class WebViewActivity extends AppCompatActivity {
         Intent intent = new Intent(mContext, WebViewActivity.class);
         intent.putExtra("mUrl", mUrl);
         intent.putExtra("mTitle", mTitle);
+        mContext.startActivity(intent);
+    }
+    /**
+     * 打开网页:不加title
+     * @param mContext 上下文
+     * @param mUrl     要加载的网页url
+     */
+    public static void loadUrl(Context mContext, String mUrl) {
+        Intent intent = new Intent(mContext, WebViewActivity.class);
+        intent.putExtra("mUrl", mUrl);
         mContext.startActivity(intent);
     }
 }
