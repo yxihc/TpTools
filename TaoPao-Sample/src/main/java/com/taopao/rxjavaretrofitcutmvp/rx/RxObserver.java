@@ -1,11 +1,9 @@
 package com.taopao.rxjavaretrofitcutmvp.rx;
 
-
 import com.taopao.rxjavaretrofitcutmvp.app.App;
 import com.taopao.rxjavaretrofitcutmvp.model.base.BaseResult;
 import com.taopao.rxjavaretrofitcutmvp.utils.NetUtils;
 import com.taopao.rxjavaretrofitcutmvp.utils.UIUtils;
-
 import io.reactivex.Observer;
 
 /**
@@ -34,13 +32,19 @@ import io.reactivex.Observer;
  * @Use:  自定义Observer
  */
 public abstract class RxObserver<T> implements Observer<T> {
+//    private Context mContext;
+//    public RxObserver(Context context) {
+//        mContext=context;
+//    }
     @Override
     public void onComplete() {
         //一般不用 需要的时候重写
+        UIUtils.hideWaitingDialog();
     }
 
     @Override
     public void onError(Throwable e) {
+        UIUtils.hideWaitingDialog();
 //        if(e instanceof HttpException){
 //            String errNetwork = "网络错误";
 //            LogUtils.i("onError: " + errNetwork);

@@ -37,7 +37,10 @@
         <activity android:name=".ui.activity.WebViewActivity" />
         <activity android:name=".ui.activity.FrActivity" />
         <activity android:name=".ui.activity.DialogActivity" />
-        <activity android:name=".ui.activity.RandomTextActivity"></activity>
+        <activity android:name=".ui.activity.RandomTextActivity" />
+        <activity android:name=".ui.activity.ImmersiveActivity" />
+        <activity android:name=".ui.activity.SwipeBackActivity" />
+        <activity android:name=".ui.activity.Design1Activity"></activity>
     </application>
 
 </manifest>

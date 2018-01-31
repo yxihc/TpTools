@@ -1,5 +1,6 @@
 package com.taopao.rxjavaretrofitcutmvp.ui.presenter;
 
+import android.content.Context;
 import android.text.style.BulletSpan;
 
 import com.taopao.rxjavaretrofitcutmvp.http.ApiRetrofit;
@@ -8,6 +9,7 @@ import com.taopao.rxjavaretrofitcutmvp.model.response.BannerInfo;
 import com.taopao.rxjavaretrofitcutmvp.rx.RxObserver;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.view.CutMvpView;
+import com.taopao.rxjavaretrofitcutmvp.utils.UIUtils;
 
 import java.util.ArrayList;
 
@@ -43,8 +45,12 @@ import io.reactivex.schedulers.Schedulers;
  */
 
 public class CutMvpPresenter extends BasePresenter<CutMvpView> {
+    public CutMvpPresenter(Context context) {
+        super(context);
+    }
 
     public void getBanner(String loaction) {
+        UIUtils.showWaitingDialog(mContext,"请骚等...");
         ApiRetrofit.getInstance()
                 .getBanner(loaction)
                 .subscribeOn(Schedulers.io())

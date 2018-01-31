@@ -72,6 +72,11 @@ public class FrActivity extends BaseActivity implements FriendRefreshView.OnRefr
     }
 
     @Override
+    public void setToolBar() {
+
+    }
+
+    @Override
     public BasePresenter createPresenter() {
         return null;
     }

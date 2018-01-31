@@ -3,9 +3,13 @@ package com.taopao.rxjavaretrofitcutmvp.ui.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.taopao.rxjavaretrofitcutmvp.R;
+import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
+import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
+import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
 
 /**
  * ━━━━━━神兽出没━━━━━━
@@ -32,12 +36,32 @@ import com.taopao.rxjavaretrofitcutmvp.R;
  * @Data: 2018/1/29 12:05
  * @Use: 程序入口
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        mToolbar.setNavigationIcon(R.mipmap.ic_launcher_round);
+
+        setToolBar();
     }
+
+    @Override
+    public void setToolBar() {
+        getToolBar().setNavigationIcon(null);
+        getToolBar().setTitle("标题");
+    }
+
+    @Override
+    public BasePresenter createPresenter() {
+        return null;
+    }
+
+    @Override
+    public BaseView createView() {
+        return null;
+    }
+
     public void weixinweb(View view){
         WebViewActivity.loadUrl(this,"https://github.com/404NotFuond/RxJava-Retrofit-CutMvp");
     }
@@ -53,5 +77,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public void random(View view){
         startActivity(new Intent(this,RandomTextActivity.class));
+    }
+    public void mmersive(View view){
+        startActivity(new Intent(this,ImmersiveActivity.class));
     }
 }

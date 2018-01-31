@@ -48,12 +48,18 @@ public class CutMvpActivity extends BaseActivity<CutMvpPresenter,CutMvpView> imp
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cutmvp);
+        setToolBar();
         mTv_content = (TextView) findViewById(R.id.tv_content);
     }
 
     @Override
+    public void setToolBar() {
+
+    }
+
+    @Override
     public CutMvpPresenter createPresenter() {
-        return new CutMvpPresenter();
+        return new CutMvpPresenter(this);
     }
     @Override
     public CutMvpView createView() {
@@ -67,4 +73,6 @@ public class CutMvpActivity extends BaseActivity<CutMvpPresenter,CutMvpView> imp
     public void getbanner(View view){
         mPresenter.getBanner("2");
     }
+
+
 }

@@ -1,5 +1,7 @@
 package com.taopao.rxjavaretrofitcutmvp.ui.base;
 
+import android.content.Context;
+
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 
@@ -34,6 +36,11 @@ import io.reactivex.disposables.Disposable;
 public abstract class BasePresenter<V extends BaseView> {
     private Reference<V> mView;
     private CompositeDisposable mCompositeDisposable;
+
+    public Context mContext;
+    public BasePresenter(Context context) {
+        mContext = context;
+    }
     public void attachView(V view) {
         //使用软引用优化内存
         mView = new WeakReference<V>(view);

@@ -31,6 +31,11 @@ public class WebViewActivity extends BaseActivity {
     }
 
     @Override
+    public void setToolBar() {
+        getToolBar().setNavigationIcon(null);
+    }
+
+    @Override
     public BasePresenter createPresenter() {
         return null;
     }

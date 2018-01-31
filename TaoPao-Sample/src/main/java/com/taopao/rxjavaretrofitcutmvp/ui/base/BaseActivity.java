@@ -1,16 +1,17 @@
 package com.taopao.rxjavaretrofitcutmvp.ui.base;
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
+import com.jaeger.library.StatusBarUtil;
 import com.taopao.rxjavaretrofitcutmvp.R;
-import com.taopao.rxjavaretrofitcutmvp.app.App;
+import com.taopao.rxjavaretrofitcutmvp.ui.activity.ImmersiveActivity;
 import com.taopao.rxjavaretrofitcutmvp.widget.CustomDialog;
 
 import java.util.LinkedList;
@@ -51,12 +52,20 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
     public final static List<AppCompatActivity> mActivities = new LinkedList<AppCompatActivity>();
     private CompositeDisposable mCompositeDisposable;
     public P mPresenter;
+    public Toolbar mToolbar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         init();
+        //初始化toolbar
+        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        initStatusBar();
+        initToolBar();
+
     }
+
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -71,6 +80,7 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
             mCompositeDisposable = null;
         }
     }
+
 
     /**
      * 初始化presenter和view
@@ -87,6 +97,10 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
 
 
     }
+
+
+    public void setToolBar(){}
+
     public P getPresenter() {
         return mPresenter;
     }
@@ -113,9 +127,6 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
         }
         mCompositeDisposable.add(disposable);
     }
-
-
-
 
 
 
@@ -187,6 +198,29 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
         }
         // 杀死当前的进程
         android.os.Process.killProcess(android.os.Process.myPid());
+    }
+
+    //////////////////////////////沉浸式相关////////////////////////////////////
+    /**
+     * 透明状态栏沉浸式 要改的话 子类重写此方法
+     */
+    protected void initStatusBar() {
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary), 0);
+    }
+    /**
+     * 设置ToolBar 要改的话 子类重写此方法
+     */
+    protected void initToolBar() {
+        setSupportActionBar(mToolbar);
+    }
+
+    /**
+     * 得到toolbar的实例
+     * @return Toolbar的实例
+     */
+    public Toolbar getToolBar(){
+        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        return mToolbar;
     }
 
 }

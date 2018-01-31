@@ -1,17 +1,24 @@
 package com.taopao.rxjavaretrofitcutmvp.utils;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.taopao.rxjavaretrofitcutmvp.R;
 import com.taopao.rxjavaretrofitcutmvp.app.App;
+import com.taopao.rxjavaretrofitcutmvp.widget.CustomDialog;
+
 import java.lang.reflect.Field;
 /**
  * ━━━━━━神兽出没━━━━━━
@@ -350,6 +357,33 @@ public class UIUtils {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             return "1.0";
+        }
+    }
+
+
+
+   private static CustomDialog  mDialogWaiting;
+    /**
+     * 显示等待提示框
+     */
+    public static Dialog showWaitingDialog(Context context,String tip) {
+        hideWaitingDialog();
+        View view = View.inflate(context, R.layout.dialog_waiting, null);
+        if (!TextUtils.isEmpty(tip))
+            ((TextView) view.findViewById(R.id.tvTip)).setText(tip);
+        mDialogWaiting = new CustomDialog(context, view, R.style.MyDialog);
+        mDialogWaiting.show();
+        //设置点击屏幕不消失 返回键也不消失
+        mDialogWaiting.setCancelable(false);
+        return mDialogWaiting;
+    }
+    /**
+     * 隐藏等待提示框
+     */
+    public static void hideWaitingDialog() {
+        if (mDialogWaiting != null) {
+            mDialogWaiting.dismiss();
+            mDialogWaiting = null;
         }
     }
 }

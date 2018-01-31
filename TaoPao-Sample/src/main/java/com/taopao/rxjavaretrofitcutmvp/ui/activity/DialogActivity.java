@@ -24,6 +24,11 @@ public class DialogActivity extends BaseActivity {
     }
 
     @Override
+    public void setToolBar() {
+
+    }
+
+    @Override
     public BasePresenter createPresenter() {
         return null;
     }

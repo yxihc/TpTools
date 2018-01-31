@@ -5,7 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
     tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.MainActivity">
+
+    <include layout="@layout/toolbar_base"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"></include>
     <Button
         android:text="CutMvp"
         android:onClick="mvp"
@@ -32,4 +38,9 @@
         android:text="仿微信带进度条的网页"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:onClick="mmersive"
+        android:layout_width="match_parent"
+        android:text="沉浸式"
+        android:layout_height="wrap_content" />
 </LinearLayout>
