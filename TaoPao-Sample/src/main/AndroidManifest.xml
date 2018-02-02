@@ -45,7 +45,8 @@
         <activity android:name=".ui.activity.Design3Activity" />
         <activity android:name=".ui.activity.Design4Activity" />
         <activity android:name=".ui.activity.Design5Activity" />
-        <activity android:name=".ui.activity.ZC1Activity"></activity>
+        <activity android:name=".ui.activity.ZC1Activity" />
+        <activity android:name=".ui.activity.SearchViewActivity"></activity>
     </application>
 
 </manifest>

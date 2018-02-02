@@ -139,6 +139,10 @@ public class ImmersiveActivity extends BaseActivity {
         Intent intent = new Intent(this, Design5Activity.class);
         startActivity(intent);
     }
+    public void searchview1(View view){
+        Intent intent = new Intent(this, SearchViewActivity.class);
+        startActivity(intent);
+    }
     public void zc1(View view){
 
 		ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(this, mImageView, "iv");
