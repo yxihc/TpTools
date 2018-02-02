@@ -81,4 +81,8 @@ public class MainActivity extends BaseActivity {
     public void mmersive(View view){
         startActivity(new Intent(this,ImmersiveActivity.class));
     }
+
+    public void downloadapk(View view){
+        startActivity(new Intent(this,DownLoadApkActivity.class));
+    }
 }

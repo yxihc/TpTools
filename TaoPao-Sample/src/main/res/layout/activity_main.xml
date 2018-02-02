@@ -18,6 +18,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
+        android:onClick="downloadapk"
+        android:layout_width="match_parent"
+        android:text="DownLoadApk"
+        android:layout_height="wrap_content" />
+    <Button
         android:onClick="random"
         android:layout_width="match_parent"
         android:text="随机显示textview"

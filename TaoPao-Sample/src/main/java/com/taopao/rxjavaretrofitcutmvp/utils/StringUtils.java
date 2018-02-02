@@ -1,5 +1,6 @@
 package com.taopao.rxjavaretrofitcutmvp.utils;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,6 +31,26 @@ import java.util.regex.Pattern;
  * @Use: 字符串工具类
  */
 public class StringUtils {
+    public static String getDataSize(long var0) {
+        DecimalFormat var2 = new DecimalFormat("###.00");
+        return var0 < 1024L ? var0 + "bytes" : (var0 < 1048576L ? var2.format((double) ((float) var0 / 1024.0F))
+                + "KB" : (var0 < 1073741824L ? var2.format((double) ((float) var0 / 1024.0F / 1024.0F))
+                + "MB" : (var0 < 0L ? var2.format((double) ((float) var0 / 1024.0F / 1024.0F / 1024.0F))
+                + "GB" : "error")));
+    }
+    public static String getHostName(String urlString) {
+        String head = "";
+        int index = urlString.indexOf("://");
+        if (index != -1) {
+            head = urlString.substring(0, index + 3);
+            urlString = urlString.substring(index + 3);
+        }
+        index = urlString.indexOf("/");
+        if (index != -1) {
+            urlString = urlString.substring(0, index + 1);
+        }
+        return head + urlString;
+    }
     /**
      * 得到不为空的字符串
      *

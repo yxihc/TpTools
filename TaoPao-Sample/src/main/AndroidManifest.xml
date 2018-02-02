@@ -46,7 +46,28 @@
         <activity android:name=".ui.activity.Design4Activity" />
         <activity android:name=".ui.activity.Design5Activity" />
         <activity android:name=".ui.activity.ZC1Activity" />
-        <activity android:name=".ui.activity.SearchViewActivity"></activity>
+        <activity android:name=".ui.activity.SearchViewActivity" />
+
+        <service android:name=".service.DownLoadService" />
+
+        <activity android:name=".ui.activity.DownLoadApkActivity"></activity>
+
+
+        <!--解决版本升级下载apk 并安装的时候安卓7.0出错-->
+        <!--android:name是固定写法。-->
+        <!--android:authorities可自定义，是用来标识该provider的唯一标识，建议结合包名来保证authority的唯一性。-->
+        <!--android:exported必须设置成 false，否则运行时会报错java.lang.SecurityException: Provider must not be exported 。-->
+        <!--android:grantUriPermissions用来控制共享文件的访问权限。-->
+        <!--<meta-data>节点中的android:resource指定了共享文件的路径。此处的file_paths即是该Provider对外提供文件的目录的配置文件，存放在res/xml/下。-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.taopao.rxjavaretrofitcutmvp.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>
