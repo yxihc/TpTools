@@ -8,15 +8,11 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
-
 import com.jaeger.library.StatusBarUtil;
 import com.taopao.rxjavaretrofitcutmvp.R;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.ImmersiveActivity;
 import com.taopao.rxjavaretrofitcutmvp.widget.CustomDialog;
-
 import java.util.LinkedList;
 import java.util.List;
-
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import me.drakeet.materialdialog.MaterialDialog;
@@ -62,7 +58,6 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
         mToolbar = (Toolbar)findViewById(R.id.toolbar);
         initStatusBar();
         initToolBar();
-
     }
 
 
@@ -206,6 +201,7 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
      */
     protected void initStatusBar() {
         StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary), 0);
+//        StatusBarUtil.setTranslucent(this, 0);
     }
     /**
      * 设置ToolBar 要改的话 子类重写此方法

@@ -1,11 +1,14 @@
 package com.taopao.rxjavaretrofitcutmvp.ui.activity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 
 import com.jaeger.library.StatusBarUtil;
@@ -22,6 +25,7 @@ public class ImmersiveActivity extends BaseActivity {
     private Toolbar toolbar;
     private SeekBar sb_change_alpha;
     private int mColor=0;
+    private ImageView mImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,8 @@ public class ImmersiveActivity extends BaseActivity {
     private int mAlpha = StatusBarUtil.DEFAULT_STATUS_BAR_ALPHA;
     int  mStatusBarColor = 0;
     private void initView() {
+
+        mImageView = (ImageView) findViewById(R.id.imageView);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
@@ -114,6 +120,30 @@ public class ImmersiveActivity extends BaseActivity {
     public void design1(View view){
         Intent intent = new Intent(this, Design1Activity.class);
         startActivity(intent);
+    }
+    public void design2(View view){
+        Intent intent = new Intent(this, Design2Activity.class);
+        startActivity(intent);
+    }
+
+    public void design3(View view){
+        Intent intent = new Intent(this, Design3Activity.class);
+        startActivity(intent);
+    }
+    public void design4(View view){
+        Intent intent = new Intent(this, Design4Activity.class);
+        startActivity(intent);
+    }
+
+    public void design5(View view){
+        Intent intent = new Intent(this, Design5Activity.class);
+        startActivity(intent);
+    }
+    public void zc1(View view){
+
+		ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(this, mImageView, "iv");
+        Intent intent = new Intent(this, ZC1Activity.class);
+        startActivity(intent, optionsCompat.toBundle());
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

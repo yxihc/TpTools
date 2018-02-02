@@ -8,8 +8,6 @@
     android:orientation="vertical"
     android:fitsSystemWindows="true"
     tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.ImmersiveActivity">
-
-
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -18,37 +16,90 @@
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_height="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
 
-    <CheckBox
-        android:id="@+id/chb_translucent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="4dp"
-        android:text="Translucent"/>
-    <SeekBar
-        android:id="@+id/sb_change_alpha"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"/>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
 
-    <Button
-        android:onClick="changecolor"
-        android:layout_gravity="center_horizontal"
-        android:text="改变颜色"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:transitionName="iv"
+                android:layout_gravity="center_horizontal"
+                android:background="@mipmap/bg"
+                android:layout_width="100dp"
+                android:layout_height="200dp" />
+            <Button
+                android:onClick="zc1"
+                android:layout_gravity="center_horizontal"
+                android:text="转场动画(共享元素)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <CheckBox
+                android:id="@+id/chb_translucent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="4dp"
+                android:text="Translucent"/>
+            <SeekBar
+                android:id="@+id/sb_change_alpha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
 
-    <Button
-        android:onClick="swip"
-        android:layout_gravity="center_horizontal"
-        android:text="侧滑关闭"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <Button
-        android:onClick="design1"
-        android:layout_gravity="center_horizontal"
-        android:text="谷歌design1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <Button
+                android:onClick="changecolor"
+                android:layout_gravity="center_horizontal"
+                android:text="改变颜色"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:onClick="swip"
+                android:layout_gravity="center_horizontal"
+                android:text="侧滑关闭"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:onClick="design1"
+                android:layout_gravity="center_horizontal"
+                android:text="谷歌design1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:onClick="design2"
+                android:layout_gravity="center_horizontal"
+                android:text="谷歌design2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:onClick="design3"
+                android:layout_gravity="center_horizontal"
+                android:text="谷歌design3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:onClick="design4"
+                android:layout_gravity="center_horizontal"
+                android:text="谷歌design4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:onClick="design5"
+                android:layout_gravity="center_horizontal"
+                android:text="谷歌design5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
 </LinearLayout>
+

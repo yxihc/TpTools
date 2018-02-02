@@ -4,50 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.Design2Activity">
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:fitsSystemWindows="true"
-        app:expanded="false"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="180dp"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:expanded="false">
 
         <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/collapsing_layout"
+            android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-            app:statusBarScrim="@android:color/transparent"
-            app:titleEnabled="false">
-
-            <RelativeLayout
-                android:id="@+id/anime_root"
-                android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:fitsSystemWindows="true"
-                app:layout_collapseMode="parallax"
-                app:layout_collapseParallaxMultiplier="0.7">
-
-                <!-- 可伸缩背景图布局文件 -->
-                <ImageView
-                    android:background="@mipmap/bg_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <android.support.v7.widget.Toolbar
-
-                android:id="@+id/toolbar"
+                android:id="@+id/toolbara"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:title="@null"
-                app:popupTheme="@style/AppTheme.PopupOverlay"
-                app:titleMarginTop="15dp">
-
+                app:navigationIcon="?attr/homeAsUpIndicator"
+                app:title="@string/app_name">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -56,31 +37,31 @@
                     android:text="文字居中"
                     android:textColor="@android:color/white"
                     android:textSize="20sp" />
+
             </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>
-
     </android.support.design.widget.AppBarLayout>
+
 
     <!-- 界面布局文件 -->
 
     <ListView
-        android:nestedScrollingEnabled="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:id="@+id/lv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
-
+        android:layout_height="match_parent"
+        android:nestedScrollingEnabled="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"></ListView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:layout_marginBottom="32dp"
-        android:layout_marginRight="16dp"
-        app:srcCompat="@drawable/ic_fly_refresh_smartphone"
-        app:layout_behavior="@string/translate_up_down_behavior"
-        app:layout_scrollFlags="scroll|enterAlways|snap"/>
+        app:elevation="0dp"
+        app:fabSize="normal"
+        app:layout_anchor="@id/lv"
+        app:layout_anchorGravity="top|end"
+        app:srcCompat="@drawable/ic_fly_refresh_smartphone" />
+
 </android.support.design.widget.CoordinatorLayout>
