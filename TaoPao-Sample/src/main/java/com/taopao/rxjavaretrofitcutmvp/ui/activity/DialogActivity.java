@@ -38,6 +38,11 @@ public class DialogActivity extends BaseActivity {
         return null;
     }
 
+    @Override
+    public void onNetChanged(int netState) {
+
+    }
+
     public void snake(View view){
 //        //需要design包
 //        final Snackbar make = Snackbar.make(view, "您确定要开启加速?", Snackbar.LENGTH_SHORT);

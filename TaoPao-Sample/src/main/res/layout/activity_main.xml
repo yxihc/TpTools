@@ -12,6 +12,23 @@
     <include layout="@layout/toolbar_base"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"></include>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_netstate"
+        android:visibility="gone"
+        android:background="#EEE685"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:textColor="@android:color/holo_red_dark"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:textSize="18sp"
+            android:text="网络不给力,请检查网络设置."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
     <Button
         android:text="CutMvp"
         android:onClick="mvp"

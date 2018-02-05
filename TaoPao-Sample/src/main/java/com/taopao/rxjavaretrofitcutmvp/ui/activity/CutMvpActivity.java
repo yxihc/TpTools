@@ -65,6 +65,12 @@ public class CutMvpActivity extends BaseActivity<CutMvpPresenter,CutMvpView> imp
     public CutMvpView createView() {
         return this;
     }
+
+    @Override
+    public void onNetChanged(int netState) {
+
+    }
+
     @Override
     public void onGetBannerResult(BaseResult<ArrayList<BannerInfo>> banner) {
         mTv_content.setText(banner.getData().get(0).getRedirectContent());

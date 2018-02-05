@@ -40,8 +40,8 @@ public class DownLoadService extends IntentService {
     private NotificationManager notificationManager;
     int downloadCount = 0;
 
-    private String apkUrl = "http://download.fir.im/v2/app/install/595c5959959d6901ca0004ac?download_token=1a9dfa8f248b6e45ea46bc5ed96a0a9e&source=update";
-//    private String ap、kUrl="";
+//    private String apkUrl = "http://download.fir.im/v2/app/install/595c5959959d6901ca0004ac?download_token=1a9dfa8f248b6e45ea46bc5ed96a0a9e&source=update";
+    private String apkUrl="http://openbox.mobilem.360.cn/index/d/sid/3647654";
     private File mFile;
 
     public DownLoadService() {

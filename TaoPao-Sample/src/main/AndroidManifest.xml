@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.taopao.rxjavaretrofitcutmvp">
 
+    <!--文件读取-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -47,10 +48,9 @@
         <activity android:name=".ui.activity.Design5Activity" />
         <activity android:name=".ui.activity.ZC1Activity" />
         <activity android:name=".ui.activity.SearchViewActivity" />
+        <activity android:name=".ui.activity.DownLoadApkActivity"></activity>
 
         <service android:name=".service.DownLoadService" />
-
-        <activity android:name=".ui.activity.DownLoadApkActivity"></activity>
 
 
         <!--解决版本升级下载apk 并安装的时候安卓7.0出错-->
@@ -68,6 +68,16 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <!--监听网络变化的广播-->
+        <receiver
+            android:name=".receiver.NetStateReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 import com.jaeger.library.StatusBarUtil;
 import com.taopao.rxjavaretrofitcutmvp.R;
+import com.taopao.rxjavaretrofitcutmvp.interfaces.INetEvent;
 import com.taopao.rxjavaretrofitcutmvp.widget.CustomDialog;
 import java.util.LinkedList;
 import java.util.List;
@@ -43,17 +44,19 @@ import me.drakeet.materialdialog.MaterialDialog;
  * @Use:  activity基类
  */
 
-public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseView> extends AppCompatActivity {
+public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseView> extends AppCompatActivity implements INetEvent {
     // 管理运行的所有的activity
     public final static List<AppCompatActivity> mActivities = new LinkedList<AppCompatActivity>();
     private CompositeDisposable mCompositeDisposable;
     public P mPresenter;
     public Toolbar mToolbar;
-
+    public static INetEvent mINetEvent;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         init();
+        //初始化网络状态的监听
+        mINetEvent=this;
         //初始化toolbar
         mToolbar = (Toolbar)findViewById(R.id.toolbar);
         initStatusBar();
@@ -181,7 +184,6 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
         }
     }
 
-
     public void killAll() {
         // 复制了一份mActivities 集合Å
         List<AppCompatActivity> copy;
@@ -193,6 +195,17 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
         }
         // 杀死当前的进程
         android.os.Process.killProcess(android.os.Process.myPid());
+    }
+
+    /**
+     * 全局检测网络广播的回调 处理网络变化
+     * 注:在程序第一次启动的时候,没网并不会回调,需要自己在启动页面,或者主页自己再判断一次
+     * @param netWorkState 网络状态    -1:没网络 0:移动网络 1:WiFi网络
+     */
+    public abstract void onNetChanged(int netWorkState);
+    @Override
+    public void onNetChange(int netWorkState) {
+        onNetChanged(netWorkState);
     }
 
     //////////////////////////////沉浸式相关////////////////////////////////////
@@ -218,5 +231,6 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
         mToolbar = (Toolbar)findViewById(R.id.toolbar);
         return mToolbar;
     }
+
 
 }

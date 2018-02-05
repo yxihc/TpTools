@@ -86,6 +86,11 @@ public class FrActivity extends BaseActivity implements FriendRefreshView.OnRefr
         return null;
     }
 
+    @Override
+    public void onNetChanged(int netState) {
+
+    }
+
     private void initView() {
         lv = (ListView) findViewById(R.id.lv);
         frv = (FriendRefreshView) findViewById(R.id.frv);

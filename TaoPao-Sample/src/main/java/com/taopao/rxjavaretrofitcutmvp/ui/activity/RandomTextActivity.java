@@ -9,10 +9,12 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jaeger.library.StatusBarUtil;
 import com.taopao.rxjavaretrofitcutmvp.R;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
+import com.taopao.rxjavaretrofitcutmvp.utils.NetUtils;
 import com.taopao.rxjavaretrofitcutmvp.utils.UIUtils;
 import com.taopao.rxjavaretrofitcutmvp.widget.randomtext.ShakeListener;
 import com.taopao.rxjavaretrofitcutmvp.widget.randomtext.StellarMap;
@@ -27,6 +29,7 @@ public class RandomTextActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_text);
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.white), 0);
         data = new ArrayList<String>();
         for (int i = 0; i < 100; i++) {
             data.add("我随心你随意" + i);
@@ -73,6 +76,21 @@ public class RandomTextActivity extends BaseActivity {
     @Override
     public BaseView createView() {
         return null;
+    }
+
+    @Override
+    public void onNetChanged(int netState) {
+        switch (netState) {
+            case  NetUtils.NETWORK_NONE:
+                Toast.makeText(RandomTextActivity.this, "没有网络", Toast.LENGTH_SHORT).show();
+                break;
+            case  NetUtils.NETWORK_MOBILE:
+                Toast.makeText(RandomTextActivity.this, "移动网络", Toast.LENGTH_SHORT).show();
+                break;
+            case  NetUtils.NETWORK_WIFI:
+                Toast.makeText(RandomTextActivity.this, "WiFi网络", Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 
     class RecommendAdapter implements StellarMap.Adapter {

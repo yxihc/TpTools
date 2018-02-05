@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.provider.Settings;
+
 import com.taopao.rxjavaretrofitcutmvp.app.App;
 
 /**
@@ -48,6 +50,18 @@ import com.taopao.rxjavaretrofitcutmvp.app.App;
 //        <!-- 访问手机当前状态, 需要某些信息用于网络定位 -->
 //        <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 public class NetUtils {
+    /**
+     * 没有连接网络
+     */
+    public static final int NETWORK_NONE = -1;
+    /**
+     * 移动网络
+     */
+    public static final int NETWORK_MOBILE = 0;
+    /**
+     * 无线网络
+     */
+    public static final int NETWORK_WIFI = 1;
 
     private NetUtils() {
         /* cannot be instantiated */
@@ -98,15 +112,22 @@ public class NetUtils {
     }
 
     /**
-     * 打开网络设置界面
+     * 打开系统设置界面
      */
     public static void openSetting(Activity activity) {
-        Intent intent = new Intent("/");
-        ComponentName cm = new ComponentName("com.android.settings",
-                "com.android.settings.WirelessSettings");
-        intent.setComponent(cm);
-        intent.setAction("android.intent.action.VIEW");
-        activity.startActivityForResult(intent, 0);
+//        Intent intent = new Intent("/");
+//        ComponentName cm = new ComponentName("com.android.settings",
+//                "com.android.settings.WirelessSettings");
+//        intent.setComponent(cm);
+//        intent.setAction("android.intent.action.VIEW");
+//        activity.startActivityForResult(intent, 0);
+
+        //打开移动网络设置界面
+//        Intent intent =  new Intent(Settings.ACTION_DATA_ROAMING_SETTINGS);
+//        activity.startActivity(intent);
+
+        Intent intent =  new Intent(Settings.ACTION_SETTINGS);
+        activity.startActivity(intent);
     }
 
 
@@ -136,4 +157,39 @@ public class NetUtils {
         ConnectivityManager connectivityManager = (ConnectivityManager) App.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         return connectivityManager.getActiveNetworkInfo() != null;
     }
+
+
+
+
+
+
+
+
+
+    /**
+     * 得到当前网络的状态
+     * @param context
+     * @return
+     */
+    public static int getNetWorkState(Context context) {
+        // 得到连接管理器对象
+        ConnectivityManager connectivityManager = (ConnectivityManager) context
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetworkInfo = connectivityManager
+                .getActiveNetworkInfo();
+        if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+
+            if (activeNetworkInfo.getType() == (ConnectivityManager.TYPE_WIFI)) {
+                return NETWORK_WIFI;
+            } else if (activeNetworkInfo.getType() == (ConnectivityManager.TYPE_MOBILE)) {
+                return NETWORK_MOBILE;
+            }
+        } else {
+            return NETWORK_NONE;
+        }
+        return NETWORK_NONE;
+    }
+
+
 }  

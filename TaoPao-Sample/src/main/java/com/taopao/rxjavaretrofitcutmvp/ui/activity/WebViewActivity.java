@@ -45,6 +45,11 @@ public class WebViewActivity extends BaseActivity {
         return null;
     }
 
+    @Override
+    public void onNetChanged(int netState) {
+
+    }
+
     private void getData(){
         if (getIntent().hasExtra("mUrl")) {
             mUrl = getIntent().getExtras().getString("mUrl", "");

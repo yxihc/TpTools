@@ -5,11 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.taopao.rxjavaretrofitcutmvp.R;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
+import com.taopao.rxjavaretrofitcutmvp.utils.NetUtils;
 
 /**
  * ━━━━━━神兽出没━━━━━━
@@ -37,12 +40,22 @@ import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
  * @Use: 程序入口
  */
 public class MainActivity extends BaseActivity {
+
+    private RelativeLayout mRl_netstate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        mToolbar.setNavigationIcon(R.mipmap.ic_launcher_round);
+        mRl_netstate = (RelativeLayout) findViewById(R.id.rl_netstate);
 
+        mRl_netstate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NetUtils.openSetting(MainActivity.this);
+            }
+        });
         setToolBar();
     }
 
@@ -60,6 +73,25 @@ public class MainActivity extends BaseActivity {
     @Override
     public BaseView createView() {
         return null;
+    }
+
+    @Override
+    public void onNetChanged(int netState) {
+
+        switch (netState) {
+            case  NetUtils.NETWORK_NONE:
+                Toast.makeText(MainActivity.this, "没有网络", Toast.LENGTH_SHORT).show();
+                mRl_netstate.setVisibility(View.VISIBLE);
+                break;
+            case  NetUtils.NETWORK_MOBILE:
+                Toast.makeText(MainActivity.this, "移动网络", Toast.LENGTH_SHORT).show();
+                mRl_netstate.setVisibility(View.GONE);
+                break;
+            case  NetUtils.NETWORK_WIFI:
+                Toast.makeText(MainActivity.this, "WiFi网络", Toast.LENGTH_SHORT).show();
+                mRl_netstate.setVisibility(View.GONE);
+                break;
+        }
     }
 
     public void weixinweb(View view){

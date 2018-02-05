@@ -50,6 +50,12 @@ public class ImmersiveActivity extends BaseActivity {
     public BaseView createView() {
         return null;
     }
+
+    @Override
+    public void onNetChanged(int netState) {
+
+    }
+
     private int mAlpha = StatusBarUtil.DEFAULT_STATUS_BAR_ALPHA;
     int  mStatusBarColor = 0;
     private void initView() {
