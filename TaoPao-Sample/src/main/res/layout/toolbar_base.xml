@@ -16,7 +16,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="消息"
         android:textSize="18sp" />
 
     <!--<ImageView-->

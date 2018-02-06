@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/dark"
     android:fitsSystemWindows="true"
     tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.MainActivity">
 
     <include layout="@layout/toolbar_base"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"></include>
-
 
     <RelativeLayout
         android:id="@+id/rl_netstate"
@@ -29,40 +29,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </RelativeLayout>
-    <Button
-        android:text="CutMvp"
-        android:onClick="mvp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <Button
-        android:onClick="downloadapk"
-        android:layout_width="match_parent"
-        android:text="DownLoadApk"
-        android:layout_height="wrap_content" />
-    <Button
-        android:onClick="random"
-        android:layout_width="match_parent"
-        android:text="随机显示textview"
-        android:layout_height="wrap_content" />
-    <Button
-        android:onClick="dialog"
-        android:layout_width="match_parent"
-        android:text="Dialog"
-        android:layout_height="wrap_content" />
-    <Button
-        android:onClick="fr"
-        android:layout_width="match_parent"
-        android:text="仿微信朋友圈下拉刷新"
-        android:layout_height="wrap_content" />
-    <Button
-        android:onClick="weixinweb"
-        android:layout_width="match_parent"
-        android:text="仿微信带进度条的网页"
-        android:layout_height="wrap_content" />
 
-    <Button
-        android:onClick="mmersive"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_context"
         android:layout_width="match_parent"
-        android:text="沉浸式"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
 </LinearLayout>

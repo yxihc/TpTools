@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.Design2Activity">
+    tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.design.Design2Activity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"

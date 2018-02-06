@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.WebViewActivity">
+    tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.WebViewActivity">
     <com.taopao.rxjavaretrofitcutmvp.widget.ProgressWebView
         android:id="@+id/wv"
         android:layout_width="match_parent"

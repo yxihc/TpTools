@@ -7,7 +7,7 @@
     android:background="@mipmap/bg"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.ImmersiveActivity">
+    tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.design.ImmersiveActivity">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"

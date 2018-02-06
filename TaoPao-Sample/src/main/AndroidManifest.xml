@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.taopao.rxjavaretrofitcutmvp">
 
-    <!--文件读取-->
+    <!-- 文件读取 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -34,31 +34,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.CutMvpActivity" />
-        <activity android:name=".ui.activity.WebViewActivity" />
-        <activity android:name=".ui.activity.FrActivity" />
-        <activity android:name=".ui.activity.DialogActivity" />
-        <activity android:name=".ui.activity.RandomTextActivity" />
-        <activity android:name=".ui.activity.ImmersiveActivity" />
-        <activity android:name=".ui.activity.SwipeBackActivity" />
-        <activity android:name=".ui.activity.Design1Activity" />
-        <activity android:name=".ui.activity.Design2Activity" />
-        <activity android:name=".ui.activity.Design3Activity" />
-        <activity android:name=".ui.activity.Design4Activity" />
-        <activity android:name=".ui.activity.Design5Activity" />
-        <activity android:name=".ui.activity.ZC1Activity" />
-        <activity android:name=".ui.activity.SearchViewActivity" />
-        <activity android:name=".ui.activity.DownLoadApkActivity"></activity>
+        <activity android:name=".ui.activity.net.CutMvpActivity" />
+        <activity android:name=".ui.activity.customview.WebViewActivity" />
+        <activity android:name=".ui.activity.customview.FrActivity" />
+        <activity android:name=".ui.activity.customview.DialogActivity" />
+        <activity android:name=".ui.activity.customview.RandomTextActivity" />
+        <activity android:name=".ui.activity.design.ImmersiveActivity" />
+        <activity android:name=".ui.activity.customview.SwipeBackActivity" />
+        <activity android:name=".ui.activity.design.Design1Activity" />
+        <activity android:name=".ui.activity.design.Design2Activity" />
+        <activity android:name=".ui.activity.design.Design3Activity" />
+        <activity android:name=".ui.activity.design.Design4Activity" />
+        <activity android:name=".ui.activity.design.Design5Activity" />
+        <activity android:name=".ui.activity.design.ZC1Activity" />
+        <activity android:name=".ui.activity.design.SearchViewActivity" />
+        <activity android:name=".ui.activity.net.DownLoadApkActivity" />
 
         <service android:name=".service.DownLoadService" />
 
-
-        <!--解决版本升级下载apk 并安装的时候安卓7.0出错-->
-        <!--android:name是固定写法。-->
-        <!--android:authorities可自定义，是用来标识该provider的唯一标识，建议结合包名来保证authority的唯一性。-->
-        <!--android:exported必须设置成 false，否则运行时会报错java.lang.SecurityException: Provider must not be exported 。-->
-        <!--android:grantUriPermissions用来控制共享文件的访问权限。-->
-        <!--<meta-data>节点中的android:resource指定了共享文件的路径。此处的file_paths即是该Provider对外提供文件的目录的配置文件，存放在res/xml/下。-->
+        <!-- 解决版本升级下载apk 并安装的时候安卓7.0出错 -->
+        <!-- android:name是固定写法。 -->
+        <!-- android:authorities可自定义，是用来标识该provider的唯一标识，建议结合包名来保证authority的唯一性。 -->
+        <!-- android:exported必须设置成 false，否则运行时会报错java.lang.SecurityException: Provider must not be exported 。 -->
+        <!-- android:grantUriPermissions用来控制共享文件的访问权限。 -->
+        <!-- <meta-data>节点中的android:resource指定了共享文件的路径。此处的file_paths即是该Provider对外提供文件的目录的配置文件，存放在res/xml/下。 -->
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.taopao.rxjavaretrofitcutmvp.fileprovider"
@@ -69,7 +68,7 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <!--监听网络变化的广播-->
+        <!-- 监听网络变化的广播 -->
         <receiver
             android:name=".receiver.NetStateReceiver"
             android:enabled="true"
@@ -78,6 +77,10 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".ui.activity.net.NetMainActivity" />
+        <activity android:name=".ui.activity.customview.CustomViewMainActivity"></activity>
+        <activity android:name=".ui.activity.design.NetStateActivity"></activity>
     </application>
 
 </manifest>

@@ -6,7 +6,7 @@
     android:fitsSystemWindows="true"
     android:background="@mipmap/bg"
     android:layout_height="match_parent"
-    tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.SwipeBackActivity">
+    tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.SwipeBackActivity">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"

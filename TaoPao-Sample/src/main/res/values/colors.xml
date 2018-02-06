@@ -5,4 +5,9 @@
     <color name="colorAccent">#FF4081</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
+
+
+    <!--天蓝色-->
+    <color name="bule">#4699fd</color>
+    <color name="dark">#C0C0C0</color>
 </resources>

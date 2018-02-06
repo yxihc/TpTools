@@ -2,13 +2,11 @@ package com.taopao.rxjavaretrofitcutmvp.service;
 
 import android.app.IntentService;
 import android.app.NotificationManager;
-import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
-import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v4.content.LocalBroadcastManager;
@@ -18,13 +16,9 @@ import android.widget.Toast;
 import com.taopao.rxjavaretrofitcutmvp.R;
 import com.taopao.rxjavaretrofitcutmvp.http.download.DownLoadRetrofit;
 import com.taopao.rxjavaretrofitcutmvp.http.download.Download;
-import com.taopao.rxjavaretrofitcutmvp.http.download.DownloadApi;
 import com.taopao.rxjavaretrofitcutmvp.http.download.DownloadProgressListener;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.DownLoadApkActivity;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.MainActivity;
+import com.taopao.rxjavaretrofitcutmvp.ui.activity.net.DownLoadApkActivity;
 import com.taopao.rxjavaretrofitcutmvp.utils.StringUtils;
-
-import org.reactivestreams.Subscriber;
 
 import java.io.File;
 
