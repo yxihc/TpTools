@@ -79,8 +79,11 @@
         </receiver>
 
         <activity android:name=".ui.activity.net.NetMainActivity" />
-        <activity android:name=".ui.activity.customview.CustomViewMainActivity"></activity>
-        <activity android:name=".ui.activity.design.NetStateActivity"></activity>
+        <activity android:name=".ui.activity.customview.CustomViewMainActivity" />
+        <activity android:name=".ui.activity.design.NetStateActivity" />
+        <activity android:name=".ui.activity.customview.DragItemActivity" />
+        <activity android:name=".ui.activity.design.TabLayoutActivity" />
+        <activity android:name=".ui.activity.design.BottomBehaviorActivity"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,7 @@
 package com.taopao.rxjavaretrofitcutmvp.http;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.taopao.rxjavaretrofitcutmvp.R;
@@ -172,10 +174,42 @@ public class ApiRetrofit {
         return new Interceptor() {
             @Override
             public Response intercept(Chain chain) throws IOException {
+
+
+                //--------------------------------------第一种log输出方式------------------------------------//
+
+//                //这个chain里面包含了request和response，所以你要什么都可以从这里拿
+//                Request request = chain.request();
+//                long t1 = System.nanoTime();//请求发起的时间
+//                LogUtils.f("-----------------------------------Start-----------------------------------");
+//                LogUtils.f(String.format("发送请求  %s %n%s%n%s",
+//                        request.url(), "connection: " + chain.connection(), "headers: " + request.headers()));
+//                Response response = chain.proceed(request);
+//                long t2 = System.nanoTime();//收到响应的时间
+//                //这里不能直接使用response.body().string()的方式输出日志
+//                //因为response.body().string()之后，response中的流会被关闭，程序会报错，我们需要创建出一
+//                //个新的response给应用层处理
+//                ResponseBody responseBody = response.peekBody(1024 * 1024);
+//                LogUtils.f(String.format("接收响应: %s %n返回JSON: %s%n请求时长: %.1fms%n%s",
+//                        response.request().url(),
+//                        responseBody.string(),
+//                        (t2 - t1) / 1e6d,
+//                        response.headers()));
+//                LogUtils.f("-----------------------------------End:"+(t2 - t1) / 1e6d+"毫秒--------------------------");
+//                LogUtils.f(String.format("%s",responseBody.string()));
+
+
+
+
+                //-------------------------------第二种log输出方式:格式化JSON 狂拽酷炫吊炸天------------------------------------//
+
+
+
                 //这个chain里面包含了request和response，所以你要什么都可以从这里拿
                 Request request = chain.request();
                 long t1 = System.nanoTime();//请求发起的时间
-                LogUtils.i(String.format("发送请求  %s %n%s%n%s",
+                LogUtils.f("╔══════════════════════Start═════════════════════════════════════════════════════════════════════════════════════════════");
+                LogUtils.f(String.format("║ 发送请求  %s %n║ %s%n║ %s",
                         request.url(), "connection: " + chain.connection(), "headers: " + request.headers()));
                 Response response = chain.proceed(request);
                 long t2 = System.nanoTime();//收到响应的时间
@@ -183,11 +217,18 @@ public class ApiRetrofit {
                 //因为response.body().string()之后，response中的流会被关闭，程序会报错，我们需要创建出一
                 //个新的response给应用层处理
                 ResponseBody responseBody = response.peekBody(1024 * 1024);
-                LogUtils.i(String.format("接收响应: %s %n返回JSON: %s%n请求时长: %.1fms%n%s",
+                String json = responseBody.string();
+                LogUtils.f(String.format("║ 接收响应: %s %n║ 请求时长: %.1fms%n║ 返回JSON: %s%n",
                         response.request().url(),
-                        responseBody.string(),
-                        (t2 - t1) / 1e6d,
-                        response.headers()));
+                        (t2 - t1) / 1e6d,json
+                        ));
+//                LogUtils.printJson(json,response.headers().toString());
+                LogUtils.logFormatJson(json,"");
+                LogUtils.f("╚══════════════════════End:"+(t2 - t1) / 1e6d+"毫秒═════════════════════════════════════════════════════════════════════════════════");
+                LogUtils.f(String.format("%s",responseBody.string()));
+
+
+
                 return response;
             }
         };

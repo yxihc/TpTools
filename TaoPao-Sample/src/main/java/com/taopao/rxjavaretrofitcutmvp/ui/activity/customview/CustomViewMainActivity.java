@@ -52,8 +52,8 @@ public class CustomViewMainActivity extends BaseActivity {
 
     public class GridAdapter extends RecyclerView.Adapter<GridAdapter.GridViewHolder> {
 
-        final int[] picResId = new int[]{R.mipmap.p5, R.mipmap.p6, R.mipmap.p7,R.mipmap.p8};
-        final String[] mTitle = new String[]{"随机显示TextView", "Dialog", "仿微信朋友圈下拉刷新","仿微信带进度条网页"};
+        final int[] picResId = new int[]{R.mipmap.p5, R.mipmap.p6, R.mipmap.p7,R.mipmap.p8,R.mipmap.p12};
+        final String[] mTitle = new String[]{"随机显示TextView", "Dialog", "仿微信朋友圈下拉刷新","仿微信带进度条网页","RecyclerView拖动"};
 
         @Override
         public GridAdapter.GridViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -80,6 +80,9 @@ public class CustomViewMainActivity extends BaseActivity {
                             break;
                         case 3:
                             WebViewActivity.loadUrl(CustomViewMainActivity.this, "https://github.com/404NotFuond/RxJava-Retrofit-CutMvp");
+                            break;
+                        case 4:
+                            startActivity(new Intent(CustomViewMainActivity.this, DragItemActivity.class));
                             break;
                     }
                 }

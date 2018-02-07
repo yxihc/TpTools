@@ -4,6 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
     app:cardMaxElevation="5dp"
+    app:cardElevation="3dp"
+    android:foreground="?android:attr/selectableItemBackground"
     app:cardPreventCornerOverlap="true"
     app:cardUseCompatPadding="true"
     android:layout_height="200dp">

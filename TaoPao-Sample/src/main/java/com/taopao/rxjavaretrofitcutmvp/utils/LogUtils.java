@@ -1,6 +1,10 @@
 package com.taopao.rxjavaretrofitcutmvp.utils;
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * ━━━━━━神兽出没━━━━━━
  * 　　　┏┓　　　┏┓
@@ -37,8 +41,10 @@ public class LogUtils {
 	public static final int LEVEL_INFO = 3;
 	/** 日志输出级别D */
 	public static final int LEVEL_DEBUG = 4;
+	/** 日志输出级别f */
+	public static final int LEVEL_F = 5;
 	/** 日志输出级别V */
-	public static final int LEVEL_VERBOSE = 5;
+	public static final int LEVEL_VERBOSE = 6;
 
 	/** 日志输出时的TAG */
 	private static String mTag = "TaoPao";
@@ -107,4 +113,48 @@ public class LogUtils {
 			Log.e(mTag, msg, tr);
 		}
 	}
+
+
+	/** 以级别为 f 的形式输出LOG */
+	public static void f(String msg) {
+		if (mDebuggable >= LEVEL_F) {
+			Log.e("LoggingInterceptor->Log", msg);
+		}
+	}
+
+
+	public static final String LINE_SEPARATOR = System.getProperty("line.separator");
+
+	/**
+	 * log拦截器打印log 格式化json字符串 并打印在控制台
+	 * @param msg json字符串
+	 * @param headString 请求头
+	 */
+	public static void logFormatJson(String msg,String headString) {
+		if(mDebuggable < LEVEL_F) {
+		    return;
+		}
+		String message;
+		try {
+			if (msg.startsWith("{")) {
+				JSONObject jsonObject = new JSONObject(msg);
+				message = jsonObject.toString(4);//最重要的方法，就一行，返回格式化的json字符串，其中的数字4是缩进字符数
+			} else if (msg.startsWith("[")) {
+				JSONArray jsonArray = new JSONArray(msg);
+				message = jsonArray.toString(4);
+			} else {
+				message = msg;
+			}
+		} catch (JSONException e) {
+			message = msg;
+		}
+		f( "║════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════");
+		message = headString + LINE_SEPARATOR + message;
+		String[] lines = message.split(LINE_SEPARATOR);
+		for (String line : lines) {
+			f( "║ " + line);
+		}
+		f( "║════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════");
+	}
+
 }
