@@ -2,6 +2,7 @@ package com.taopao.rxjavaretrofitcutmvp.ui.view;
 
 import com.taopao.rxjavaretrofitcutmvp.model.base.BaseResult;
 import com.taopao.rxjavaretrofitcutmvp.model.response.BannerInfo;
+import com.taopao.rxjavaretrofitcutmvp.model.response.ImgListInfo;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
 import java.util.ArrayList;
 
@@ -32,5 +33,6 @@ import java.util.ArrayList;
  */
 public interface CutMvpView extends BaseView {
     void onGetBannerResult(BaseResult<ArrayList<BannerInfo>> banner);
+    void onGetImgListResult(ImgListInfo imgListInfo);
 }
 

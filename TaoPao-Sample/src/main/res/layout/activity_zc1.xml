@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.design.ZC1Activity">
     <ImageView
+        android:id="@+id/iv"
         android:transitionName="iv"
-        android:background="@mipmap/bg"
         android:layout_gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

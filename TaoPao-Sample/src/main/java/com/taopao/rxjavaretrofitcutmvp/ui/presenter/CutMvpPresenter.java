@@ -4,8 +4,10 @@ import android.content.Context;
 import android.text.style.BulletSpan;
 
 import com.taopao.rxjavaretrofitcutmvp.http.ApiRetrofit;
+import com.taopao.rxjavaretrofitcutmvp.model.ContactsUrl;
 import com.taopao.rxjavaretrofitcutmvp.model.base.BaseResult;
 import com.taopao.rxjavaretrofitcutmvp.model.response.BannerInfo;
+import com.taopao.rxjavaretrofitcutmvp.model.response.ImgListInfo;
 import com.taopao.rxjavaretrofitcutmvp.rx.RxObserver;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.view.CutMvpView;
@@ -50,7 +52,7 @@ public class CutMvpPresenter extends BasePresenter<CutMvpView> {
     }
 
     public void getBanner(String loaction) {
-        UIUtils.showWaitingDialog(mContext,"请骚等...");
+        UIUtils.showWaitingDialog(mContext, "请骚等...");
         ApiRetrofit.getInstance()
                 .getBanner(loaction)
                 .subscribeOn(Schedulers.io())
@@ -63,12 +65,33 @@ public class CutMvpPresenter extends BasePresenter<CutMvpView> {
                             getView().onGetBannerResult(arrayListBaseResult);
                         }
                     }
+
                     @Override
                     public void onSubscribe(Disposable d) {
                         //统一管理订阅者(此步不可省略)
                         addDisposable(d);
                     }
                 });
+    }
 
+    public void getImgList(String url) {
+        UIUtils.showWaitingDialog(mContext, "请骚等...");
+        ApiRetrofit.getInstance()
+                .getImgList(url)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new RxObserver<ImgListInfo>() {
+                    @Override
+                    public void onSuccess(ImgListInfo imgListInfo) {
+                        if(getView()!=null) {
+                            getView().onGetImgListResult(imgListInfo);
+                        }
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        addDisposable(d);
+                    }
+                });
     }
 }
