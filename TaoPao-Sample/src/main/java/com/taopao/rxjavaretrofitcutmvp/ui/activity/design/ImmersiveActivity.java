@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.jaeger.library.StatusBarUtil;
 import com.taopao.rxjavaretrofitcutmvp.R;
 import com.taopao.rxjavaretrofitcutmvp.ui.activity.MainActivity;
@@ -131,12 +132,14 @@ public class ImmersiveActivity extends BaseActivity {
 
     }
     public void changecolor(View view){
+
         Random random = new Random();
         mStatusBarColor = 0xff000000 | random.nextInt(0xffffff);
         toolbar.setBackgroundColor(mStatusBarColor);
         StatusBarUtil.setColor(ImmersiveActivity.this, mStatusBarColor, mAlpha);
     }
     public void zc1(View view){
+
 
 		ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(this, mImageView, "iv");
         Intent intent = new Intent(this, ZC1Activity.class);
@@ -147,12 +150,12 @@ public class ImmersiveActivity extends BaseActivity {
 
     public class GridAdapter extends RecyclerView.Adapter<GridAdapter.GridViewHolder> {
 
-        final int[] picResId = new int[]{R.mipmap.p22, R.mipmap.p22, R.mipmap.p22,R.mipmap.p22, R.mipmap.p22, R.mipmap.p22,R.mipmap.p22,R.mipmap.p22,R.mipmap.p22
+        final int[] picResId = new int[]{R.mipmap.p22,R.mipmap.p22, R.mipmap.p22, R.mipmap.p22,R.mipmap.p22, R.mipmap.p22, R.mipmap.p22,R.mipmap.p22,R.mipmap.p22,R.mipmap.p22
         };
         final String[] mTitle = new String[]{"侧滑关闭", "下拉显示图片",
                 "文字跟随下拉","Toolbar上滑消失","Toolbar文字居中",
                 "跟随移动","SearchView","TabLayout"
-                ,"向上滑动新页面"
+                ,"向上滑动新页面","仿知乎上拉消失底部栏"
         };
 
         @Override
@@ -205,6 +208,10 @@ public class ImmersiveActivity extends BaseActivity {
                             break;
                         case  8:
                             intent = new Intent(ImmersiveActivity.this, BottomBehaviorActivity.class);
+                            startActivity(intent);
+                            break;
+                        case  9:
+                            intent = new Intent(ImmersiveActivity.this, ZhiHuActivity.class);
                             startActivity(intent);
                             break;
                     }

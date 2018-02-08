@@ -43,6 +43,7 @@ public class SnackbarUtils {
     public static final  int Warning = 3;
     public static final  int Alert = 4;
 
+
     public static  int red = 0xfff44336;
     public static  int green = 0xff4caf50;
     public static  int blue = 0xff2195f3;
@@ -84,7 +85,7 @@ public class SnackbarUtils {
      * @param backgroundColor
      * @return
      */
-    public static Snackbar IndefiniteSnackbar(View view, String message,int duration,int messageColor, int backgroundColor){
+    public static Snackbar IndefiniteSnackbar(View view, String message, int duration, int messageColor, int backgroundColor){
         Snackbar snackbar = Snackbar.make(view,message, Snackbar.LENGTH_INDEFINITE).setDuration(duration);
         setSnackbarColor(snackbar,messageColor,backgroundColor);
         return snackbar;
@@ -110,7 +111,7 @@ public class SnackbarUtils {
      * @param type
      * @return
      */
-    public static Snackbar LongSnackbar(View view, String message,int type){
+    public static Snackbar LongSnackbar(View view, String message, int type){
         Snackbar snackbar = Snackbar.make(view,message, Snackbar.LENGTH_LONG);
         switchType(snackbar,type);
         return snackbar;
@@ -123,14 +124,14 @@ public class SnackbarUtils {
      * @param type
      * @return
      */
-    public static Snackbar IndefiniteSnackbar(View view, String message,int duration,int type){
+    public static Snackbar IndefiniteSnackbar(View view, String message, int duration, int type){
         Snackbar snackbar = Snackbar.make(view,message, Snackbar.LENGTH_INDEFINITE).setDuration(duration);
         switchType(snackbar,type);
         return snackbar;
     }
 
     //选择预设类型
-    private static void switchType(Snackbar snackbar,int type){
+    private static void switchType(Snackbar snackbar, int type){
         switch (type){
             case Info:
                 setSnackbarColor(snackbar,blue);
@@ -179,17 +180,16 @@ public class SnackbarUtils {
      * @param layoutId
      * @param index 新加布局在Snackbar中的位置
      */
-    public static void SnackbarAddView( Snackbar snackbar,int layoutId,int index) {
+    public static void SnackbarAddView(Snackbar snackbar, int layoutId, int index) {
         View snackbarview = snackbar.getView();
         Snackbar.SnackbarLayout snackbarLayout=(Snackbar.SnackbarLayout)snackbarview;
 
         View add_view = LayoutInflater.from(snackbarview.getContext()).inflate(layoutId,null);
 
-        LinearLayout.LayoutParams p = new LinearLayout.LayoutParams( LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams p = new LinearLayout.LayoutParams( LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         p.gravity= Gravity.CENTER_VERTICAL;
 
         snackbarLayout.addView(add_view,index,p);
     }
-
 }
 

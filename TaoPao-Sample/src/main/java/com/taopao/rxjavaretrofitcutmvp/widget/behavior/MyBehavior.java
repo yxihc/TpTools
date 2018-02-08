@@ -1,4 +1,4 @@
-package com.taopao.rxjavaretrofitcutmvp.widget;
+package com.taopao.rxjavaretrofitcutmvp.widget.behavior;
 
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;

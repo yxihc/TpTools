@@ -83,7 +83,12 @@
         <activity android:name=".ui.activity.design.NetStateActivity" />
         <activity android:name=".ui.activity.customview.DragItemActivity" />
         <activity android:name=".ui.activity.design.TabLayoutActivity" />
-        <activity android:name=".ui.activity.design.BottomBehaviorActivity"></activity>
+        <activity android:name=".ui.activity.design.BottomBehaviorActivity" />
+        <activity android:name=".ui.activity.design.ZhiHuActivity" />
+        <activity
+            android:name=".ui.activity.customview.GlideActivity"
+            android:label="@string/title_activity_glide"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
