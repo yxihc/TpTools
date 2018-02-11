@@ -7,23 +7,14 @@
     android:orientation="vertical"
     tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.DialogActivity">
 
-    <Button
 
-        android:onClick="snake"
-        android:text="SnakeBar"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_context"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+
+    <com.taopao.shapeloading.LoadingView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:onClick="customdia"
-        android:text="Custom Dalog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <Button
-        android:onClick="m"
-        android:text="MaterialDialog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
+        android:layout_height="match_parent"></com.taopao.shapeloading.LoadingView>
 </LinearLayout>

@@ -38,7 +38,7 @@ public class GlideActivity extends AppCompatActivity {
         String gifUrl="http://photocdn.sohu.com/20150821/mp28610278_1440132843784_4.gif";
 
         Glide.with(this)
-                .load(gifUrl)
+                .load("https://upload-images.jianshu.io/upload_images/4043475-0335ab7c9965900c.gif")
                 .asGif()
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)//必须设置这个缓存 不然出问题(不显示动态图)
                 .into(iv);
