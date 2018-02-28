@@ -35,9 +35,7 @@ import io.reactivex.disposables.Disposable;
 
 public class DownLoadFileActivity extends BaseActivity<DownLoadFilePresenter, DownLoadFileView> implements DownLoadFileView {
 
-
     private SeekBar cb;
-    private File mFile;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,7 +64,7 @@ public class DownLoadFileActivity extends BaseActivity<DownLoadFilePresenter, Do
 
     //开始下载
     public void downloadFile(View view) {
-
+        apkUrl="http://openbox.mobilem.360.cn/index/d/sid/3647654";
         DownloadProgressListener listener = new DownloadProgressListener() {
             @Override
             public void update(long bytesRead, long contentLength, boolean done) {
@@ -74,13 +72,9 @@ public class DownLoadFileActivity extends BaseActivity<DownLoadFilePresenter, Do
                 cb.setProgress(progress);
             }
         };
-        mFile = new File(Environment.getExternalStorageDirectory() + "/TaoPaoSample", "updata.apk");
-        if (mFile.exists()) {
-            mFile.delete();
-        }
-
         String baseUrl = StringUtils.getHostName(apkUrl);
-        new DownLoadRetrofit(baseUrl, listener).downloadAPK(apkUrl, Environment.getExternalStorageDirectory() + "/TaoPaoSample/updata.apk", new Observer() {
+        String filePath = Environment.getExternalStorageDirectory() + "/TaoPaoSample/updata.apk";
+        new DownLoadRetrofit(baseUrl, listener).downloadAPK(apkUrl, filePath, new Observer() {
             @Override
             public void onSubscribe(Disposable d) {
 
