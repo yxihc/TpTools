@@ -43,7 +43,7 @@ apkUrl="http://openbox.mobilem.360.cn/index/d/sid/3647654";
 ║ connection: null
 ║ headers:  ║ 接收响应: http://116.62.161.77/mkm/api/common/focus?location=2 
 ║ 请求时长: 151.4ms
-║ 返回JSON: {"data":
+║ 返回JSON: {"data":[{"id":2,"img":"f87771e0fd2c4e40b46f2c5feab9d719","redirectContent":"","redirectType":0}],"errorCode":0,"errorMsg":""}
 ║════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
 ║ 
 ║ {
