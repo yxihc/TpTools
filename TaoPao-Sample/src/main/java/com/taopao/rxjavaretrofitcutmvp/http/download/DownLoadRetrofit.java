@@ -102,4 +102,29 @@ public class DownLoadRetrofit {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
+
+
+    public void downloadAPK(@NonNull String url, final String filePath, Observer observer) {
+        Log.d(TAG, "downloadAPK: " + url);
+
+        retrofit.create(DownloadApi.class)
+                .download(url)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .map(new Function<ResponseBody, InputStream>() {
+                    @Override
+                    public InputStream apply(ResponseBody responseBody) throws Exception {
+                        return responseBody.byteStream();
+                    }
+                })
+                .observeOn(Schedulers.computation())
+                .doOnNext(new Consumer<InputStream>() {
+                    @Override
+                    public void accept(InputStream inputStream) throws Exception {
+                            FileUtils.writeFile(inputStream, filePath,true);
+                    }
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
 }

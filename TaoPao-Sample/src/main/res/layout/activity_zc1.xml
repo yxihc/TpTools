@@ -7,6 +7,7 @@
     tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.design.ZC1Activity">
     <ImageView
         android:id="@+id/iv"
+        android:src="@mipmap/bg"
         android:transitionName="iv"
         android:layout_gravity="center_horizontal"
         android:layout_width="match_parent"

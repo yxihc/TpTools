@@ -9,6 +9,7 @@ import com.taopao.rxjavaretrofitcutmvp.model.base.BaseResult;
 import com.taopao.rxjavaretrofitcutmvp.model.response.BannerInfo;
 import com.taopao.rxjavaretrofitcutmvp.model.response.ImgListInfo;
 import com.taopao.rxjavaretrofitcutmvp.rx.RxObserver;
+import com.taopao.rxjavaretrofitcutmvp.rx.Transformer;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.view.CutMvpView;
 import com.taopao.rxjavaretrofitcutmvp.utils.UIUtils;
@@ -78,8 +79,7 @@ public class CutMvpPresenter extends BasePresenter<CutMvpView> {
         UIUtils.showWaitingDialog(mContext, "请骚等...");
         ApiRetrofit.getInstance()
                 .getImgList(url)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                .compose(Transformer.<ImgListInfo>switchSchedulers())
                 .subscribe(new RxObserver<ImgListInfo>() {
                     @Override
                     public void onSuccess(ImgListInfo imgListInfo) {

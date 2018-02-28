@@ -46,6 +46,9 @@ public interface Api {
     @POST("api/common/focus")
     Observable<BaseResult<ArrayList<BannerInfo>>> getBanner(@Query("location") String location);
 
+
+
+    //直接请求一个完整的网址
     @GET
     Observable<ImgListInfo> getImgList(@Url String url);
 

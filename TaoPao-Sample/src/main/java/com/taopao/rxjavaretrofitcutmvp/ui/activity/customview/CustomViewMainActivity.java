@@ -1,7 +1,6 @@
 package com.taopao.rxjavaretrofitcutmvp.ui.activity.customview;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,13 +11,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.taopao.rxjavaretrofitcutmvp.R;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.MainActivity;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.design.ImmersiveActivity;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.net.NetMainActivity;
+import com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.recyclerview.RvBaseAdapterActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
-
+/**
+ * █████▒█    ██  ▄████▄   ██ ▄█▀       ██████╗ ██╗   ██╗ ██████╗
+ * ▓██   ▒ ██  ▓██▒▒██▀ ▀█   ██▄█▒        ██╔══██╗██║   ██║██╔════╝
+ * ▒████ ░▓██  ▒██░▒▓█    ▄ ▓███▄░        ██████╔╝██║   ██║██║  ███╗
+ * ░▓█▒  ░▓▓█  ░██░▒▓▓▄ ▄██▒▓██ █▄        ██╔══██╗██║   ██║██║   ██║
+ * ░▒█░   ▒▒█████▓ ▒ ▓███▀ ░▒██▒ █▄       ██████╔╝╚██████╔╝╚██████╔╝
+ * ▒ ░   ░▒▓▒ ▒ ▒ ░ ░▒ ▒  ░▒ ▒▒ ▓▒       ╚═════╝  ╚═════╝  ╚═════╝
+ * ░     ░░▒░ ░ ░   ░  ▒   ░ ░▒ ▒░
+ * ░ ░    ░░░ ░ ░ ░        ░ ░░ ░
+ * ░     ░ ░      ░  ░
+ *
+ * @Author: 淘跑
+ * @Data: 2018/2/14 21:29
+ * @Use:
+ */
 public class CustomViewMainActivity extends BaseActivity {
 
     private RecyclerView mRv_context;
@@ -52,9 +63,9 @@ public class CustomViewMainActivity extends BaseActivity {
 
     public class GridAdapter extends RecyclerView.Adapter<GridAdapter.GridViewHolder> {
 
-        final int[] picResId = new int[]{R.mipmap.p5, R.mipmap.p6, R.mipmap.p7,R.mipmap.p8,R.mipmap.p12,R.mipmap.p40};
+        final int[] picResId = new int[]{R.mipmap.p5, R.mipmap.p33,R.mipmap.p6, R.mipmap.p7,R.mipmap.p8,R.mipmap.p12,R.mipmap.p12};
         final String[] mTitle = new String[]{"随机显示TextView", "Dialog",
-                "仿微信朋友圈下拉刷新","仿微信带进度条网页","RecyclerView拖动","Glide使用"};
+                "仿微信朋友圈下拉刷新","仿微信带进度条网页","RecyclerView拖动","Glide使用","BaseRecyclerViewAdapterHelper"};
 
         @Override
         public GridAdapter.GridViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -87,6 +98,9 @@ public class CustomViewMainActivity extends BaseActivity {
                             break;
                         case 5:
                             startActivity(new Intent(CustomViewMainActivity.this, GlideActivity.class));
+                            break;
+                        case 6:
+                            startActivity(new Intent(CustomViewMainActivity.this, RvBaseAdapterActivity.class));
                             break;
                     }
                 }
