@@ -14,18 +14,12 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 import com.jaeger.library.StatusBarUtil;
 import com.taopao.rxjavaretrofitcutmvp.R;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.MainActivity;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.CustomViewMainActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.SwipeBackActivity;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.net.NetMainActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
-
 import java.util.Random;
 
 public class ImmersiveActivity extends BaseActivity {

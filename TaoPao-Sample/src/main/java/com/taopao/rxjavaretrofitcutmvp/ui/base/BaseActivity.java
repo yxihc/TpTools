@@ -215,6 +215,7 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
     protected void initStatusBar() {
         StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary), 0);
 //        StatusBarUtil.setTranslucent(this, 0);
+
     }
     /**
      * 设置ToolBar 要改的话 子类重写此方法

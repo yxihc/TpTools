@@ -1,22 +1,19 @@
 package com.taopao.rxjavaretrofitcutmvp.ui.presenter;
 
 import android.content.Context;
-import android.text.style.BulletSpan;
 
 import com.taopao.rxjavaretrofitcutmvp.http.ApiRetrofit;
-import com.taopao.rxjavaretrofitcutmvp.model.ContactsUrl;
 import com.taopao.rxjavaretrofitcutmvp.model.base.BaseResult;
 import com.taopao.rxjavaretrofitcutmvp.model.response.BannerInfo;
 import com.taopao.rxjavaretrofitcutmvp.model.response.ImgListInfo;
 import com.taopao.rxjavaretrofitcutmvp.rx.RxObserver;
-import com.taopao.rxjavaretrofitcutmvp.rx.Transformer;
+import com.taopao.rxjavaretrofitcutmvp.rx.RxTransformer;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.view.CutMvpView;
 import com.taopao.rxjavaretrofitcutmvp.utils.UIUtils;
 
 import java.util.ArrayList;
 
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
@@ -79,7 +76,7 @@ public class CutMvpPresenter extends BasePresenter<CutMvpView> {
         UIUtils.showWaitingDialog(mContext, "请骚等...");
         ApiRetrofit.getInstance()
                 .getImgList(url)
-                .compose(Transformer.<ImgListInfo>switchSchedulers())
+                .compose(RxTransformer.<ImgListInfo>switchSchedulers())
                 .subscribe(new RxObserver<ImgListInfo>() {
                     @Override
                     public void onSuccess(ImgListInfo imgListInfo) {

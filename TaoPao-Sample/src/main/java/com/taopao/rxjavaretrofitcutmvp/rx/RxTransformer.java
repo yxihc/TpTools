@@ -23,7 +23,7 @@ import io.reactivex.schedulers.Schedulers;
  * @Use: 线程转换器
  */
 
-public class Transformer {
+public class RxTransformer {
     public static <T> ObservableTransformer<T, T> switchSchedulers() {
         return new ObservableTransformer<T, T>() {
             @Override

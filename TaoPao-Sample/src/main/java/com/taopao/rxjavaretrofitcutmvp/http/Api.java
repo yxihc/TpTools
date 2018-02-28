@@ -4,11 +4,16 @@ package com.taopao.rxjavaretrofitcutmvp.http;
 import com.taopao.rxjavaretrofitcutmvp.model.base.BaseResult;
 import com.taopao.rxjavaretrofitcutmvp.model.response.BannerInfo;
 import com.taopao.rxjavaretrofitcutmvp.model.response.ImgListInfo;
+import com.taopao.rxjavaretrofitcutmvp.model.response.UpLoadResult;
 
 import java.util.ArrayList;
 import io.reactivex.Observable;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 import retrofit2.http.Url;
 
@@ -52,4 +57,9 @@ public interface Api {
     @GET
     Observable<ImgListInfo> getImgList(@Url String url);
 
+
+    /*上传文件*/
+    @Multipart
+    @POST("api/common/upload")
+    Observable<BaseResult<UpLoadResult>> uploadImage(@Part MultipartBody.Part file);
 }

@@ -20,4 +20,22 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="30dp" />
 
+    <Button
+        android:onClick="uploadFile"
+        android:layout_marginTop="70dp"
+        android:layout_gravity="center_horizontal"
+        android:text="开始上传"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <SeekBar
+        android:id="@+id/cb1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="30dp" />
+
+
+
 </LinearLayout>
