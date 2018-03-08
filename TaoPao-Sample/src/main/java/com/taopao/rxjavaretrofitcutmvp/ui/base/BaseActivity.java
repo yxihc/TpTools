@@ -74,6 +74,8 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
 
         //取消订阅者
         if (mCompositeDisposable != null) {
+            //取消订阅
+            mCompositeDisposable.dispose();
             mCompositeDisposable.clear();
             mCompositeDisposable = null;
         }

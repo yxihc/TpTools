@@ -10,21 +10,42 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
+
+
+    signingConfigs {
         release {
+            keyAlias 'taopao'
+            keyPassword '123456789'
+            storeFile file('taopao.jks')
+            storePassword '123456789'
+        }
+    }
+
+    buildTypes {
+        debug {
             minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+
+        release {
+            minifyEnabled true          // 开启混淆
+            shrinkResources true        // 移除无用资源
+            zipAlignEnabled true        // 开启压缩
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+//    testImplementation 'junit:junit:4.12'
+//    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     //    compile 'io.reactivex.rxjava2:rxjava:2.1.8'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
@@ -45,5 +66,5 @@ dependencies {
     compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
     //仿58同城加载动画
     compile 'com.github.404NotFuond:ShapeLoading:1.0.0'
-
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
 }

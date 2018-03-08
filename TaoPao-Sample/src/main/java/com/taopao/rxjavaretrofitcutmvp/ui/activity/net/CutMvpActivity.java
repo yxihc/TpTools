@@ -1,24 +1,15 @@
 package com.taopao.rxjavaretrofitcutmvp.ui.activity.net;
 
-import com.bumptech.glide.Glide;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.MainActivity;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.CustomViewMainActivity;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.design.ImmersiveActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.activity.design.ZC1Activity;
 import com.taopao.rxjavaretrofitcutmvp.ui.adapter.StaggerdAdapter;
 import com.taopao.rxjavaretrofitcutmvp.ui.presenter.CutMvpPresenter;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.taopao.rxjavaretrofitcutmvp.R;
 import com.taopao.rxjavaretrofitcutmvp.model.ContactsUrl;
@@ -27,7 +18,6 @@ import com.taopao.rxjavaretrofitcutmvp.model.response.BannerInfo;
 import com.taopao.rxjavaretrofitcutmvp.model.response.ImgListInfo;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.view.CutMvpView;
-
 import java.util.ArrayList;
 
 /**

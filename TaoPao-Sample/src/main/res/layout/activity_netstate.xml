@@ -18,17 +18,16 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="91dp"
-        android:src="@mipmap/top" />
+         />
 
     <ImageView
         android:visibility="gone"
         android:id="@+id/iv_neterror"
         android:layout_width="wrap_content"
         android:layout_height="56dp"
-        android:src="@mipmap/neterror" />
+        />
 
     <ImageView
-        android:background="@mipmap/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

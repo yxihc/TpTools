@@ -144,12 +144,13 @@ public class ImmersiveActivity extends BaseActivity {
 
     public class GridAdapter extends RecyclerView.Adapter<GridAdapter.GridViewHolder> {
 
-        final int[] picResId = new int[]{R.mipmap.p22,R.mipmap.p22, R.mipmap.p22, R.mipmap.p22,R.mipmap.p22, R.mipmap.p22, R.mipmap.p22,R.mipmap.p22,R.mipmap.p22,R.mipmap.p22
+        final int[] picResId = new int[]{R.mipmap.p22,R.mipmap.p22,R.mipmap.p22, R.mipmap.p22, R.mipmap.p22,R.mipmap.p22, R.mipmap.p22, R.mipmap.p22,R.mipmap.p22,R.mipmap.p22,R.mipmap.p22
         };
         final String[] mTitle = new String[]{"侧滑关闭", "下拉显示图片",
                 "文字跟随下拉","Toolbar上滑消失","Toolbar文字居中",
                 "跟随移动","SearchView","TabLayout"
                 ,"向上滑动新页面","仿知乎上拉消失底部栏"
+                ,"改变状态栏假toolbar背景"
         };
 
         @Override
@@ -206,6 +207,10 @@ public class ImmersiveActivity extends BaseActivity {
                             break;
                         case  9:
                             intent = new Intent(ImmersiveActivity.this, ZhiHuActivity.class);
+                            startActivity(intent);
+                            break;
+                        case  10:
+                            intent = new Intent(ImmersiveActivity.this, ImageTouActivity.class);
                             startActivity(intent);
                             break;
                     }

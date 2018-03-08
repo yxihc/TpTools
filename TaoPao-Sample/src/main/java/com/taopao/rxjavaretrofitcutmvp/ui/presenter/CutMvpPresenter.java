@@ -73,6 +73,7 @@ public class CutMvpPresenter extends BasePresenter<CutMvpView> {
     }
 
     public void getImgList(String url) {
+
         UIUtils.showWaitingDialog(mContext, "请骚等...");
         ApiRetrofit.getInstance()
                 .getImgList(url)

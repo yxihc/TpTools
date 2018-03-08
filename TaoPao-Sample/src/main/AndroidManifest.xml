@@ -90,8 +90,9 @@
             android:label="@string/title_activity_glide"
             android:theme="@style/AppTheme" />
         <activity android:name=".ui.activity.customview.recyclerview.RvBaseAdapterActivity" />
-        <activity android:name=".ui.activity.customview.recyclerview.Rv1Activity"></activity>
-        <activity android:name=".ui.activity.net.DownLoadFileActivity"></activity>
+        <activity android:name=".ui.activity.customview.recyclerview.Rv1Activity" />
+        <activity android:name=".ui.activity.net.DownLoadFileActivity" />
+        <activity android:name=".ui.activity.design.ImageTouActivity"></activity>
     </application>
 
 </manifest>
