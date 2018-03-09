@@ -7,7 +7,6 @@
     tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.design.Design5Activity">
 
 
-
     <TextView
         android:onClick="move"
         android:layout_gravity="left|top"

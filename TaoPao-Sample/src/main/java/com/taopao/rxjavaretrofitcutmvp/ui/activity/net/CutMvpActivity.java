@@ -70,8 +70,8 @@ public class CutMvpActivity extends BaseActivity<CutMvpPresenter, CutMvpView> im
         mRv_context.setLayoutManager(mLayout);
 
     }
-
-    private void initData() {
+    @Override
+    public void initData() {
         mPresenter.getImgList(ContactsUrl.IMGLIST);
 
     }

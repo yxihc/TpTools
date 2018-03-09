@@ -1,10 +1,16 @@
 package com.taopao.rxjavaretrofitcutmvp.ui.activity;
 
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,18 +21,27 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabReselectListener;
+import com.roughike.bottombar.OnTabSelectListener;
 import com.taopao.rxjavaretrofitcutmvp.R;
 import com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.CustomViewMainActivity;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.DialogActivity;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.FrActivity;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.RandomTextActivity;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.WebViewActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.activity.design.ImmersiveActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.activity.net.NetMainActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
+import com.taopao.rxjavaretrofitcutmvp.ui.fragment.MDFragment;
+import com.taopao.rxjavaretrofitcutmvp.ui.fragment.MyGithubFragment;
+import com.taopao.rxjavaretrofitcutmvp.ui.fragment.NetFragment;
+import com.taopao.rxjavaretrofitcutmvp.ui.fragment.TabLayoutFragment;
+import com.taopao.rxjavaretrofitcutmvp.ui.fragment.UiFragment;
 import com.taopao.rxjavaretrofitcutmvp.utils.NetUtils;
+
+import java.util.ArrayList;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * ━━━━━━神兽出没━━━━━━
@@ -55,13 +70,79 @@ import com.taopao.rxjavaretrofitcutmvp.utils.NetUtils;
  */
 public class MainActivity extends BaseActivity {
 
+    @BindView(R.id.vp_home)
+    ViewPager mVpHome;
+    @BindView(R.id.bottom_navigation_bar)
+    BottomBar mBottomBar;
     private RelativeLayout mRl_netstate;
     private RecyclerView mRv_context;
+    private ArrayList<Fragment> mFragments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+
+        mFragments = new ArrayList<>();
+        mFragments.add(NetFragment.getInstance("网络相关"));
+        mFragments.add(UiFragment.getInstance("网络相关"));
+        mFragments.add(MDFragment.getInstance("ui"));
+        mFragments.add(MyGithubFragment.getInstance("https://github.com/404NotFuond"));
+
+
+        mVpHome.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                return mFragments.get(position);
+            }
+
+            @Override
+            public int getCount() {
+                return mFragments.size();
+            }
+        });
+
+        mVpHome.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                mBottomBar.selectTabAtPosition(position,true);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+
+        mBottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelected(@IdRes int tabId) {
+                switch (tabId) {
+                    case R.id.tab_net:
+                        mVpHome.setCurrentItem(0);
+                        break;
+                    case R.id.tab_ui:
+                        mVpHome.setCurrentItem(1);
+                        break;
+                    case R.id.tab_md:
+                        mVpHome.setCurrentItem(2);
+                        break;
+                    case R.id.tab_f:
+                        mVpHome.setCurrentItem(3);
+                        break;
+
+                }
+            }
+        });
+
+
         mRl_netstate = (RelativeLayout) findViewById(R.id.rl_netstate);
 
         mRl_netstate.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +162,7 @@ public class MainActivity extends BaseActivity {
         getToolBar().setNavigationIcon(null);
         getToolBar().setTitle("主页");
     }
+
 
     @Override
     public BasePresenter createPresenter() {
@@ -132,13 +214,13 @@ public class MainActivity extends BaseActivity {
                 @Override
                 public void onClick(View v) {
                     switch (position) {
-                        case  0:
+                        case 0:
                             startActivity(new Intent(MainActivity.this, NetMainActivity.class));
                             break;
-                        case  1:
+                        case 1:
                             startActivity(new Intent(MainActivity.this, CustomViewMainActivity.class));
                             break;
-                        case  2:
+                        case 2:
                             startActivity(new Intent(MainActivity.this, ImmersiveActivity.class));
                             break;
                     }

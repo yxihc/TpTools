@@ -76,5 +76,13 @@ dependencies {
     compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
     //仿58同城加载动画
     compile 'com.github.404NotFuond:ShapeLoading:1.0.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+//    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+
+
+    //注解框架
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    //底部导航栏
+    compile 'com.roughike:bottom-bar:2.3.1'
 }

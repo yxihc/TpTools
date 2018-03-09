@@ -1,6 +1,7 @@
 package com.taopao.rxjavaretrofitcutmvp.http;
 
 
+import com.taopao.rxjavaretrofitcutmvp.model.ContactsUrl;
 import com.taopao.rxjavaretrofitcutmvp.model.base.BaseResult;
 import com.taopao.rxjavaretrofitcutmvp.model.response.BannerInfo;
 import com.taopao.rxjavaretrofitcutmvp.model.response.ImgListInfo;
@@ -14,6 +15,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 import retrofit2.http.Url;
 
@@ -56,6 +58,13 @@ public interface Api {
     //直接请求一个完整的网址
     @GET
     Observable<ImgListInfo> getImgList(@Url String url);
+
+
+    //直接请求一个完整后面带占位符
+    @GET(ContactsUrl.IMGLIST_PAGE+"{page}")
+    Observable<ImgListInfo> getImgListPage(@Path("page") String page);
+
+
 
 
     /*上传文件*/

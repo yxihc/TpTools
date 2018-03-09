@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+
+    <!--<tab-->
+        <!--id="@+id/tab_net"-->
+        <!--icon="@drawable/ic_friends"-->
+        <!--barColorWhenSelected="@color/colorAccent"-->
+        <!--title="网络相关" />-->
+    <!--<tab-->
+        <!--id="@+id/tab_ui"-->
+        <!--icon="@drawable/ic_favorites"-->
+        <!--barColorWhenSelected="#5D4037"-->
+        <!--title="UI" />-->
+    <!--<tab-->
+        <!--id="@+id/tab_md"-->
+        <!--icon="@drawable/ic_recents"-->
+        <!--barColorWhenSelected="#7B1FA2"-->
+        <!--title="Material Design" />-->
+    <!--<tab-->
+        <!--barColorWhenSelected="#FF5252"-->
+        <!--id="@+id/tab_f"-->
+        <!--icon="@drawable/ic_restaurants"-->
+        <!--title="Friends" />-->
+
+    <tab
+        id="@+id/tab_net"
+        icon="@drawable/ic_favorite"
+        barColorWhenSelected="#146e6e"
+        title="网络相关" />
+    <tab
+        id="@+id/tab_ui"
+        icon="@drawable/ic_gavel"
+        barColorWhenSelected="#5D4037"
+        title="UI" />
+    <tab
+        id="@+id/tab_md"
+        icon="@drawable/ic_group_work"
+        barColorWhenSelected="#7B1FA2"
+        title="Material Design" />
+    <tab
+        barColorWhenSelected="#FF5252"
+        id="@+id/tab_f"
+        icon="@drawable/ic_grade"
+        title="Friends" />
+
+</tabs>

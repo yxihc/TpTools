@@ -21,7 +21,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -92,8 +91,7 @@ public class ApiRetrofit {
                 .connectTimeout(15, TimeUnit.SECONDS) // 15秒连接超时
                 .readTimeout(20, TimeUnit.SECONDS)    // 20秒读取超时
                 .writeTimeout(20, TimeUnit.SECONDS)   // 20秒写入超时
-//                .addInterceptor(buildLoggingInterceptor())
-                .addInterceptor(new HttpLoggingInterceptor())
+                .addInterceptor(buildLoggingInterceptor())
                 .addInterceptor(buildHeaderInterceptor())
                 .addInterceptor(buildCacheInterceptor())
                 .cache(getCache())

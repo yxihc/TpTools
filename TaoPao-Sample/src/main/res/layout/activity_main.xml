@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,7 +9,28 @@
     android:fitsSystemWindows="true"
     tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.MainActivity">
 
-    <include layout="@layout/toolbar_base"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"/>
+
+    <com.roughike.bottombar.BottomBar
+        android:layout_gravity="bottom"
+        app:bb_badgesHideWhenActive="false"
+        app:bb_behavior="shifting|underNavbar|shy"
+        app:bb_tabXmlResource="@xml/bottom_bar"
+        android:id="@+id/bottom_navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:bb_activeTabAlpha="1"
+        />
+
+
+
+    <include
+        android:visibility="gone"
+        layout="@layout/toolbar_base"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"></include>
 
@@ -31,8 +51,9 @@
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
+        android:visibility="gone"
         android:id="@+id/rv_context"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

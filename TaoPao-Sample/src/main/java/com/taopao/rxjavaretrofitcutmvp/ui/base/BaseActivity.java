@@ -99,6 +99,11 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
     }
 
 
+    /**
+     * 子类一般都会遇到的方法 需要时重写
+     */
+    public void initData(){}
+
     public void setToolBar(){}
 
     public P getPresenter() {

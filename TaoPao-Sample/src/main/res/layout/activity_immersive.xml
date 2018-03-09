@@ -54,11 +54,6 @@
         android:onClick="changecolor"
         android:text="改变颜色" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_context"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
-
 
 </LinearLayout>
 

@@ -28,4 +28,7 @@ package com.taopao.rxjavaretrofitcutmvp.model;
 
 public class ContactsUrl {
     public static  final String IMGLIST="http://gank.io/api/data/福利/10/1";
+
+
+    public static  final String IMGLIST_PAGE="http://gank.io/api/data/福利/10/";
 }

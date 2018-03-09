@@ -29,7 +29,6 @@ public class ImmersiveActivity extends BaseActivity {
     private SeekBar sb_change_alpha;
     private int mColor=0;
     private ImageView mImageView;
-    private RecyclerView mRv_context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,14 +115,6 @@ public class ImmersiveActivity extends BaseActivity {
 
 
 
-
-
-
-
-        mRv_context = (RecyclerView) findViewById(R.id.rv_context);
-        mRv_context.setLayoutManager(new GridLayoutManager(this, 2));
-        mRv_context.setAdapter(new GridAdapter());
-
     }
     public void changecolor(View view){
 
@@ -140,101 +131,6 @@ public class ImmersiveActivity extends BaseActivity {
         startActivity(intent, optionsCompat.toBundle());
     }
 
-
-
-    public class GridAdapter extends RecyclerView.Adapter<GridAdapter.GridViewHolder> {
-
-        final int[] picResId = new int[]{R.mipmap.p22,R.mipmap.p22,R.mipmap.p22, R.mipmap.p22, R.mipmap.p22,R.mipmap.p22, R.mipmap.p22, R.mipmap.p22,R.mipmap.p22,R.mipmap.p22,R.mipmap.p22
-        };
-        final String[] mTitle = new String[]{"侧滑关闭", "下拉显示图片",
-                "文字跟随下拉","Toolbar上滑消失","Toolbar文字居中",
-                "跟随移动","SearchView","TabLayout"
-                ,"向上滑动新页面","仿知乎上拉消失底部栏"
-                ,"改变状态栏假toolbar背景"
-        };
-
-        @Override
-        public GridAdapter.GridViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rv, parent, false);
-            return new GridAdapter.GridViewHolder(itemView);
-        }
-
-        @Override
-        public void onBindViewHolder(GridAdapter.GridViewHolder holder, final int position) {
-            holder.mIvPic.setImageResource(picResId[position]);
-            holder.mTvTitle.setText(mTitle[position]);
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent;
-                    switch (position) {
-                        case  0:
-                             intent = new Intent(ImmersiveActivity.this, SwipeBackActivity.class);
-                            intent.putExtra(SwipeBackActivity.EXTRA_IS_TRANSPARENT, false);
-                            startActivity(intent);
-                            break;
-                        case  1:
-                             intent = new Intent(ImmersiveActivity.this, Design1Activity.class);
-                            startActivity(intent);
-                            break;
-                        case  2:
-                             intent = new Intent(ImmersiveActivity.this, Design2Activity.class);
-                            startActivity(intent);
-                            break;
-                        case  3:
-                             intent = new Intent(ImmersiveActivity.this, Design3Activity.class);
-                            startActivity(intent);
-                            break;
-                        case  4:
-                             intent = new Intent(ImmersiveActivity.this, Design4Activity.class);
-                            startActivity(intent);
-                            break;
-                        case  5:
-                             intent = new Intent(ImmersiveActivity.this, Design5Activity.class);
-                            startActivity(intent);
-                            break;
-                        case  6:
-                             intent = new Intent(ImmersiveActivity.this, SearchViewActivity.class);
-                            startActivity(intent);
-                            break;
-                        case  7:
-                            intent = new Intent(ImmersiveActivity.this, TabLayoutActivity.class);
-                            startActivity(intent);
-                            break;
-                        case  8:
-                            intent = new Intent(ImmersiveActivity.this, BottomBehaviorActivity.class);
-                            startActivity(intent);
-                            break;
-                        case  9:
-                            intent = new Intent(ImmersiveActivity.this, ZhiHuActivity.class);
-                            startActivity(intent);
-                            break;
-                        case  10:
-                            intent = new Intent(ImmersiveActivity.this, ImageTouActivity.class);
-                            startActivity(intent);
-                            break;
-                    }
-                }
-            });
-
-        }
-
-        @Override
-        public int getItemCount() {
-            return picResId.length;
-        }
-
-        class GridViewHolder extends RecyclerView.ViewHolder {
-            ImageView mIvPic;
-            TextView mTvTitle;
-
-            public GridViewHolder(View itemView) {
-                super(itemView);
-                mIvPic = (ImageView) itemView.findViewById(R.id.ivPic);
-                mTvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
-            }
-        }
-    }
 
 
 

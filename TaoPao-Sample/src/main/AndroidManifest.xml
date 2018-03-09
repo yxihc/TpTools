@@ -27,7 +27,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name=".ui.activity.SplashActivity"
+            android:theme="@style/ThemeSplash"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -92,7 +94,8 @@
         <activity android:name=".ui.activity.customview.recyclerview.RvBaseAdapterActivity" />
         <activity android:name=".ui.activity.customview.recyclerview.Rv1Activity" />
         <activity android:name=".ui.activity.net.DownLoadFileActivity" />
-        <activity android:name=".ui.activity.design.ImageTouActivity"></activity>
+        <activity android:name=".ui.activity.design.ImageTouActivity" />
+        <activity android:name=".ui.activity.MainActivity"></activity>
     </application>
 
 </manifest>
