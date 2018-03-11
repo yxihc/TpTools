@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#FF5252</color>
+    <color name="colorPrimaryDark">#FF4081</color>
     <color name="colorAccent">#FF4081</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
 
 
+
     <!--天蓝色-->
     <color name="bule">#4699fd</color>
     <color name="dark">#C0C0C0</color>
+
+
+
+    <!--主页切换Fragment颜色-->
+    <color name="main_net">#146e6e</color>
+    <color name="main_ui">#5D4037</color>
+    <color name="main_md">#7B1FA2</color>
+    <color name="main_mygit">#FF5252</color>
 </resources>

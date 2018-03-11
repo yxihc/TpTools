@@ -11,8 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.jaeger.library.StatusBarUtil;
 import com.taopao.rxjavaretrofitcutmvp.R;
 import com.taopao.rxjavaretrofitcutmvp.model.response.ImageAndTitleInfo;
+import com.taopao.rxjavaretrofitcutmvp.ui.activity.MainActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.activity.design.NetStateActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.activity.net.CutMvpActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.activity.net.DownLoadApkActivity;
@@ -58,7 +60,6 @@ public class NetFragment extends Fragment implements BaseQuickAdapter.OnItemClic
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_net, container, false);
         unbinder = ButterKnife.bind(this, view);
-
         initData();
         initRecycleyView();
 

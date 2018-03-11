@@ -1,40 +1,23 @@
 package com.taopao.rxjavaretrofitcutmvp.ui.activity;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jaeger.library.StatusBarUtil;
 import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnTabReselectListener;
 import com.roughike.bottombar.OnTabSelectListener;
 import com.taopao.rxjavaretrofitcutmvp.R;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.CustomViewMainActivity;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.design.ImmersiveActivity;
-import com.taopao.rxjavaretrofitcutmvp.ui.activity.net.NetMainActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
 import com.taopao.rxjavaretrofitcutmvp.ui.fragment.MDFragment;
 import com.taopao.rxjavaretrofitcutmvp.ui.fragment.MyGithubFragment;
 import com.taopao.rxjavaretrofitcutmvp.ui.fragment.NetFragment;
-import com.taopao.rxjavaretrofitcutmvp.ui.fragment.TabLayoutFragment;
 import com.taopao.rxjavaretrofitcutmvp.ui.fragment.UiFragment;
 import com.taopao.rxjavaretrofitcutmvp.utils.NetUtils;
 
@@ -74,8 +57,8 @@ public class MainActivity extends BaseActivity {
     ViewPager mVpHome;
     @BindView(R.id.bottom_navigation_bar)
     BottomBar mBottomBar;
-    private RelativeLayout mRl_netstate;
-    private RecyclerView mRv_context;
+    @BindView(R.id.toolbar_title)
+    TextView mToolbarTitle;
     private ArrayList<Fragment> mFragments;
 
     @Override
@@ -84,12 +67,12 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        getToolBar().setNavigationIcon(null);
         mFragments = new ArrayList<>();
         mFragments.add(NetFragment.getInstance("网络相关"));
-        mFragments.add(UiFragment.getInstance("网络相关"));
-        mFragments.add(MDFragment.getInstance("ui"));
+        mFragments.add(UiFragment.getInstance("ui"));
+        mFragments.add(MDFragment.getInstance("md"));
         mFragments.add(MyGithubFragment.getInstance("https://github.com/404NotFuond"));
-
 
         mVpHome.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
@@ -111,7 +94,7 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onPageSelected(int position) {
-                mBottomBar.selectTabAtPosition(position,true);
+                mBottomBar.selectTabAtPosition(position, true);
             }
 
             @Override
@@ -127,40 +110,33 @@ public class MainActivity extends BaseActivity {
                 switch (tabId) {
                     case R.id.tab_net:
                         mVpHome.setCurrentItem(0);
+                        StatusBarUtil.setColor(MainActivity.this, getResources().getColor(R.color.main_net), 0);
+                        getToolBar().setBackgroundColor(getResources().getColor(R.color.main_net));
+                        mToolbarTitle.setText("网络相关");
                         break;
                     case R.id.tab_ui:
                         mVpHome.setCurrentItem(1);
+                        StatusBarUtil.setColor(MainActivity.this, getResources().getColor(R.color.main_ui), 0);
+                        getToolBar().setBackgroundColor(getResources().getColor(R.color.main_ui));
+                        mToolbarTitle.setText("UI相关");
                         break;
                     case R.id.tab_md:
                         mVpHome.setCurrentItem(2);
+                        StatusBarUtil.setColor(MainActivity.this, getResources().getColor(R.color.main_md), 0);
+                        getToolBar().setBackgroundColor(getResources().getColor(R.color.main_md));
+                        mToolbarTitle.setText("Material Design");
                         break;
                     case R.id.tab_f:
                         mVpHome.setCurrentItem(3);
+                        StatusBarUtil.setColor(MainActivity.this, getResources().getColor(R.color.main_mygit), 0);
+                        getToolBar().setBackgroundColor(getResources().getColor(R.color.main_mygit));
+                        mToolbarTitle.setText("我的GitHub");
                         break;
-
                 }
             }
         });
 
-
-        mRl_netstate = (RelativeLayout) findViewById(R.id.rl_netstate);
-
-        mRl_netstate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NetUtils.openSetting(MainActivity.this);
-            }
-        });
-        mRv_context = (RecyclerView) findViewById(R.id.rv_context);
-        mRv_context.setLayoutManager(new GridLayoutManager(this, 2));
-        mRv_context.setAdapter(new GridAdapter());
         setToolBar();
-    }
-
-    @Override
-    public void setToolBar() {
-        getToolBar().setNavigationIcon(null);
-        getToolBar().setTitle("主页");
     }
 
 
@@ -180,69 +156,13 @@ public class MainActivity extends BaseActivity {
         switch (netState) {
             case NetUtils.NETWORK_NONE:
                 Toast.makeText(MainActivity.this, "没有网络", Toast.LENGTH_SHORT).show();
-                mRl_netstate.setVisibility(View.VISIBLE);
                 break;
             case NetUtils.NETWORK_MOBILE:
                 Toast.makeText(MainActivity.this, "移动网络", Toast.LENGTH_SHORT).show();
-                mRl_netstate.setVisibility(View.GONE);
                 break;
             case NetUtils.NETWORK_WIFI:
                 Toast.makeText(MainActivity.this, "WiFi网络", Toast.LENGTH_SHORT).show();
-                mRl_netstate.setVisibility(View.GONE);
                 break;
-        }
-    }
-
-    public class GridAdapter extends RecyclerView.Adapter<GridAdapter.GridViewHolder> {
-
-        final int[] picResId = new int[]{R.mipmap.p1, R.mipmap.p2, R.mipmap.p3
-        };
-        final String[] mTitle = new String[]{"网络相关", "UI相关", "Material Design"
-        };
-
-        @Override
-        public GridViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rv, parent, false);
-            return new GridViewHolder(itemView);
-        }
-
-        @Override
-        public void onBindViewHolder(GridViewHolder holder, final int position) {
-            holder.mIvPic.setImageResource(picResId[position]);
-            holder.mTvTitle.setText(mTitle[position]);
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    switch (position) {
-                        case 0:
-                            startActivity(new Intent(MainActivity.this, NetMainActivity.class));
-                            break;
-                        case 1:
-                            startActivity(new Intent(MainActivity.this, CustomViewMainActivity.class));
-                            break;
-                        case 2:
-                            startActivity(new Intent(MainActivity.this, ImmersiveActivity.class));
-                            break;
-                    }
-                }
-            });
-
-        }
-
-        @Override
-        public int getItemCount() {
-            return picResId.length;
-        }
-
-        class GridViewHolder extends RecyclerView.ViewHolder {
-            ImageView mIvPic;
-            TextView mTvTitle;
-
-            public GridViewHolder(View itemView) {
-                super(itemView);
-                mIvPic = (ImageView) itemView.findViewById(R.id.ivPic);
-                mTvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
-            }
         }
     }
 

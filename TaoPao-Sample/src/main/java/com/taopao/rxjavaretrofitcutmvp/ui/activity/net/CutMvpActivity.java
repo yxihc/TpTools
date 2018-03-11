@@ -1,5 +1,6 @@
 package com.taopao.rxjavaretrofitcutmvp.ui.activity.net;
 
+import com.jaeger.library.StatusBarUtil;
 import com.taopao.rxjavaretrofitcutmvp.ui.activity.design.ZC1Activity;
 import com.taopao.rxjavaretrofitcutmvp.ui.adapter.StaggerdAdapter;
 import com.taopao.rxjavaretrofitcutmvp.ui.presenter.CutMvpPresenter;

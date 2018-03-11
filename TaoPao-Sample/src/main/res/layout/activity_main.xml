@@ -1,59 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.MainActivity">
-
+    <include
+        layout="@layout/toolbar_base"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></include>
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_home"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"/>
-
+        android:layout_height="0dp"
+        android:orientation="vertical" />
     <com.roughike.bottombar.BottomBar
-        android:layout_gravity="bottom"
-        app:bb_badgesHideWhenActive="false"
-        app:bb_behavior="shifting|underNavbar|shy"
-        app:bb_tabXmlResource="@xml/bottom_bar"
         android:id="@+id/bottom_navigation_bar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        app:bb_activeTabAlpha="1"
-        />
-
-
-
-    <include
-        android:visibility="gone"
-        layout="@layout/toolbar_base"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"></include>
-
-    <RelativeLayout
-        android:id="@+id/rl_netstate"
-        android:visibility="gone"
-        android:background="#EEE685"
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-        <TextView
-            android:textColor="@android:color/holo_red_dark"
-            android:gravity="center"
-            android:layout_centerInParent="true"
-            android:textSize="18sp"
-            android:text="网络不给力,请检查网络设置."
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:visibility="gone"
-        android:id="@+id/rv_context"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
-
-</android.support.design.widget.CoordinatorLayout>
+        android:layout_gravity="bottom"
+        app:bb_behavior="shifting"
+        app:bb_tabXmlResource="@xml/bottom_bar" />
+</LinearLayout>

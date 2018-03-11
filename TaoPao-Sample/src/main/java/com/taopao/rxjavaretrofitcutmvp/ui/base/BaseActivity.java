@@ -49,7 +49,7 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
     public final static List<AppCompatActivity> mActivities = new LinkedList<AppCompatActivity>();
     private CompositeDisposable mCompositeDisposable;
     public P mPresenter;
-    public Toolbar mToolbar;
+    private Toolbar mToolbar;
     public static INetEvent mINetEvent;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

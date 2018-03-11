@@ -12,6 +12,8 @@
     app:title="@null">
 
     <TextView
+        android:textColor="@color/black"
+        android:id="@+id/toolbar_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

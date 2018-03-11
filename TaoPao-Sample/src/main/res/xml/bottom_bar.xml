@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tabs>
-
     <!--<tab-->
         <!--id="@+id/tab_net"-->
         <!--icon="@drawable/ic_friends"-->
@@ -21,7 +20,6 @@
         <!--id="@+id/tab_f"-->
         <!--icon="@drawable/ic_restaurants"-->
         <!--title="Friends" />-->
-
     <tab
         id="@+id/tab_net"
         icon="@drawable/ic_favorite"
@@ -42,5 +40,4 @@
         id="@+id/tab_f"
         icon="@drawable/ic_grade"
         title="Friends" />
-
 </tabs>
