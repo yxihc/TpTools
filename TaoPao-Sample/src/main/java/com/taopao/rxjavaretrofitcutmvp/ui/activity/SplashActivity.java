@@ -5,13 +5,18 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.widget.ImageView;
+
 import com.bumptech.glide.Glide;
+import com.jaredrummler.android.widget.AnimatedSvgView;
 import com.taopao.rxjavaretrofitcutmvp.R;
+import com.taopao.rxjavaretrofitcutmvp.model.ModelSVG;
 import com.taopao.rxjavaretrofitcutmvp.model.response.ImgListInfo;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.presenter.SplashPresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.view.SplashView;
+
 import java.util.Random;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -32,6 +37,8 @@ public class SplashActivity extends BaseActivity<SplashPresenter, SplashView> im
             }
         }
     };
+    @BindView(R.id.svg_view)
+    AnimatedSvgView mSvgView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +52,20 @@ public class SplashActivity extends BaseActivity<SplashPresenter, SplashView> im
         mHandler.sendEmptyMessageDelayed(JUMP_TO_ACTIVITY, 2000);
 
         //第二步 获取广告图 并显示(广告可以点击)
-        initData();
-
-
-
+//        initData();
+        setSvg(ModelSVG.values()[4]);
 
     }
 
+    private void setSvg(ModelSVG modelSvg) {
+        mSvgView.setGlyphStrings(modelSvg.glyphs);
+        mSvgView.setFillColors(modelSvg.colors);
+        mSvgView.setViewportSize(modelSvg.width, modelSvg.height);
+        mSvgView.setTraceResidueColor(0x32000000);
+        mSvgView.setTraceColors(modelSvg.colors);
+        mSvgView.rebuildGlyphData();
+        mSvgView.start();
+    }
 
     /**
      * 跳转登录页面或者主页面

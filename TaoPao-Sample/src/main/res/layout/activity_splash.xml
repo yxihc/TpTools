@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,8 +7,25 @@
     tools:context="com.taopao.rxjavaretrofitcutmvp.ui.activity.SplashActivity">
 
     <ImageView
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:id="@+id/iv_bg"
         android:layout_height="match_parent" />
 
-</LinearLayout>
+
+    <com.jaredrummler.android.widget.AnimatedSvgView
+        android:layout_centerInParent="true"
+        android:id="@+id/svg_view"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginBottom="25dp"
+        app:animatedSvgFillColors="@array/google_glyph_colors"
+        app:animatedSvgGlyphStrings="@array/google_glyph_strings"
+        app:animatedSvgFillStart="1200"
+        app:animatedSvgFillTime="1000"
+        app:animatedSvgImageSizeX="400"
+        app:animatedSvgImageSizeY="400"
+        app:animatedSvgTraceTime="2000"
+        app:animatedSvgTraceTimePerGlyph="1000"/>
+
+</RelativeLayout>

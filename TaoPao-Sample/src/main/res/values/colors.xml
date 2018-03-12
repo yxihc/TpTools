@@ -19,4 +19,11 @@
     <color name="main_ui">#5D4037</color>
     <color name="main_md">#7B1FA2</color>
     <color name="main_mygit">#FF5252</color>
+
+
+    <!--描边图片所需要的颜色-->
+    <color name="google_red">#EA4335</color>
+    <color name="google_yellow">#FBBC05</color>
+    <color name="google_blue">#4285F4</color>
+    <color name="google_green">#34A853</color>
 </resources>

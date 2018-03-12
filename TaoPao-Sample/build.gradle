@@ -85,4 +85,7 @@ dependencies {
 
     //底部导航栏
     compile 'com.roughike:bottom-bar:2.3.1'
+
+    //描边图片
+    compile 'com.jaredrummler:animated-svg-view:1.0.5'
 }

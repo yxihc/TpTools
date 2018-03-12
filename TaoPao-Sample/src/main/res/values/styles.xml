@@ -14,7 +14,8 @@
 
     <style name="ThemeSplash" parent="Theme.AppCompat.Light.NoActionBar">
         <!--这一行是主要代码,其他看情况自己加-->
-        <item name="android:windowBackground">@mipmap/bg</item>
+        <!--<item name="android:windowBackground">@mipmap/bg</item>-->
+        <item name="android:windowBackground">@color/white</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
         <item name="windowActionBar">false</item>

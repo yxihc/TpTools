@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.jaeger.library.StatusBarUtil;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
@@ -20,9 +19,7 @@ import com.taopao.rxjavaretrofitcutmvp.ui.fragment.MyGithubFragment;
 import com.taopao.rxjavaretrofitcutmvp.ui.fragment.NetFragment;
 import com.taopao.rxjavaretrofitcutmvp.ui.fragment.UiFragment;
 import com.taopao.rxjavaretrofitcutmvp.utils.NetUtils;
-
 import java.util.ArrayList;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -68,6 +65,7 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
 
         getToolBar().setNavigationIcon(null);
+
         mFragments = new ArrayList<>();
         mFragments.add(NetFragment.getInstance("网络相关"));
         mFragments.add(UiFragment.getInstance("ui"));
@@ -136,7 +134,6 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        setToolBar();
     }
 
 
