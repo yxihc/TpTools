@@ -18,32 +18,13 @@ import com.taopao.rxjavaretrofitcutmvp.ui.fragment.MDFragment;
 import com.taopao.rxjavaretrofitcutmvp.ui.fragment.MyGithubFragment;
 import com.taopao.rxjavaretrofitcutmvp.ui.fragment.NetFragment;
 import com.taopao.rxjavaretrofitcutmvp.ui.fragment.UiFragment;
+import com.taopao.rxjavaretrofitcutmvp.ui.fragment.UtilsFragment;
 import com.taopao.rxjavaretrofitcutmvp.utils.NetUtils;
 import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * ━━━━━━神兽出没━━━━━━
- * 　　　┏┓　　　┏┓
- * 　　┏┛┻━━━┛┻┓
- * 　　┃　　　　　　　┃
- * 　　┃　　　━　　　┃
- * 　　┃　┳┛　┗┳　┃
- * 　　┃　　　　　　　┃
- * 　　┃　　　┻　　　┃
- * 　　┃　　　　　　　┃
- * 　　┗━┓　　　┏━┛
- * 　　　　┃　　　┃  神兽保佑
- * 　　　　┃　　　┃  代码无bug
- * 　　　　┃　　　┗━━━┓
- * 　　　　┃　　　　     ┣┓
- * 　　　　┃　　　　　　　┏┛
- * 　　　　┗┓┓┏━┳┓┏┛
- * 　　　　　┃┫┫　┃┫┫
- * 　　　　　┗┻┛　┗┻┛
- * ━━━━━━感觉萌萌哒━━━━━━
- *
  * @Author: 淘跑
  * @Data: 2018/1/29 12:05
  * @Use: 程序入口
@@ -70,7 +51,7 @@ public class MainActivity extends BaseActivity {
         mFragments.add(NetFragment.getInstance("网络相关"));
         mFragments.add(UiFragment.getInstance("ui"));
         mFragments.add(MDFragment.getInstance("md"));
-        mFragments.add(MyGithubFragment.getInstance("https://github.com/404NotFuond"));
+        mFragments.add(UtilsFragment.getInstance("工具类"));
 
         mVpHome.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
