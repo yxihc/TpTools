@@ -49,7 +49,7 @@ public class SplashActivity extends BaseActivity<SplashPresenter, SplashView> im
         //启动页流程
 
         //第一步启动页2秒关闭
-        mHandler.sendEmptyMessageDelayed(JUMP_TO_ACTIVITY, 2000);
+        mHandler.sendEmptyMessageDelayed(JUMP_TO_ACTIVITY, 1000);
 
         //第二步 获取广告图 并显示(广告可以点击)
 //        initData();

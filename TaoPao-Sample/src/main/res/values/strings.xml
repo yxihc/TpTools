@@ -4,7 +4,6 @@
     <string name="action_settings">Settings</string>
 
 
-
     <!--描边图片所需要的-->
     <integer-array name="google_glyph_colors">
         <item>@android:color/white</item>

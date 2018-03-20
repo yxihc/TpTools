@@ -109,7 +109,7 @@ public class MainActivity extends BaseActivity {
                         mVpHome.setCurrentItem(3);
                         StatusBarUtil.setColor(MainActivity.this, getResources().getColor(R.color.main_mygit), 0);
                         getToolBar().setBackgroundColor(getResources().getColor(R.color.main_mygit));
-                        mToolbarTitle.setText("我的GitHub");
+                        mToolbarTitle.setText("工具类");
                         break;
                 }
             }
