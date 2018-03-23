@@ -17,6 +17,17 @@ android {
         manifestPlaceholders = [UMENG_CHANNEL_VALUE: "umeng"]
     }
 
+//    sourceSets {
+//        main {
+//            manifest.srcFile 'AndroidManifest.xml'
+//            java.srcDirs = ['src']
+//            aidl.srcDirs = ['src']
+//            res.srcDirs = ['res']
+//            assets.srcDirs = ['assets']
+//            jni.srcDirs = ['jni']
+//            jniLibs.srcDirs = ['libs-cpufeatures', 'libs-zip']
+//        }
+//    }
 
     signingConfigs {
         release {
@@ -47,16 +58,19 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+
     //noinspection GradleCompatible
 
-//    testImplementation 'junit:junit:4.12'
-//    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    //    testImplementation 'junit:junit:4.12'
 
+    //    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+
+    //    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
     //Material Design
+
     //noinspection GradleCompatible
-    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:appcompat-v7:27.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.android.support:recyclerview-v7:27.1.0'
     implementation 'com.android.support:cardview-v7:27.1.0'
@@ -64,11 +78,14 @@ dependencies {
 
     //RxJava
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
     //    compile 'io.reactivex.rxjava2:rxjava:2.1.8'
+
     //网络请求retrofit2
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+
     //    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
 
     // materialdialog
@@ -83,8 +100,9 @@ dependencies {
     //图片加载
     implementation 'com.github.bumptech.glide:glide:3.7.0'
 
-//    implementation 'com.github.bumptech.glide:glide:4.6.1'
-//    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+    //    implementation 'com.github.bumptech.glide:glide:4.6.1'
+
+    //    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
 
     //RecyclerView适配器
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
@@ -101,11 +119,14 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
     //底部导航栏
-    implementation  'com.roughike:bottom-bar:2.3.1'
+    implementation 'com.roughike:bottom-bar:2.3.1'
 
     //描边图片
     implementation 'com.jaredrummler:animated-svg-view:1.0.5'
 
     //Android6.0及以上权限管理  注意，easypermissions取决于Android支持库27.1.0所以你需要compilesdkversion 27或更高。这种变化应该是安全的compilesdkversion不会改变应用程序的行为。
     implementation 'pub.devrel:easypermissions:1.2.0'
+
+    //小米推送
+    implementation files('libs/MiPush_SDK_Client_3_5_2.jar')
 }

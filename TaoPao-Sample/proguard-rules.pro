@@ -49,6 +49,10 @@
 -keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
 
 
+#小米推送的混淆
+-keep com.taopao.rxjavaretrofitcutmvp.receiver.XiaoMiPushReceiver {*;}
+
+
 
 #忽略所有警告 不建议使用(使用后可能会到导致程序异常崩溃)
 #-ignorewarning
