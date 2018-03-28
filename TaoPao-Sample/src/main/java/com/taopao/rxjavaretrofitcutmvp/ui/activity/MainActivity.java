@@ -1,9 +1,7 @@
 package com.taopao.rxjavaretrofitcutmvp.ui.activity;
 
-import android.Manifest;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -13,33 +11,24 @@ import com.jaeger.library.StatusBarUtil;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 import com.taopao.rxjavaretrofitcutmvp.R;
-import com.taopao.rxjavaretrofitcutmvp.app.App;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
 import com.taopao.rxjavaretrofitcutmvp.ui.fragment.MDFragment;
-import com.taopao.rxjavaretrofitcutmvp.ui.fragment.MyGithubFragment;
 import com.taopao.rxjavaretrofitcutmvp.ui.fragment.NetFragment;
 import com.taopao.rxjavaretrofitcutmvp.ui.fragment.UiFragment;
 import com.taopao.rxjavaretrofitcutmvp.ui.fragment.UtilsFragment;
 import com.taopao.rxjavaretrofitcutmvp.utils.NetUtils;
-import com.xiaomi.mipush.sdk.MiPushClient;
-
 import java.util.ArrayList;
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import pub.devrel.easypermissions.AppSettingsDialog;
-import pub.devrel.easypermissions.EasyPermissions;
-import pub.devrel.easypermissions.PermissionRequest;
 
 /**
  * @Author: 淘跑
  * @Data: 2018/1/29 12:05
  * @Use: 程序入口
  */
-public class MainActivity extends BaseActivity implements EasyPermissions.PermissionCallbacks {
+public class MainActivity extends BaseActivity  {
 
     @BindView(R.id.vp_home)
     ViewPager mVpHome;
@@ -54,14 +43,14 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        //动态申请SD卡读写权限
-        EasyPermissions.requestPermissions(
-                new PermissionRequest
-                        .Builder(this, 0, Manifest.permission.READ_EXTERNAL_STORAGE)
-                        .setRationale("提示")
-                        .setNegativeButtonText("申请SD卡读取权限")
-                        .build()
-        );
+//        //动态申请SD卡读写权限
+//        EasyPermissions.requestPermissions(
+//                new PermissionRequest
+//                        .Builder(this, 0, Manifest.permission.READ_EXTERNAL_STORAGE)
+//                        .setRationale("提示")
+//                        .setNegativeButtonText("申请SD卡读取权限")
+//                        .build()
+//        );
 
         getToolBar().setNavigationIcon(null);
 
@@ -160,36 +149,36 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
         }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        // Forward results to EasyPermissions
-        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
-    }
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        // Forward results to EasyPermissions
+//        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+//    }
+//
+//    @Override
+//    public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
+////            MiPushClient.registerPush(MainActivity.this, App.APP_ID, App.APP_KEY);
+//
+//    }
 
-    @Override
-    public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
-//            MiPushClient.registerPush(MainActivity.this, App.APP_ID, App.APP_KEY);
-
-    }
-
-    @Override
-    public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
-        //处理权限名字字符串
-        StringBuffer sb = new StringBuffer();
-        for (String str : perms){
-            sb.append(str);
-            sb.append("\n");
-        }
-        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
-            new AppSettingsDialog
-                    .Builder(this)
-                    .setRationale("此功能需要" + sb + "权限，否则无法正常使用，是否打开设置")
-                    .setPositiveButton("好")
-                    .setNegativeButton("不行")
-                    .build()
-                    .show();
-        }
-    }
+//    @Override
+//    public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
+//        //处理权限名字字符串
+//        StringBuffer sb = new StringBuffer();
+//        for (String str : perms){
+//            sb.append(str);
+//            sb.append("\n");
+//        }
+//        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
+//            new AppSettingsDialog
+//                    .Builder(this)
+//                    .setRationale("此功能需要" + sb + "权限，否则无法正常使用，是否打开设置")
+//                    .setPositiveButton("好")
+//                    .setNegativeButton("不行")
+//                    .build()
+//                    .show();
+//        }
+//    }
 
 }

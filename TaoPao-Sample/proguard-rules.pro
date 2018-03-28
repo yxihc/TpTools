@@ -51,7 +51,8 @@
 
 #小米推送的混淆
 -keep com.taopao.rxjavaretrofitcutmvp.receiver.XiaoMiPushReceiver {*;}
-
+#可以防止一个误报的 warning 导致无法成功编译，如果编译使用的 Android 版本是 23。
+-dontwarn com.xiaomi.push.**
 
 
 #忽略所有警告 不建议使用(使用后可能会到导致程序异常崩溃)

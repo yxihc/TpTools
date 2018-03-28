@@ -37,7 +37,7 @@ android {
             storePassword '123456789'
         }
     }
- 
+
     buildTypes {
         debug {
             minifyEnabled false
@@ -125,8 +125,5 @@ dependencies {
     implementation 'com.jaredrummler:animated-svg-view:1.0.5'
 
     //Android6.0及以上权限管理  注意，easypermissions取决于Android支持库27.1.0所以你需要compilesdkversion 27或更高。这种变化应该是安全的compilesdkversion不会改变应用程序的行为。
-    implementation 'pub.devrel:easypermissions:1.2.0'
-
-    //小米推送
-    implementation files('libs/MiPush_SDK_Client_3_5_2.jar')
+//    implementation 'pub.devrel:easypermissions:1.2.0'
 }
