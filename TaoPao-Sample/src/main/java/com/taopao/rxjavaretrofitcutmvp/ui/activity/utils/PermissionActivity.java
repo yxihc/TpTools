@@ -34,7 +34,7 @@ public class PermissionActivity extends AppCompatActivity implements EasyPermiss
         Toast.makeText(PermissionActivity.this, "ass", Toast.LENGTH_SHORT).show();
         EasyPermissions.requestPermissions(
                 new PermissionRequest
-                        .Builder(this, 0, Manifest.permission.CAMERA)
+                        .Builder(this, 0, Manifest.permission.READ_EXTERNAL_STORAGE)
                         .setRationale("提示")
                         .setNegativeButtonText("")
                         .build()

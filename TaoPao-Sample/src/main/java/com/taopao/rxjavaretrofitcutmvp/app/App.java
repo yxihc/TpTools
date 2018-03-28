@@ -18,7 +18,6 @@ import java.util.List;
  * @Data: 2018/1/29 21:16
  * @Use:
  */
-
 public class App extends Application {
 
 //==================================小米推送======================================
@@ -39,7 +38,6 @@ public static final String APP_ID = "2882303761517745922";
     private static long mMainThreadId;//主线程id
     private static Looper mMainLooper;//循环队列
     private static Handler mHandler;//主线程Handler
-
     @Override
     public void onCreate() {
         super.onCreate();
