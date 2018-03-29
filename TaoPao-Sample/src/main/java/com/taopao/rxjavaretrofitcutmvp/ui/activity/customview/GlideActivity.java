@@ -39,8 +39,7 @@ public class GlideActivity extends AppCompatActivity {
 
         Glide.with(this)
                 .load("https://upload-images.jianshu.io/upload_images/4043475-0335ab7c9965900c.gif")
-                .asGif()
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)//必须设置这个缓存 不然出问题(不显示动态图)
+//                .diskCacheStrategy(DiskCacheStrategy.SOURCE)//必须设置这个缓存 不然出问题(不显示动态图)
                 .into(iv);
 
         final ObjectAnimator anim = ObjectAnimator.ofInt(iv_2, "ImageLevel", 0, 10000);
@@ -48,25 +47,24 @@ public class GlideActivity extends AppCompatActivity {
         anim.setRepeatCount(ObjectAnimator.INFINITE);
         anim.start();
 
-        Glide.with(this)
-                .load(gifUrl)
-                .asGif()
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)//必须设置这个缓存 不然出问题(不显示动态图)
-                .placeholder(R.drawable.loading_rotate)
-                .crossFade()
-                .listener(new RequestListener<String, GifDrawable>() {
-                    @Override
-                    public boolean onException(Exception e, String model, Target<GifDrawable> target, boolean isFirstResource) {
-                        anim.cancel();
-                        return false;
-                    }
-                    @Override
-                    public boolean onResourceReady(GifDrawable resource, String model, Target<GifDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                        anim.cancel();
-                        return false;
-                    }
-                })
-                .into(iv_2);
+//        Glide.with(this)
+//                .load(gifUrl)
+////                .diskCacheStrategy(DiskCacheStrategy.SOURCE)//必须设置这个缓存 不然出问题(不显示动态图)
+////                .placeholder(R.drawable.loading_rotate)
+////                .crossFade()
+//                .listener(new RequestListener<String, GifDrawable>() {
+//                    @Override
+//                    public boolean onException(Exception e, String model, Target<GifDrawable> target, boolean isFirstResource) {
+//                        anim.cancel();
+//                        return false;
+//                    }
+//                    @Override
+//                    public boolean onResourceReady(GifDrawable resource, String model, Target<GifDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+//                        anim.cancel();
+//                        return false;
+//                    }
+//                })
+//                .into(iv_2);
     }
 
     private void initView() {

@@ -6,7 +6,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.jaeger.library.StatusBarUtil;
-import com.r0adkll.slidr.Slidr;
 import com.taopao.rxjavaretrofitcutmvp.R;
 
 public class SwipeBackActivity extends AppCompatActivity {
@@ -19,7 +18,6 @@ public class SwipeBackActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // 设置右滑动返回
-        Slidr.attach(this);
         setContentView(R.layout.activity_swipe_back);
         mStatusBarColor = getResources().getColor(R.color.colorPrimary);
         initView();

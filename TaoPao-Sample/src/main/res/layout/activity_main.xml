@@ -13,15 +13,39 @@
         android:layout_height="wrap_content"></include>
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_home"
-        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical" />
-    <com.roughike.bottombar.BottomBar
-        android:id="@+id/bottom_navigation_bar"
+    <RadioGroup
+        android:id="@+id/radio_group"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_gravity="bottom"
-        app:bb_behavior="shifting"
-        app:bb_tabXmlResource="@xml/bottom_bar" />
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/rb_net"
+            style="@style/radiobutton_style"
+            android:checked="true"
+            android:drawableTop="@drawable/radiobutton_bg_home"
+            android:text="@string/tab_net"
+            />
+        <RadioButton
+            android:id="@+id/rb_ui"
+            style="@style/radiobutton_style"
+            android:drawableTop="@drawable/radiobutton_bg_location"
+            android:text="@string/tab_ui"/>
+        <RadioButton
+
+            android:id="@+id/rb_md"
+            style="@style/radiobutton_style"
+            android:drawableTop="@drawable/radiobutton_bg_like"
+            android:text="@string/tab_md"/>
+        <RadioButton
+            android:id="@+id/rb_utils"
+            style="@style/radiobutton_style"
+            android:drawableTop="@drawable/radiobutton_bg_me"
+            android:text="@string/tab_utils"/>
+    </RadioGroup>
 </LinearLayout>

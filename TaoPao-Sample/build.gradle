@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'walle'
 android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.taopao.rxjavaretrofitcutmvp"
         minSdkVersion 19
-        targetSdkVersion 27
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -13,21 +13,7 @@ android {
         // dex突破65535的限制 (暂时用不到)
 //        multiDexEnabled true
 
-        // 默认是umeng的渠道
-        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "umeng"]
     }
-
-//    sourceSets {
-//        main {
-//            manifest.srcFile 'AndroidManifest.xml'
-//            java.srcDirs = ['src']
-//            aidl.srcDirs = ['src']
-//            res.srcDirs = ['res']
-//            assets.srcDirs = ['assets']
-//            jni.srcDirs = ['jni']
-//            jniLibs.srcDirs = ['libs-cpufeatures', 'libs-zip']
-//        }
-//    }
 
     signingConfigs {
         release {
@@ -35,37 +21,66 @@ android {
             keyPassword '123456789'
             storeFile file('taopao.jks')
             storePassword '123456789'
+
         }
     }
-
     buildTypes {
         debug {
             minifyEnabled false
             signingConfig signingConfigs.release
         }
-
         release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
             minifyEnabled true          // 开启混淆
             shrinkResources true        // 移除无用资源
             zipAlignEnabled true        // 开启压缩
             signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
         }
+    }
+
+    walle {
+
+//        打包命令
+//        gradlew clean assembleReleaseChannels -PchannelList=xiaomi,baidu
+
+        // 指定渠道包的输出路径
+        apkOutputFolder = new File("${project.projectDir}/release/channels");
+        // 定制渠道包的APK的文件名称
+        apkFileNameFormat = '${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        // 渠道配置文件
+        channelFile = new File("${project.getProjectDir()}/channel")
     }
 
 }
 
 
+//allprojects {
+//    gradle.projectsEvaluated {
+//        tasks.withType(JavaCompile) {
+//            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+//        }
+//    }
+//}
+
 dependencies {
+
+    /**
+     api：跟2.x版本的 compile完全相同
+
+     implementation：只能在内部使用此模块，比如我在一个libiary中使用implementation依赖了gson库，
+     然后我的主项目依赖了libiary，那么，我的主项目就无法访问gson库中的方法。
+     这样的好处是编译速度会加快，推荐使用implementation的方式去依赖，
+     如果你需要提供给外部访问，那么就使用api依赖即可
+
+     compileOnly:只会在编译时有效，不会参与打包
+     */
+
+
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    //noinspection GradleCompatible
-
-    //    testImplementation 'junit:junit:4.12'
-
-    //    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-
-    //    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
     //Material Design
 
@@ -95,21 +110,19 @@ dependencies {
     implementation 'com.jaeger.statusbarutil:library:1.4.0'
 
     //侧滑关闭
-    implementation 'com.r0adkll:slidableactivity:2.0.5'
+
+    //    implementation 'com.r0adkll:slidableactivity:2.0.5'
 
     //图片加载
-    implementation 'com.github.bumptech.glide:glide:3.7.0'
-
-    //    implementation 'com.github.bumptech.glide:glide:4.6.1'
-
-    //    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+    implementation 'com.github.bumptech.glide:glide:4.6.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
 
     //RecyclerView适配器
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
-
-    //下拉刷新
-    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
-    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
+//    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    api("com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30") {
+        //group:表示只要包含com.android.support的都排除
+        exclude group: 'com.android.support'
+    }
 
     //仿58同城加载动画
     implementation 'com.github.404NotFuond:ShapeLoading:1.0.0'
@@ -119,11 +132,26 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
     //底部导航栏
-    implementation 'com.roughike:bottom-bar:2.3.1'
+
+    //    implementation 'com.roughike:bottom-bar:2.3.1'
 
     //描边图片
     implementation 'com.jaredrummler:animated-svg-view:1.0.5'
 
     //Android6.0及以上权限管理  注意，easypermissions取决于Android支持库27.1.0所以你需要compilesdkversion 27或更高。这种变化应该是安全的compilesdkversion不会改变应用程序的行为。
 //    implementation 'pub.devrel:easypermissions:1.2.0'
+
+    api("pub.devrel:easypermissions:1.2.0") {
+        //group:表示只要包含com.android.support的都排除
+        exclude group: 'com.android.support'
+    }
+
+
+    //友盟统计
+    implementation 'com.umeng.sdk:common:latest.integration'
+    implementation 'com.umeng.sdk:analytics:latest.integration'
+
+
+    //美团多渠道打包
+    implementation 'com.meituan.android.walle:library:1.1.6'
 }

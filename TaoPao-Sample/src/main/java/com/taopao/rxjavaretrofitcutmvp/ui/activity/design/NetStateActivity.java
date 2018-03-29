@@ -12,26 +12,6 @@ import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
 import com.taopao.rxjavaretrofitcutmvp.utils.NetUtils;
 
 /**
- * ━━━━━━神兽出没━━━━━━
- * 　　　┏┓　　　┏┓
- * 　　┏┛┻━━━┛┻┓
- * 　　┃　　　　　　　┃
- * 　　┃　　　━　　　┃
- * 　　┃　┳┛　┗┳　┃
- * 　　┃　　　　　　　┃
- * 　　┃　　　┻　　　┃
- * 　　┃　　　　　　　┃
- * 　　┗━┓　　　┏━┛
- * 　　　　┃　　　┃  神兽保佑
- * 　　　　┃　　　┃  代码无bug
- * 　　　　┃　　　┗━━━┓
- * 　　　　┃　　　　     ┣┓
- * 　　　　┃　　　　　　　┏┛
- * 　　　　┗┓┓┏━┳┓┏┛
- * 　　　　　┃┫┫　┃┫┫
- * 　　　　　┗┻┛　┗┻┛
- * ━━━━━━感觉萌萌哒━━━━━━
- *
  * @Author: 淘跑
  * @Data: 2018/2/6 13:46
  * @Use: 接受网络变化执行相关逻辑
@@ -54,17 +34,14 @@ public class NetStateActivity extends BaseActivity {
             }
         });
     }
-
     @Override
     public BasePresenter createPresenter() {
         return null;
     }
-
     @Override
     public BaseView createView() {
         return null;
     }
-
     @Override
     public void onNetChanged(int netWorkState) {
         switch (netWorkState) {

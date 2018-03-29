@@ -8,10 +8,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
 import android.util.Log;
-import com.xiaomi.channel.commonutils.logger.LoggerInterface;
-import com.xiaomi.mipush.sdk.Logger;
-import com.xiaomi.mipush.sdk.MiPushClient;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * @Author: 淘跑
@@ -49,31 +47,31 @@ public static final String APP_ID = "2882303761517745922";
 
         //==================================小米推送======================================
 
-        // 注册push服务，注册成功后会向DemoMessageReceiver发送广播
-        // 可以从DemoMessageReceiver的onCommandResult方法中MiPushCommandMessage对象参数中获取注册信息
-        if (shouldInit()) {
-            MiPushClient.registerPush(this, APP_ID, APP_KEY);
-        }
-
-        //打开Logcat调试日志
-        LoggerInterface newLogger = new LoggerInterface() {
-
-            @Override
-            public void setTag(String tag) {
-                // ignore
-            }
-
-            @Override
-            public void log(String content, Throwable t) {
-                Log.d(TAG, content, t);
-            }
-
-            @Override
-            public void log(String content) {
-                Log.d(TAG, content);
-            }
-        };
-        Logger.setLogger(this, newLogger);
+//        // 注册push服务，注册成功后会向DemoMessageReceiver发送广播
+//        // 可以从DemoMessageReceiver的onCommandResult方法中MiPushCommandMessage对象参数中获取注册信息
+//        if (shouldInit()) {
+//            MiPushClient.registerPush(this, APP_ID, APP_KEY);
+//        }
+//
+//        //打开Logcat调试日志
+//        LoggerInterface newLogger = new LoggerInterface() {
+//
+//            @Override
+//            public void setTag(String tag) {
+//                // ignore
+//            }
+//
+//            @Override
+//            public void log(String content, Throwable t) {
+//                Log.d(TAG, content, t);
+//            }
+//
+//            @Override
+//            public void log(String content) {
+//                Log.d(TAG, content);
+//            }
+//        };
+//        Logger.setLogger(this, newLogger);
 
         //==================================小米推送======================================
 
