@@ -21,7 +21,7 @@ public class StringUtilsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 //        FileUtils.createDirs(AppConfig.fileRoot+ File.separator+"666");
-
+        //得到渠道信息
         String channel = WalleChannelReader.getChannel(this.getApplicationContext());
         mTvChannel.setText(channel);
     }
