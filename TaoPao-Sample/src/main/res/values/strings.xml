@@ -21,8 +21,6 @@
     </string-array>
 
 
-
-
     <!--主页底部导航栏-->
     <string name="tab_net">网络相关</string>
     <string name="tab_ui">UI</string>

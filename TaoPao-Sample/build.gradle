@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+//瓦力 美团多渠道打包
 apply plugin: 'walle'
 android {
     compileSdkVersion 27
@@ -56,7 +57,6 @@ android {
 
 }
 
-
 //allprojects {
 //    gradle.projectsEvaluated {
 //        tasks.withType(JavaCompile) {
@@ -80,7 +80,6 @@ dependencies {
 
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-
 
     //Material Design
 
@@ -146,11 +145,13 @@ dependencies {
         exclude group: 'com.android.support'
     }
 
+    //下拉刷新
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-3'//没有使用特殊Header，可以不加这行
 
     //友盟统计
     implementation 'com.umeng.sdk:common:latest.integration'
     implementation 'com.umeng.sdk:analytics:latest.integration'
-
 
     //美团多渠道打包
     implementation 'com.meituan.android.walle:library:1.1.6'
