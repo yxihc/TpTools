@@ -24,6 +24,7 @@ import com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.GlideActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.RandomTextActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.WebViewActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.recyclerview.RvBaseAdapterActivity;
+import com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.refresh.JDRefreshActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.refresh.MeiTuanRefreshActivity;
 
 import java.util.ArrayList;
@@ -45,9 +46,9 @@ import butterknife.Unbinder;
  */
 
 public class UiFragment extends Fragment implements BaseQuickAdapter.OnItemClickListener {
-    private final int[] picResId = new int[]{R.mipmap.p5, R.mipmap.p33, R.mipmap.p33,R.mipmap.p6, R.mipmap.p7,R.mipmap.p8,R.mipmap.p12,R.mipmap.p12};
+    private final int[] picResId = new int[]{R.mipmap.p5,R.mipmap.p5, R.mipmap.p33, R.mipmap.p33,R.mipmap.p6, R.mipmap.p7,R.mipmap.p8,R.mipmap.p12,R.mipmap.p12};
     private final String[] mTitles = new String[]{"随机显示TextView", "Dialog",
-            "仿微信朋友圈下拉刷新","仿微信带进度条网页","RecyclerView拖动","Glide使用","BaseRecyclerViewAdapterHelper", "仿美团下拉刷新"};
+            "仿微信朋友圈下拉刷新","仿微信带进度条网页","RecyclerView拖动","Glide使用","BaseRecyclerViewAdapterHelper", "仿美团下拉刷新", "仿京东到家下拉刷新"};
 
     @BindView(R.id.rv_ui)
     RecyclerView mRvUi;
@@ -147,6 +148,9 @@ public class UiFragment extends Fragment implements BaseQuickAdapter.OnItemClick
                 break;
             case 7:
                 startActivity(new Intent(getActivity(), MeiTuanRefreshActivity.class));
+                break;
+            case 8:
+                startActivity(new Intent(getActivity(), JDRefreshActivity.class));
                 break;
         }
     }

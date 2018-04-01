@@ -170,7 +170,8 @@
             </intent-filter>
         </receiver>
         <!-- ==================================小米推送====================================== -->
-        <activity android:name=".ui.activity.customview.refresh.MeiTuanRefreshActivity"></activity>
+        <activity android:name=".ui.activity.customview.refresh.MeiTuanRefreshActivity" />
+        <activity android:name=".ui.activity.customview.refresh.JDRefreshActivity"></activity>
     </application>
 
 </manifest>
