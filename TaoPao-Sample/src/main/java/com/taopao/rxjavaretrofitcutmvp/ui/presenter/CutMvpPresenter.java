@@ -24,11 +24,11 @@ import io.reactivex.schedulers.Schedulers;
  * @Use:
  */
 
-public class CutMvpPresenter extends BasePresenter<CutMvpView> {
+public class CutMvpPresenter extends BasePresenter<CutMvpView> implements ICutMvpPresenter{
     public CutMvpPresenter(Context context) {
         super(context);
     }
-
+    @Override
     public void getBanner(String loaction) {
         UIUtils.showWaitingDialog(mContext, "请骚等...");
         ApiRetrofit.getInstance()
@@ -51,9 +51,8 @@ public class CutMvpPresenter extends BasePresenter<CutMvpView> {
                     }
                 });
     }
-
+    @Override
     public void getImgList(String url) {
-
         UIUtils.showWaitingDialog(mContext, "请骚等...");
         ApiRetrofit.getInstance()
                 .getImgList(url)
@@ -72,4 +71,5 @@ public class CutMvpPresenter extends BasePresenter<CutMvpView> {
                     }
                 });
     }
+
 }
