@@ -19,28 +19,24 @@ import com.scwang.smartrefresh.layout.constant.RefreshState;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.taopao.rxjavaretrofitcutmvp.R;
 
+
 /**
- * SmartRefreshLayout 的自定义下拉刷新 Header
+ * @Author：淘跑
+ * @Date: 2018/4/1 09:35
+ * @Use： SmartRefreshLayout 的自定义下拉刷新 Header
+ * @
+ * @-------------------修改记录-------------------@
+ * @
+ * @Modifier: 修改者  v1
+ * @Data: 修改时间
+ * @Version: 修改次数
+ * @EditContent: 修改内容
  */
 
 public class MyRefreshHeader extends LinearLayout implements RefreshHeader {
-
-    private Handler mHandler=new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            mCurTranslationX = mImage.getTranslationX();
-            Animation translateAnimation = new TranslateAnimation(mCurTranslationX,1000,0,0);
-            translateAnimation.setDuration(500);
-            mImage.startAnimation(translateAnimation);
-        }
-    };
-
     private ImageView mImage;
-    private AnimationDrawable pullDownAnim;
     private AnimationDrawable refreshingAnim;
-    private boolean hasSetPullDownAnim = false;
     private float mCurTranslationX;
-
     public MyRefreshHeader(Context context) {
         this(context, null, 0);
     }
@@ -85,18 +81,17 @@ public class MyRefreshHeader extends LinearLayout implements RefreshHeader {
                 mImage.setImageResource(R.drawable.pull_to_refresh_people_0);
                 break;
             case Refreshing: //正在刷新。只调用一次
-                //状态切换为正在刷新状态时，设置图片资源为小人卖萌的动画并开始执行
+                //状态切换为正在刷新状态时，设置图片资源为小车的动画并开始执行
                 mImage.setImageResource(R.drawable.anim_mypull_refreshing);
                 refreshingAnim = (AnimationDrawable) mImage.getDrawable();
                 refreshingAnim.start();
-                //小车移动动画延时播放
-                mHandler.sendEmptyMessageDelayed(10,900);
                 break;
-            case ReleaseToRefresh:
-
-                break;
-            case RefreshFinish:
-                mHandler.removeMessages(10);
+            case RefreshFinish://刷新结束
+                //刷新结束时调用该动画
+                mCurTranslationX = mImage.getTranslationX();
+                Animation translateAnimation = new TranslateAnimation(mCurTranslationX,1000,0,0);
+                translateAnimation.setDuration(500);
+                mImage.startAnimation(translateAnimation);
                 break;
         }
     }
@@ -107,19 +102,11 @@ public class MyRefreshHeader extends LinearLayout implements RefreshHeader {
     @Override
     public int onFinish(RefreshLayout layout, boolean success) {
         // 结束动画
-        if (pullDownAnim != null && pullDownAnim.isRunning()) {
-            pullDownAnim.stop();
-        }
         if (refreshingAnim != null && refreshingAnim.isRunning()) {
             refreshingAnim.stop();
         }
-        //重置状态
-        hasSetPullDownAnim = false;
-
-        return 0;
+        return 400;//延时400毫秒关闭下拉刷新
     }
-
-
 
 
     @Override
@@ -142,23 +129,6 @@ public class MyRefreshHeader extends LinearLayout implements RefreshHeader {
         if (percent < 1) {
             mImage.setScaleX(percent);
             mImage.setScaleY(percent);
-
-            //是否执行过翻跟头动画的标记
-            if (hasSetPullDownAnim) {
-                hasSetPullDownAnim = false;
-            }
-        }
-
-        //当下拉的高度达到Header高度100%时
-        if (percent >= 1.0) {
-            //因为这个方法是不停调用的，防止重复
-            if (!hasSetPullDownAnim) {
-//                mImage.setImageResource(R.drawable.anim_pull_end);
-//                pullDownAnim = (AnimationDrawable) mImage.getDrawable();
-//                pullDownAnim.start();
-
-                hasSetPullDownAnim = true;
-            }
         }
     }
 

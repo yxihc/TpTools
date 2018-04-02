@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 
+import com.jaeger.library.StatusBarUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
@@ -19,7 +20,7 @@ import butterknife.ButterKnife;
 
 public class JDRefreshActivity extends AppCompatActivity {
 
-    private Handler mHandler=new Handler() {
+    private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             mSmartMian.finishRefresh();
@@ -28,7 +29,6 @@ public class JDRefreshActivity extends AppCompatActivity {
 
     @BindView(R.id.smart_mian)
     SmartRefreshLayout mSmartMian;
-    private MyRefreshHeader mRf_head;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class JDRefreshActivity extends AppCompatActivity {
         mSmartMian.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                mHandler.sendEmptyMessageDelayed(10,1300);
+                mHandler.sendEmptyMessageDelayed(10, 1300);
             }
         });
     }
