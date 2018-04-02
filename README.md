@@ -1,5 +1,11 @@
 # RxJava-Retrofit-CutMvp
 RxJava+Retrofit+CutMvp框架实践
+
+交流群 [531563207](https://jq.qq.com/?_wv=1027&k=5Kp70bU)
+
+[我的简书](https://www.jianshu.com/u/d2dc80a96f19)
+
+
 # 带进度条下载
 ~~~
 apkUrl="http://openbox.mobilem.360.cn/index/d/sid/3647654";
