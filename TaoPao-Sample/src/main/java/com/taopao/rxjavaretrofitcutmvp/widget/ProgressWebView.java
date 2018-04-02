@@ -6,29 +6,7 @@ import android.util.AttributeSet;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
 import com.taopao.rxjavaretrofitcutmvp.R;
-
-
 /**
- * ━━━━━━神兽出没━━━━━━
- * 　　　┏┓　　　┏┓
- * 　　┏┛┻━━━┛┻┓
- * 　　┃　　　　　　　┃
- * 　　┃　　　━　　　┃
- * 　　┃　┳┛　┗┳　┃
- * 　　┃　　　　　　　┃
- * 　　┃　　　┻　　　┃
- * 　　┃　　　　　　　┃
- * 　　┗━┓　　　┏━┛
- * 　　　　┃　　　┃  神兽保佑
- * 　　　　┃　　　┃  代码无bug
- * 　　　　┃　　　┗━━━┓
- * 　　　　┃　　　　     ┣┓
- * 　　　　┃　　　　　　　┏┛
- * 　　　　┗┓┓┏━┳┓┏┛
- * 　　　　　┃┫┫　┃┫┫
- * 　　　　　┗┻┛　┗┻┛
- * ━━━━━━感觉萌萌哒━━━━━━
- *
  * @Author: 淘跑
  * @Data: 2018/1/27 15:32
  * @Use:  仿微信 带进度条的WebView

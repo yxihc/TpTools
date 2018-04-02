@@ -12,13 +12,14 @@ import android.widget.TextView;
 
 import com.taopao.rxjavaretrofitcutmvp.R;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
+import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseMvpActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
 import com.taopao.rxjavaretrofitcutmvp.utils.SnackbarUtils;
 import com.taopao.rxjavaretrofitcutmvp.utils.UIUtils;
 import com.taopao.shapeloading.ShapeLoadingDialog;
 
-public class DialogActivity extends BaseActivity {
+public class DialogActivity extends BaseMvpActivity {
 
     private RecyclerView mRv_context;
 

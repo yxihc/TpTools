@@ -1,7 +1,10 @@
 package com.taopao.rxjavaretrofitcutmvp.ui.activity.customview;
 
 import android.animation.ObjectAnimator;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import com.bumptech.glide.Glide;
@@ -10,6 +13,11 @@ import com.bumptech.glide.load.resource.gif.GifDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.taopao.rxjavaretrofitcutmvp.R;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class GlideActivity extends AppCompatActivity {
 
@@ -23,6 +31,8 @@ public class GlideActivity extends AppCompatActivity {
     private ImageView iv_8;
     private ImageView iv_9;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +40,38 @@ public class GlideActivity extends AppCompatActivity {
         initView();
 
         initImage();
+
+        addWatermark();
+    }
+
+    /**
+     * 给图片加水印
+     */
+    private void addWatermark() {
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    URL url = new URL("http://img5.imgtn.bdimg.com/it/u=263117812,2521637551&fm=27&gp=0.jpg");
+//                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+//                    connection.connect();
+//                    InputStream inputStream = connection.getInputStream();
+//                    // 通过流解析到 Bitmap
+//                    Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+//                    inputStream.close();
+//                    // 给图片 Bitmap 加水印
+//                    bitmap = BitmapUtils.drawText2Bitmap(bitmap,"RxJava");
+//                    // 通过 Handler 发送消息切换到主线程
+//                    Message message = Message.obtain();
+//                    message.obj = bitmap;
+//                    mHandler.sendMessage(message);
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        }).start();
+
     }
 
     private void initImage() {

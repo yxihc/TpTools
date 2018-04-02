@@ -24,11 +24,10 @@ import me.drakeet.materialdialog.MaterialDialog;
  * @Use:  activity基类
  */
 
-public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseView> extends AppCompatActivity implements INetEvent {
+public abstract class BaseActivity extends AppCompatActivity implements INetEvent {
     // 管理运行的所有的activity
     public final static List<AppCompatActivity> mActivities = new LinkedList<AppCompatActivity>();
     private CompositeDisposable mCompositeDisposable;
-    public P mPresenter;
     private Toolbar mToolbar;
     public static INetEvent mINetEvent;
     @Override
@@ -38,43 +37,18 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
         //初始化网络状态的监听
         mINetEvent=this;
         //初始化toolbar
-        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        mToolbar = (Toolbar)findViewById(R.id.toolbar_base);
         initStatusBar();
         initToolBar();
     }
-
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        //判断是否非空 以防子类并没有使用此架构
-        if(mPresenter!=null) {
-            mPresenter.detachView();
-        }
-
-        //取消订阅者
-        if (mCompositeDisposable != null) {
-            //取消订阅
-            mCompositeDisposable.dispose();
-            mCompositeDisposable.clear();
-            mCompositeDisposable = null;
-        }
-    }
-
 
     /**
      * 初始化presenter和view
      */
     private void init() {
-        mPresenter = createPresenter();
-        //判断是否非空 以防子类并没有使用此架构
-        if(mPresenter!=null) {
-            mPresenter.attachView(createView());
-        }
         synchronized (mActivities) {
             mActivities.add(this);
         }
-
 
     }
 
@@ -86,20 +60,6 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
 
     public void setToolBar(){}
 
-    public P getPresenter() {
-        return mPresenter;
-    }
-
-    /**
-     * 用于创建Presenter(由子类实现)
-     * @return Presenter
-     */
-    public abstract P createPresenter();
-
-    /**用于创建view(由子类实现)
-     * @return view
-     */
-    public abstract V createView();
 
 
     /**
@@ -216,9 +176,8 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
      * @return Toolbar的实例
      */
     public Toolbar getToolBar(){
-        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        mToolbar = (Toolbar)findViewById(R.id.toolbar_base);
         return mToolbar;
     }
-
 
 }

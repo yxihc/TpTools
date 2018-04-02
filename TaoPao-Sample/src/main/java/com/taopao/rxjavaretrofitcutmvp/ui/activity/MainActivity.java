@@ -42,7 +42,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     private final int[] TAB_IMGS = new int[]{R.drawable.tab_net_selector, R.drawable.tab_ui_selector, R.drawable.tab_md_selector, R.drawable.tab_utils_selector};
     @BindView(R.id.vp_home)
     ViewPager mVpHome;
-    @BindView(R.id.toolbar_title)
+    @BindView(R.id.toolbar_base_title)
     TextView mToolbarTitle;
     @BindView(R.id.radio_group)
     RadioGroup mRadioGroup;
@@ -82,6 +82,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         });
         mRadioGroup.setOnCheckedChangeListener(this);
         mVpHome.setOnPageChangeListener(this);
+        mToolbarTitle.setText(R.string.tab_net);
     }
 
     private void getPermission() {
@@ -93,16 +94,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                         .setNegativeButtonText("申请SD卡读取权限")
                         .build()
         );
-    }
-
-    @Override
-    public BasePresenter createPresenter() {
-        return null;
-    }
-
-    @Override
-    public BaseView createView() {
-        return null;
     }
 
     @Override
@@ -125,19 +116,19 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         switch (i) {
             case R.id.rb_net:
                 mVpHome.setCurrentItem(0);
-                getToolBar().setTitle(R.string.tab_net);
+                mToolbarTitle.setText(R.string.tab_net);
                 break;
             case R.id.rb_ui:
                 mVpHome.setCurrentItem(1);
-                getToolBar().setTitle(R.string.tab_ui);
+                mToolbarTitle.setText(R.string.tab_ui);
                 break;
             case R.id.rb_md:
                 mVpHome.setCurrentItem(2);
-                getToolBar().setTitle(R.string.tab_md);
+                mToolbarTitle.setText(R.string.tab_md);
                 break;
             case R.id.rb_utils:
                 mVpHome.setCurrentItem(3);
-                getToolBar().setTitle(R.string.tab_utils);
+                mToolbarTitle.setText(R.string.tab_utils);
                 break;
         }
     }

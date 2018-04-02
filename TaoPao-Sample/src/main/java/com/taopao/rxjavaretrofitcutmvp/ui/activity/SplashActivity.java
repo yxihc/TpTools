@@ -12,6 +12,7 @@ import com.taopao.rxjavaretrofitcutmvp.R;
 import com.taopao.rxjavaretrofitcutmvp.model.ModelSVG;
 import com.taopao.rxjavaretrofitcutmvp.model.response.ImgListInfo;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
+import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseMvpActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.presenter.SplashPresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.view.SplashView;
 
@@ -20,7 +21,7 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SplashActivity extends BaseActivity<SplashPresenter, SplashView> implements SplashView {
+public class SplashActivity extends BaseMvpActivity<SplashPresenter, SplashView> implements SplashView {
 
     public final static int JUMP_TO_ACTIVITY = 10;
     @BindView(R.id.iv_bg)

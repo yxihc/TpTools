@@ -7,26 +7,6 @@ import com.taopao.rxjavaretrofitcutmvp.utils.UIUtils;
 import io.reactivex.Observer;
 
 /**
- * ━━━━━━神兽出没━━━━━━
- * 　　　┏┓　　　┏┓
- * 　　┏┛┻━━━┛┻┓
- * 　　┃　　　　　　　┃
- * 　　┃　　　━　　　┃
- * 　　┃　┳┛　┗┳　┃
- * 　　┃　　　　　　　┃
- * 　　┃　　　┻　　　┃
- * 　　┃　　　　　　　┃
- * 　　┗━┓　　　┏━┛
- * 　　　　┃　　　┃  神兽保佑
- * 　　　　┃　　　┃  代码无bug
- * 　　　　┃　　　┗━━━┓
- * 　　　　┃　　　　     ┣┓
- * 　　　　┃　　　　　　　┏┛
- * 　　　　┗┓┓┏━┳┓┏┛
- * 　　　　　┃┫┫　┃┫┫
- * 　　　　　┗┻┛　┗┻┛
- * ━━━━━━感觉萌萌哒━━━━━━
- *
  * @Author: 淘跑
  * @Data: 2018/1/28 21:32
  * @Use:  自定义Observer

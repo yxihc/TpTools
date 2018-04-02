@@ -49,6 +49,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!--程序入口-->
         <activity
             android:name=".ui.activity.SplashActivity"
             android:theme="@style/ThemeSplash">
@@ -58,6 +59,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".ui.activity.net.CutMvpActivity" />
         <activity android:name=".ui.activity.customview.WebViewActivity" />
         <activity android:name=".ui.activity.customview.FrActivity" />
@@ -170,7 +172,11 @@
             </intent-filter>
         </receiver>
         <!-- ==================================小米推送====================================== -->
+
+
+        <!--仿美团下拉刷新-->
         <activity android:name=".ui.activity.customview.refresh.MeiTuanRefreshActivity" />
+        <!--仿京东到家下拉刷新-->
         <activity android:name=".ui.activity.customview.refresh.JDRefreshActivity"></activity>
     </application>
 

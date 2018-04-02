@@ -35,16 +35,6 @@ public class WebViewActivity extends BaseActivity {
     }
 
     @Override
-    public BasePresenter createPresenter() {
-        return null;
-    }
-
-    @Override
-    public BaseView createView() {
-        return null;
-    }
-
-    @Override
     public void onNetChanged(int netState) {
 
     }

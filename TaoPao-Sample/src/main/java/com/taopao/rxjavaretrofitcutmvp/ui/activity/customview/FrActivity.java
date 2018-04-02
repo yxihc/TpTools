@@ -7,37 +7,18 @@ import android.widget.ListView;
 
 import com.taopao.rxjavaretrofitcutmvp.R;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
+import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseMvpActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
 import com.taopao.rxjavaretrofitcutmvp.widget.FriendRefreshView;
 
 /**
- * ━━━━━━神兽出没━━━━━━
- * 　　　┏┓　　　┏┓
- * 　　┏┛┻━━━┛┻┓
- * 　　┃　　　　　　　┃
- * 　　┃　　　━　　　┃
- * 　　┃　┳┛　┗┳　┃
- * 　　┃　　　　　　　┃
- * 　　┃　　　┻　　　┃
- * 　　┃　　　　　　　┃
- * 　　┗━┓　　　┏━┛
- * 　　　　┃　　　┃  神兽保佑
- * 　　　　┃　　　┃  代码无bug
- * 　　　　┃　　　┗━━━┓
- * 　　　　┃　　　　     ┣┓
- * 　　　　┃　　　　　　　┏┛
- * 　　　　┗┓┓┏━┳┓┏┛
- * 　　　　　┃┫┫　┃┫┫
- * 　　　　　┗┻┛　┗┻┛
- * ━━━━━━感觉萌萌哒━━━━━━
- *
  * @Author: 淘跑
  * @Data: 2018/1/30 08:46
  * @Use: 仿微信朋友圈下拉刷新
  */
 
-public class FrActivity extends BaseActivity implements FriendRefreshView.OnRefreshListener {
+public class FrActivity extends BaseMvpActivity implements FriendRefreshView.OnRefreshListener {
     private ListView lv;
     private FriendRefreshView frv;
     private String citys[] = new String[]{

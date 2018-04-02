@@ -10,26 +10,6 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Source;
 /**
- * ━━━━━━神兽出没━━━━━━
- * 　　　┏┓　　　┏┓
- * 　　┏┛┻━━━┛┻┓
- * 　　┃　　　　　　　┃
- * 　　┃　　　━　　　┃
- * 　　┃　┳┛　┗┳　┃
- * 　　┃　　　　　　　┃
- * 　　┃　　　┻　　　┃
- * 　　┃　　　　　　　┃
- * 　　┗━┓　　　┏━┛
- * 　　　　┃　　　┃  神兽保佑
- * 　　　　┃　　　┃  代码无bug
- * 　　　　┃　　　┗━━━┓
- * 　　　　┃　　　　     ┣┓
- * 　　　　┃　　　　　　　┏┛
- * 　　　　┗┓┓┏━┳┓┏┛
- * 　　　　　┃┫┫　┃┫┫
- * 　　　　　┗┻┛　┗┻┛
- * ━━━━━━感觉萌萌哒━━━━━━
- *
  * @Author: 淘跑
  * @Data: 2018/2/2 13:57
  * @Use:  ResponseBody for download

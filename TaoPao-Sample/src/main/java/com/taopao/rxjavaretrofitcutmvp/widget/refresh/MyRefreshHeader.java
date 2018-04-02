@@ -120,7 +120,7 @@ public class MyRefreshHeader extends LinearLayout implements RefreshHeader {
     }
 
     /**
-     * 下拉过程中不断调用此方法。第一阶段从小变大的小人头动画，和第二阶段翻跟头动画都在这里设置
+     * 下拉过程中不断调用此方法。从小变大的小车
      */
 
     @Override

@@ -9,26 +9,6 @@ import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
 import com.taopao.rxjavaretrofitcutmvp.utils.NetUtils;
 
 /**
- * ━━━━━━神兽出没━━━━━━
- * 　　　┏┓　　　┏┓
- * 　　┏┛┻━━━┛┻┓
- * 　　┃　　　　　　　┃
- * 　　┃　　　━　　　┃
- * 　　┃　┳┛　┗┳　┃
- * 　　┃　　　　　　　┃
- * 　　┃　　　┻　　　┃
- * 　　┃　　　　　　　┃
- * 　　┗━┓　　　┏━┛
- * 　　　　┃　　　┃  神兽保佑
- * 　　　　┃　　　┃  代码无bug
- * 　　　　┃　　　┗━━━┓
- * 　　　　┃　　　　     ┣┓
- * 　　　　┃　　　　　　　┏┛
- * 　　　　┗┓┓┏━┳┓┏┛
- * 　　　　　┃┫┫　┃┫┫
- * 　　　　　┗┻┛　┗┻┛
- * ━━━━━━感觉萌萌哒━━━━━━
- *
  * @Author: 淘跑
  * @Data: 2018/1/5 16:05
  * @Use: 监听网络状态的广播

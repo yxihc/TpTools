@@ -35,14 +35,6 @@ public class NetStateActivity extends BaseActivity {
         });
     }
     @Override
-    public BasePresenter createPresenter() {
-        return null;
-    }
-    @Override
-    public BaseView createView() {
-        return null;
-    }
-    @Override
     public void onNetChanged(int netWorkState) {
         switch (netWorkState) {
             case  NetUtils.NETWORK_NONE:

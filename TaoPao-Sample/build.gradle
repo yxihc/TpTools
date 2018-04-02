@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
-//瓦力 美团多渠道打包
-apply plugin: 'walle'
+apply plugin: 'walle'//瓦力 美团多渠道打包
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -31,8 +30,8 @@ android {
             signingConfig signingConfigs.release
         }
         release {
-            // 不显示Log
-            buildConfigField "boolean", "LOG_DEBUG", "false"
+
+            buildConfigField "boolean", "LOG_DEBUG", "false" // 不显示Log
             minifyEnabled true          // 开启混淆
             shrinkResources true        // 移除无用资源
             zipAlignEnabled true        // 开启压缩

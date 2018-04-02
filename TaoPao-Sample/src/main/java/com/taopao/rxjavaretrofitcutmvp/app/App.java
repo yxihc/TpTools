@@ -27,6 +27,13 @@ import java.util.logging.Logger;
  * @Author: 淘跑
  * @Data: 2018/1/29 21:16
  * @Use:
+ * @
+ * @-------------------修改记录-------------------@
+ * @
+ * @Modifier: 修改者
+ * @Data: 修改时间
+ * @Version: 修改次数 v1
+ * @EditContent: 修改内容
  */
 public class App extends Application {
 

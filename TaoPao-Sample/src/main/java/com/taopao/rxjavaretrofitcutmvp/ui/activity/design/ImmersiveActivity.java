@@ -18,11 +18,12 @@ import com.jaeger.library.StatusBarUtil;
 import com.taopao.rxjavaretrofitcutmvp.R;
 import com.taopao.rxjavaretrofitcutmvp.ui.activity.customview.SwipeBackActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
+import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseMvpActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
 import java.util.Random;
 
-public class ImmersiveActivity extends BaseActivity {
+public class ImmersiveActivity extends BaseMvpActivity {
 
     private CheckBox chb_translucent;
     private Toolbar toolbar;

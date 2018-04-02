@@ -17,6 +17,7 @@ import com.taopao.rxjavaretrofitcutmvp.model.base.BaseResult;
 import com.taopao.rxjavaretrofitcutmvp.model.response.UpLoadResult;
 import com.taopao.rxjavaretrofitcutmvp.rx.RxTransformer;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
+import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseMvpActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.presenter.DownLoadFilePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.view.DownLoadFileView;
 import com.taopao.rxjavaretrofitcutmvp.utils.StringUtils;
@@ -45,7 +46,7 @@ import retrofit2.Retrofit;
  * @Use:
  */
 
-public class DownLoadFileActivity extends BaseActivity<DownLoadFilePresenter, DownLoadFileView> implements DownLoadFileView {
+public class DownLoadFileActivity extends BaseMvpActivity<DownLoadFilePresenter, DownLoadFileView> implements DownLoadFileView {
 
     private SeekBar cb;
     private SeekBar cb1;

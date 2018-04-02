@@ -12,10 +12,11 @@ import android.widget.TextView;
 
 import com.taopao.rxjavaretrofitcutmvp.R;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
+import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseMvpActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
 
-public class RvBaseAdapterActivity extends BaseActivity {
+public class RvBaseAdapterActivity extends BaseMvpActivity {
 
     private RecyclerView mRv_context;
 

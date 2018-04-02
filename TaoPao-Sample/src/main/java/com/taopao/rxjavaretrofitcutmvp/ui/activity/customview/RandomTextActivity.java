@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.jaeger.library.StatusBarUtil;
 import com.taopao.rxjavaretrofitcutmvp.R;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
+import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseMvpActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
 import com.taopao.rxjavaretrofitcutmvp.utils.NetUtils;
@@ -21,7 +22,7 @@ import com.taopao.rxjavaretrofitcutmvp.widget.randomtext.StellarMap;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class RandomTextActivity extends BaseActivity {
+public class RandomTextActivity extends BaseMvpActivity {
     private FrameLayout fl_root;
     private ArrayList<String> data;
     @Override
