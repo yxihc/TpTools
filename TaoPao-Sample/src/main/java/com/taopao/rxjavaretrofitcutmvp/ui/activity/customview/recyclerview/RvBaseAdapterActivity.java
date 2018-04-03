@@ -32,6 +32,21 @@ public class RvBaseAdapterActivity extends BaseMvpActivity {
     }
 
     @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void setContentView() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
     public BasePresenter createPresenter() {
         return null;
     }

@@ -20,16 +20,22 @@ import com.taopao.rxjavaretrofitcutmvp.app.App;
 import com.taopao.rxjavaretrofitcutmvp.widget.CustomDialog;
 
 import java.lang.reflect.Field;
+
+import me.drakeet.materialdialog.MaterialDialog;
+
 /**
  * @Author: 淘跑
  * @Data: 2018/1/29 12:05
  * @Use: 和ui相关的工具类
  */
 public class UIUtils {
+
+    ////////////////////////////////Toast//////////////////////////////////////
     public static Toast mToast;
     public static void showToast(String msg) {
         showToast(msg, Toast.LENGTH_SHORT);
     }
+
     public static void showToast(String msg, int duration) {
         if (mToast == null) {
             mToast = Toast.makeText(getContext(), "", duration);
@@ -37,6 +43,7 @@ public class UIUtils {
         mToast.setText(msg);
         mToast.show();
     }
+
     /**
      * 用于在线程中执行弹土司操作
      */
@@ -53,9 +60,16 @@ public class UIUtils {
             }
         });
     }
+    ////////////////////////////////Toast//////////////////////////////////////
 
 
 
+    /**
+     * 得到屏幕宽度
+     *
+     * @param context
+     * @return
+     */
     public static int getWindowWidth(Context context) {
         // 获取屏幕分辨率
         WindowManager wm = (WindowManager) (context
@@ -66,6 +80,12 @@ public class UIUtils {
         return mScreenWidth;
     }
 
+    /**
+     * 得到屏幕高度
+     *
+     * @param context
+     * @return
+     */
     public static int getWindowHeigh(Context context) {
         // 获取屏幕分辨率
         WindowManager wm = (WindowManager) (context
@@ -76,7 +96,12 @@ public class UIUtils {
         return mScreenHeigh;
     }
 
-    //获得状态栏/通知栏的高度
+    /**
+     * 获得状态栏/通知栏的高度
+     *
+     * @param context
+     * @return
+     */
     public static int getStatusBarHeight(Context context) {
         Class<?> c = null;
         Object obj = null;
@@ -96,6 +121,9 @@ public class UIUtils {
 
     /**
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     *
+     * @param dpValue
+     * @return
      */
     public static int dip2px(float dpValue) {
         final float scale = getContext().getResources().getDisplayMetrics().density;
@@ -104,17 +132,25 @@ public class UIUtils {
 
     /**
      * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
+     *
+     * @param pxValue
+     * @return
      */
     public static int px2dip(float pxValue) {
         final float scale = getContext().getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
     }
+
     /**
      * sp-->px
+     *
+     * @param sp
+     * @return
      */
     public static int sp2px(int sp) {
         return (int) (TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, getResource().getDisplayMetrics()) + 0.5f);
     }
+
     /**
      * 设置某个View的margin
      *
@@ -158,6 +194,7 @@ public class UIUtils {
         view.requestLayout();
         return marginParams;
     }
+
     /**
      * 得到上下文
      *
@@ -276,8 +313,6 @@ public class UIUtils {
     }
 
 
-
-
 //    public static int getDisplayWidth() {
 //        if (screenWidth == 0) {
 //            GetInfo(UIUtils.getContext());
@@ -323,30 +358,13 @@ public class UIUtils {
 
 
 
-    /**
-     * 获取当前应用的版本号
-     */
-    public static String getVersionName() {
-        // 获取packagemanager的实例
-        PackageManager packageManager = getContext().getPackageManager();
-        // getPackageName()是你当前类的包名，0代表是获取版本信息
-        PackageInfo packInfo = null;
-        try {
-            packInfo = packageManager.getPackageInfo(getContext().getPackageName(), 0);
-            return packInfo.versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-            return "1.0";
-        }
-    }
-
-
-
-   private static CustomDialog  mDialogWaiting;
+    ///////////////////////////////////////Dialog///////////////////////////////////////////////
+    private static CustomDialog mDialogWaiting;
+    private MaterialDialog mMaterialDialog;
     /**
      * 显示等待提示框
      */
-    public static Dialog showWaitingDialog(Context context,String tip) {
+    public static Dialog showWaitingDialog(Context context, String tip) {
         hideWaitingDialog();
         View view = View.inflate(context, R.layout.dialog_waiting, null);
         if (!TextUtils.isEmpty(tip))
@@ -366,4 +384,35 @@ public class UIUtils {
             mDialogWaiting = null;
         }
     }
+    /**
+     * 显示MaterialDialog
+     */
+    public MaterialDialog showMaterialDialog(Context context, String title, String message, String positiveText, String negativeText, View.OnClickListener positiveButtonClickListener, View.OnClickListener negativeButtonClickListener) {
+        hideMaterialDialog();
+        mMaterialDialog = new MaterialDialog(context);
+        if (!TextUtils.isEmpty(title)) {
+            mMaterialDialog.setTitle(title);
+        }
+        if (!TextUtils.isEmpty(message)) {
+            mMaterialDialog.setMessage(message);
+        }
+        if (!TextUtils.isEmpty(positiveText)) {
+            mMaterialDialog.setPositiveButton(positiveText, positiveButtonClickListener);
+        }
+        if (!TextUtils.isEmpty(negativeText)) {
+            mMaterialDialog.setNegativeButton(negativeText, negativeButtonClickListener);
+        }
+        mMaterialDialog.show();
+        return mMaterialDialog;
+    }
+    /**
+     * 隐藏MaterialDialog
+     */
+    public void hideMaterialDialog() {
+        if (mMaterialDialog != null) {
+            mMaterialDialog.dismiss();
+            mMaterialDialog = null;
+        }
+    }
+    ///////////////////////////////////////Dialog///////////////////////////////////////////////
 }

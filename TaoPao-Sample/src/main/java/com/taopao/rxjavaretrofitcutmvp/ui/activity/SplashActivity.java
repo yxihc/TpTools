@@ -58,6 +58,16 @@ public class SplashActivity extends BaseMvpActivity<SplashPresenter, SplashView>
 
     }
 
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void setContentView() {
+
+    }
+
     private void setSvg(ModelSVG modelSvg) {
         mSvgView.setGlyphStrings(modelSvg.glyphs);
         mSvgView.setFillColors(modelSvg.colors);

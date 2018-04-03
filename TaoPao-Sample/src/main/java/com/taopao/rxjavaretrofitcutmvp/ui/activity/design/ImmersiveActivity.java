@@ -23,47 +23,31 @@ import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
 import java.util.Random;
 
-public class ImmersiveActivity extends BaseMvpActivity {
+public class ImmersiveActivity extends BaseActivity {
 
     private CheckBox chb_translucent;
     private Toolbar toolbar;
     private SeekBar sb_change_alpha;
     private int mColor=0;
     private ImageView mImageView;
-
+    private int mAlpha = StatusBarUtil.DEFAULT_STATUS_BAR_ALPHA;
+    int  mStatusBarColor = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_immersive);
-        mStatusBarColor = getResources().getColor(R.color.colorPrimary);
-
-        initView();
     }
 
     @Override
     public void setToolBar() {
-
-    }
-
-    @Override
-    public BasePresenter createPresenter() {
-        return null;
-    }
-
-    @Override
-    public BaseView createView() {
-        return null;
+        mStatusBarColor = getResources().getColor(R.color.colorPrimary);
     }
 
     @Override
     public void onNetChanged(int netState) {
 
     }
-
-    private int mAlpha = StatusBarUtil.DEFAULT_STATUS_BAR_ALPHA;
-    int  mStatusBarColor = 0;
-    private void initView() {
-
+    @Override
+    protected void initView() {
         mImageView = (ImageView) findViewById(R.id.imageView);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -114,9 +98,18 @@ public class ImmersiveActivity extends BaseMvpActivity {
         });
         sb_change_alpha.setProgress(StatusBarUtil.DEFAULT_STATUS_BAR_ALPHA);
 
+    }
 
+    @Override
+    protected void setContentView() {
+        setContentView(R.layout.activity_immersive);
+    }
+
+    @Override
+    protected void initData() {
 
     }
+
     public void changecolor(View view){
 
         Random random = new Random();
@@ -125,15 +118,10 @@ public class ImmersiveActivity extends BaseMvpActivity {
         StatusBarUtil.setColor(ImmersiveActivity.this, mStatusBarColor, mAlpha);
     }
     public void zc1(View view){
-
-
 		ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(this, mImageView, "iv");
         Intent intent = new Intent(this, ZC1Activity.class);
         startActivity(intent, optionsCompat.toBundle());
     }
-
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

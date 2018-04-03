@@ -37,19 +37,23 @@ public class CutMvpActivity extends BaseMvpActivity<CutMvpPresenter, CutMvpView>
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cutmvp);
-        initView();
-        initData();
     }
 
-    private void initView() {
+    @Override
+    protected void initView() {
         setToolBar();
         mTv_content = (TextView) findViewById(R.id.tv_content);
         mRv_context = (RecyclerView) findViewById(R.id.rv_context);
         mLayout = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         mRv_context.setLayoutManager(mLayout);
-
     }
+
+    @Override
+    protected void setContentView() {
+        setContentView(R.layout.activity_cutmvp);
+    }
+
+
     @Override
     public void initData() {
         mPresenter.getImgList(ContactsUrl.IMGLIST);

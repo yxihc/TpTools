@@ -30,6 +30,21 @@ public class WebViewActivity extends BaseActivity {
     }
 
     @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void setContentView() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
     public void setToolBar() {
         getToolBar().setNavigationIcon(null);
     }

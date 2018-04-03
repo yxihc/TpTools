@@ -38,26 +38,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 /**
- * ━━━━━━神兽出没━━━━━━
- * 　　　┏┓　　　┏┓
- * 　　┏┛┻━━━┛┻┓
- * 　　┃　　　　　　　┃
- * 　　┃　　　━　　　┃
- * 　　┃　┳┛　┗┳　┃
- * 　　┃　　　　　　　┃
- * 　　┃　　　┻　　　┃
- * 　　┃　　　　　　　┃
- * 　　┗━┓　　　┏━┛
- * 　　　　┃　　　┃  神兽保佑
- * 　　　　┃　　　┃  代码无bug
- * 　　　　┃　　　┗━━━┓
- * 　　　　┃　　　　     ┣┓
- * 　　　　┃　　　　　　　┏┛
- * 　　　　┗┓┓┏━┳┓┏┛
- * 　　　　　┃┫┫　┃┫┫
- * 　　　　　┗┻┛　┗┻┛
- * ━━━━━━感觉萌萌哒━━━━━━
- *
  * @Author: 淘跑
  * @Data: 2018/1/29 10:50
  * @Use: 系统工具类
@@ -66,71 +46,6 @@ public class SystemUtils {
 
     private static final String TAG = SystemUtils.class.getSimpleName();
 
-    /**
-     * 跳转到WIFI设置
-     *
-     * @param context
-     */
-    public static void intentWifiSetting(Context context) {
-        if (Build.VERSION.SDK_INT > 10) {
-            // 3.0以上打开设置界面，也可以直接用ACTION_WIRELESS_SETTINGS打开到wifi界面
-            context.startActivity(new Intent(Settings.ACTION_SETTINGS));
-        } else {
-            context.startActivity(new Intent(Settings.ACTION_WIRELESS_SETTINGS));
-        }
-    }
-
-    /**
-     * WIFI网络开关
-     */
-    public static void toggleWiFi(Context context, boolean enabled) {
-        WifiManager wm = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-        wm.setWifiEnabled(enabled);
-    }
-
-    /**
-     * 移动网络开关
-     */
-    public static void toggleMobileData(Context context, boolean enabled) {
-        ConnectivityManager conMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        Class<?> conMgrClass = null; // ConnectivityManager类
-        Field iConMgrField = null; // ConnectivityManager类中的字段
-        Object iConMgr = null; // IConnectivityManager类的引用
-        Class<?> iConMgrClass = null; // IConnectivityManager类
-        Method setMobileDataEnabledMethod = null; // setMobileDataEnabled方法
-        try {
-            // 取得ConnectivityManager类
-            conMgrClass = Class.forName(conMgr.getClass().getName());
-            // 取得ConnectivityManager类中的对象mService
-            iConMgrField = conMgrClass.getDeclaredField("mService");
-            // 设置mService可访问
-            iConMgrField.setAccessible(true);
-            // 取得mService的实例化类IConnectivityManager
-            iConMgr = iConMgrField.get(conMgr);
-            // 取得IConnectivityManager类
-            iConMgrClass = Class.forName(iConMgr.getClass().getName());
-            // 取得IConnectivityManager类中的setMobileDataEnabled(boolean)方法
-            setMobileDataEnabledMethod = iConMgrClass.getDeclaredMethod("setMobileDataEnabled", Boolean.TYPE);
-            // 设置setMobileDataEnabled方法可访问
-            setMobileDataEnabledMethod.setAccessible(true);
-            // 调用setMobileDataEnabled方法
-            setMobileDataEnabledMethod.invoke(iConMgr, enabled);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        } catch (SecurityException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-    }
 
     /**
      * GPS开关 当前若关则打，当前若开则关
@@ -218,28 +133,7 @@ public class SystemUtils {
         context.startActivity(intent);
     }
 
-    /**
-     * 获取文件夹下所以的文件
-     *
-     * @param path
-     * @return
-     */
-    public static ArrayList<File> getFilesArray(String path) {
-        File file = new File(path);
-        File files[] = file.listFiles();
-        ArrayList<File> listFile = new ArrayList<File>();
-        if (files != null) {
-            for (int i = 0; i < files.length; i++) {
-                if (files[i].isFile()) {
-                    listFile.add(files[i]);
-                }
-                if (files[i].isDirectory()) {
-                    listFile.addAll(getFilesArray(files[i].toString()));
-                }
-            }
-        }
-        return listFile;
-    }
+
 
     /**
      * 获取视频的缩略图 先通过ThumbnailUtils来创建一个视频的缩略图，然后再利用ThumbnailUtils来生成指定大小的缩略图
@@ -277,59 +171,6 @@ public class SystemUtils {
         context.startActivity(intent);
     }
 
-    /**
-     * 判断网络是否可用
-     * <p>
-     * This method requires the caller to hold the permission
-     * {@link android.Manifest.permission#ACCESS_NETWORK_STATE}.
-     *
-     * @param context
-     * @return
-     */
-    public static boolean checkNet(Context context) {
-        ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo info = manager.getActiveNetworkInfo();
-        if (info != null && info.isAvailable()) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 检查是否有可用网络
-     */
-    public static boolean isNetworkConnected() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) App.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        return connectivityManager.getActiveNetworkInfo() != null;
-    }
-
-    /**
-     * 网络连接类型
-     *
-     * @param context
-     * @return
-     */
-    @SuppressLint("DefaultLocale")
-    public static String getAPN(Context context) {
-        String apn = "";
-        ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo info = manager.getActiveNetworkInfo();
-
-        if (info != null) {
-            if (ConnectivityManager.TYPE_WIFI == info.getType()) {
-                apn = info.getTypeName();
-                if (apn == null) {
-                    apn = "wifi";
-                }
-            } else {
-                apn = info.getExtraInfo().toLowerCase();
-                if (apn == null) {
-                    apn = "mobile";
-                }
-            }
-        }
-        return apn;
-    }
 
     public static String getModel(Context context) {
         return Build.MODEL;
@@ -430,12 +271,12 @@ public class SystemUtils {
     }
 
     /**
-     * 获取App版本
+     * 获取App版本名称
      *
      * @param context
      * @return
      */
-    public static String getAppVersion(Context context) {
+    public static String getAppVersionName(Context context) {
         PackageManager pm = context.getPackageManager();
         PackageInfo pi;
         try {
@@ -448,17 +289,23 @@ public class SystemUtils {
         return "";
     }
 
-
     /**
-     * 判断SD卡是否存
+     * 获取App版本
      *
+     * @param context
      * @return
      */
-    public static boolean getSDcard() {
-        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-            return true;
+    public static int getAppVersion(Context context) {
+        PackageManager pm = context.getPackageManager();
+        PackageInfo pi;
+        try {
+            pi = pm.getPackageInfo(context.getPackageName(), 0);
+            int versionName = pi.versionCode;
+            return versionName;
+        } catch (NameNotFoundException e) {
+            e.printStackTrace();
         }
-        return false;
+        return 0;
     }
 
     /**

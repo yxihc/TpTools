@@ -139,8 +139,19 @@ public class DownLoadFileActivity extends BaseMvpActivity<DownLoadFilePresenter,
                     }
                 });
     }
-    private void initView() {
+    @Override
+    protected void initView() {
         cb = (SeekBar) findViewById(R.id.cb);
         cb1 = (SeekBar) findViewById(R.id.cb1);
+    }
+
+    @Override
+    protected void setContentView() {
+
+    }
+
+    @Override
+    protected void initData() {
+
     }
 }

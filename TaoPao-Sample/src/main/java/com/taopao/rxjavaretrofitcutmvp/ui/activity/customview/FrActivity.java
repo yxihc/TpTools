@@ -72,7 +72,8 @@ public class FrActivity extends BaseMvpActivity implements FriendRefreshView.OnR
 
     }
 
-    private void initView() {
+    @Override
+    protected void initView() {
         lv = (ListView) findViewById(R.id.lv);
         frv = (FriendRefreshView) findViewById(R.id.frv);
 
@@ -84,6 +85,16 @@ public class FrActivity extends BaseMvpActivity implements FriendRefreshView.OnR
         lv.setAdapter(dataAdpater);
 
         frv.setOnRefreshListener(this);
+    }
+
+    @Override
+    protected void setContentView() {
+
+    }
+
+    @Override
+    protected void initData() {
+
     }
 
     @Override

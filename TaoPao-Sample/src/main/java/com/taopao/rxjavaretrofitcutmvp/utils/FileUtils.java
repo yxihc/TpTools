@@ -18,6 +18,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.RandomAccessFile;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -106,6 +107,29 @@ public class FileUtils {
         } else {
             return null;
         }
+    }
+
+    /**
+     * 获取文件夹下所以的文件
+     *
+     * @param path
+     * @return
+     */
+    public static ArrayList<File> getFilesArray(String path) {
+        File file = new File(path);
+        File files[] = file.listFiles();
+        ArrayList<File> listFile = new ArrayList<File>();
+        if (files != null) {
+            for (int i = 0; i < files.length; i++) {
+                if (files[i].isFile()) {
+                    listFile.add(files[i]);
+                }
+                if (files[i].isDirectory()) {
+                    listFile.addAll(getFilesArray(files[i].toString()));
+                }
+            }
+        }
+        return listFile;
     }
 
     /**

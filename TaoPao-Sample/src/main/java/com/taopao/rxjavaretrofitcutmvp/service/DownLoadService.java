@@ -48,7 +48,7 @@ public class DownLoadService extends IntentService {
         notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         notificationBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.mipmap.ic_launchera)
                 .setContentTitle("Download")
                 .setContentText("Downloading File")
                 .setAutoCancel(true);

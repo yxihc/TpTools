@@ -34,6 +34,22 @@ public class NetStateActivity extends BaseActivity {
             }
         });
     }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void setContentView() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
     @Override
     public void onNetChanged(int netWorkState) {
         switch (netWorkState) {

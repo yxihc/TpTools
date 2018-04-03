@@ -26,10 +26,24 @@ public class DialogActivity extends BaseMvpActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dialog);
+
+    }
+
+    @Override
+    protected void initView() {
         mRv_context = (RecyclerView) findViewById(R.id.rv_context);
         mRv_context.setLayoutManager(new GridLayoutManager(this, 2));
         mRv_context.setAdapter(new GridAdapter());
+    }
+
+    @Override
+    protected void setContentView() {
+        setContentView(R.layout.activity_dialog);
+    }
+
+    @Override
+    protected void initData() {
+
     }
 
     @Override
@@ -79,7 +93,6 @@ public class DialogActivity extends BaseMvpActivity {
                             SnackbarUtils.ShortSnackbar(v,"您确定要开启加速",SnackbarUtils.Info).show();
                             break;
                         case  1:
-                            showWaitingDialog("正在加载...");
                             new Thread(){
                                 @Override
                                 public void run() {
@@ -89,23 +102,10 @@ public class DialogActivity extends BaseMvpActivity {
                                     } catch (InterruptedException e) {
                                         e.printStackTrace();
                                     }
-                                    hideWaitingDialog();
                                 }
                             }.start();
                             break;
                         case  2:
-                            showMaterialDialog("提示", "您确定要开启加速", "取消", "确定", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    hideMaterialDialog();
-                                }
-                            }, new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    UIUtils.showToast("666");
-                                    hideMaterialDialog();
-                                }
-                            });
                             break;
                         case  3:
                             new ShapeLoadingDialog.Builder(DialogActivity.this)

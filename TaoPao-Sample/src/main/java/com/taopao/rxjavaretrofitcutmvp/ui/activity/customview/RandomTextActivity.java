@@ -64,6 +64,21 @@ public class RandomTextActivity extends BaseMvpActivity {
     }
 
     @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void setContentView() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
     public void setToolBar() {
 
     }

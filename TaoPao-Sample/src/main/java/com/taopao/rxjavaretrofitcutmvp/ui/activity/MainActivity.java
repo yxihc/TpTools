@@ -59,10 +59,11 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
-        getToolBar().setNavigationIcon(null);
         getPermission();
+    }
+    @Override
+    protected void initView() {
+        getToolBar().setNavigationIcon(null);
         mFragments = new ArrayList<>();
         mFragments.add(NetFragment.getInstance("网络相关"));
         mFragments.add(UiFragment.getInstance("UI"));
@@ -83,6 +84,17 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         mRadioGroup.setOnCheckedChangeListener(this);
         mVpHome.setOnPageChangeListener(this);
         mToolbarTitle.setText(R.string.tab_net);
+    }
+
+    @Override
+    protected void setContentView() {
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+    }
+
+    @Override
+    protected void initData() {
+
     }
 
     private void getPermission() {
