@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -38,7 +37,6 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -47,7 +45,6 @@ public abstract class BaseFragment extends Fragment {
         initView(view);
         initData();
     }
-
     /**
      * 得到布局文件Layout的ID
      *

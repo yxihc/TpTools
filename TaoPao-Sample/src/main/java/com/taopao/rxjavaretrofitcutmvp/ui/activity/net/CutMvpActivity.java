@@ -55,9 +55,8 @@ public class CutMvpActivity extends BaseMvpActivity<CutMvpPresenter, CutMvpView>
 
 
     @Override
-    public void initData() {
+    protected void initMvpData() {
         mPresenter.getImgList(ContactsUrl.IMGLIST);
-
     }
 
     @Override

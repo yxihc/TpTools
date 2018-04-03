@@ -69,7 +69,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         mFragments.add(UiFragment.getInstance("UI"));
         mFragments.add(MDFragment.getInstance("MD"));
         mFragments.add(UtilsFragment.getInstance("工具类"));
-
         mVpHome.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {

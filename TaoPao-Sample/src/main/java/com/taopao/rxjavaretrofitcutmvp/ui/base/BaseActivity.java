@@ -1,27 +1,21 @@
 package com.taopao.rxjavaretrofitcutmvp.ui.base;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.TextView;
 import com.jaeger.library.StatusBarUtil;
 import com.taopao.rxjavaretrofitcutmvp.R;
 import com.taopao.rxjavaretrofitcutmvp.interfaces.INetEvent;
 import com.taopao.rxjavaretrofitcutmvp.widget.CustomDialog;
 import java.util.LinkedList;
 import java.util.List;
+
+import butterknife.ButterKnife;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import me.drakeet.materialdialog.MaterialDialog;
 
 /**
  * @Author: 淘跑
@@ -43,11 +37,13 @@ public abstract class BaseActivity extends AppCompatActivity implements INetEven
         } else if (getIntent() != null && getIntent().getExtras() != null) {
             initParam(getIntent().getExtras());
         }
+        initToolBar();
         setContentView();
+        ButterKnife.bind(this);
         //初始化网络状态的监听
         mINetEvent=this;
         //初始化toolbar
-        initToolBar();
+
         initStatusBar();
         init();
         initView();
@@ -139,17 +135,25 @@ public abstract class BaseActivity extends AppCompatActivity implements INetEven
     }
 
     /**
-     * 初始化控件
-     */
-    protected abstract void initView();
-    /**
      * 设置布局文件
      */
     protected  abstract void setContentView();
     /**
+     * 初始化控件
+     */
+    protected abstract void initView();
+    /**
      * 初始化数据
      */
     protected  abstract  void initData();
+    /**
+     * 全局检测网络广播的回调 处理网络变化
+     * 注:在程序第一次启动的时候,没网并不会回调,需要自己在启动页面,或者主页自己再判断一次
+     * @param netWorkState 网络状态    -1:没网络 0:移动网络 1:WiFi网络
+     */
+    public abstract void onNetChanged(int netWorkState);
+
+
 
     public void setToolBar(){}
 
@@ -192,12 +196,7 @@ public abstract class BaseActivity extends AppCompatActivity implements INetEven
         android.os.Process.killProcess(android.os.Process.myPid());
     }
 
-    /**
-     * 全局检测网络广播的回调 处理网络变化
-     * 注:在程序第一次启动的时候,没网并不会回调,需要自己在启动页面,或者主页自己再判断一次
-     * @param netWorkState 网络状态    -1:没网络 0:移动网络 1:WiFi网络
-     */
-    public abstract void onNetChanged(int netWorkState);
+
     @Override
     public void onNetChange(int netWorkState) {
         onNetChanged(netWorkState);

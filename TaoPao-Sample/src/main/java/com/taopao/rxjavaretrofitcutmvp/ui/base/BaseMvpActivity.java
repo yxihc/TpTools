@@ -25,7 +25,19 @@ public abstract class BaseMvpActivity<P extends BasePresenter<V>, V extends Base
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         init();
+        initMvpData();
     }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    /**
+     * 初始化数据
+     */
+    protected  abstract  void initMvpData();
+
     /**
      * 初始化presenter和view
      */

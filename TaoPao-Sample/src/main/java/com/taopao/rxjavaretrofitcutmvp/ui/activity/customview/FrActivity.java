@@ -53,6 +53,11 @@ public class FrActivity extends BaseMvpActivity implements FriendRefreshView.OnR
     }
 
     @Override
+    protected void initMvpData() {
+
+    }
+
+    @Override
     public void setToolBar() {
 
     }
@@ -92,10 +97,6 @@ public class FrActivity extends BaseMvpActivity implements FriendRefreshView.OnR
 
     }
 
-    @Override
-    protected void initData() {
-
-    }
 
     @Override
     public void onRefresh() {

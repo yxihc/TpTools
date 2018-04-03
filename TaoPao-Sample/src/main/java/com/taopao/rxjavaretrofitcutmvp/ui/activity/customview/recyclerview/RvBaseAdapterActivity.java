@@ -41,8 +41,9 @@ public class RvBaseAdapterActivity extends BaseMvpActivity {
 
     }
 
+
     @Override
-    protected void initData() {
+    protected void initMvpData() {
 
     }
 

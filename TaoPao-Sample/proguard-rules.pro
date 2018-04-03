@@ -65,6 +65,11 @@
 
 
 
+#知乎图片选择混淆
+-dontwarn com.bumptech.glide.**
+-dontwarn com.squareup.picasso.**
+
+
 ###小米推送的混淆
 #-keep com.taopao.rxjavaretrofitcutmvp.receiver.XiaoMiPushReceiver {*;}
 ###可以防止一个误报的 warning 导致无法成功编译，如果编译使用的 Android 版本是 23。

@@ -41,8 +41,9 @@ public class DialogActivity extends BaseMvpActivity {
         setContentView(R.layout.activity_dialog);
     }
 
+
     @Override
-    protected void initData() {
+    protected void initMvpData() {
 
     }
 

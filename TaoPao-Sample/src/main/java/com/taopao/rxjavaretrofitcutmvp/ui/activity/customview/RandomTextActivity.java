@@ -73,8 +73,9 @@ public class RandomTextActivity extends BaseMvpActivity {
 
     }
 
+
     @Override
-    protected void initData() {
+    protected void initMvpData() {
 
     }
 

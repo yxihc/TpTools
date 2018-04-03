@@ -112,8 +112,9 @@ dependencies {
     //    implementation 'com.r0adkll:slidableactivity:2.0.5'
 
     //图片加载
-    implementation 'com.github.bumptech.glide:glide:4.6.1'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+//    implementation 'com.github.bumptech.glide:glide:4.6.1'
+//    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
 
     //RecyclerView适配器
 //    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
@@ -154,4 +155,10 @@ dependencies {
 
     //美团多渠道打包
     implementation 'com.meituan.android.walle:library:1.1.6'
+
+    //知乎图片选择框架
+    implementation 'com.zhihu.android:matisse:0.4.3'
+
+    //底部导航栏or顶部导航栏
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
 }

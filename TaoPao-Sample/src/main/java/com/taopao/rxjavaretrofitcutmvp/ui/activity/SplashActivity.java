@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -15,6 +16,7 @@ import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseMvpActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.presenter.SplashPresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.view.SplashView;
+import com.taopao.rxjavaretrofitcutmvp.utils.LogUtils;
 
 import java.util.Random;
 
@@ -44,8 +46,6 @@ public class SplashActivity extends BaseMvpActivity<SplashPresenter, SplashView>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-        ButterKnife.bind(this);
 
         //启动页流程
 
@@ -65,7 +65,8 @@ public class SplashActivity extends BaseMvpActivity<SplashPresenter, SplashView>
 
     @Override
     protected void setContentView() {
-
+        setContentView(R.layout.activity_splash);
+        ButterKnife.bind(this);
     }
 
     private void setSvg(ModelSVG modelSvg) {
@@ -88,7 +89,8 @@ public class SplashActivity extends BaseMvpActivity<SplashPresenter, SplashView>
     }
 
     @Override
-    public void initData() {
+    protected void initMvpData() {
+        LogUtils.d("===="+1);
         int i = new Random().nextInt(10);
         mPresenter.getImagePage(i + "");
     }
