@@ -4,7 +4,9 @@ import android.content.Context;
 
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
-
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
@@ -14,9 +16,9 @@ import io.reactivex.disposables.Disposable;
  * @Use:  Presenter基类
  */
 public abstract class BasePresenter<V extends BaseView> {
-    private Reference<V> mView;
+    private Reference<V> mView=null;
     private CompositeDisposable mCompositeDisposable;
-
+    private V mProxyView = null;
     public Context mContext;
     public BasePresenter(Context context) {
         mContext = context;
@@ -24,6 +26,19 @@ public abstract class BasePresenter<V extends BaseView> {
     public void attachView(V view) {
         //使用软引用优化内存
         mView = new WeakReference<V>(view);
+
+        //动态代理
+//        mProxyView = (V) Proxy.newProxyInstance(view.getClass().getClassLoader(),
+//                view.getClass().getInterfaces(), new InvocationHandler() {
+//                    @Override
+//                    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+//                        if (mView != null && mView.get() != null) {
+//                            return method.invoke(mView, args);
+//                        }
+//                        return null;
+//                    }
+//                });
+
     }
     public void detachView() {
         if(mCompositeDisposable!=null) {
@@ -41,6 +56,7 @@ public abstract class BasePresenter<V extends BaseView> {
      */
     public V getView() {
         return mView != null ? mView.get() : null;
+//        return mProxyView;
     }
 
     /**

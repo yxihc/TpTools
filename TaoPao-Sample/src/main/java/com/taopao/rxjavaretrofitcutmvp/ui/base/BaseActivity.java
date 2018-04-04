@@ -227,4 +227,16 @@ public abstract class BaseActivity extends AppCompatActivity implements INetEven
         return mToolbar;
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        synchronized (mActivities) {
+            mActivities.remove(this);
+        }
+        if (this.mCompositeDisposable != null) {
+            this.mCompositeDisposable.clear();
+            mCompositeDisposable=null;
+        }
+    }
 }

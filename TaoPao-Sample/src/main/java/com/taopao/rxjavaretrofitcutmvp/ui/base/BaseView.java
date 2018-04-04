@@ -7,4 +7,9 @@ package com.taopao.rxjavaretrofitcutmvp.ui.base;
  */
 
 public interface BaseView {
+    /**
+     * 用来加载前显示加载动画
+     */
+    void onLoading();
+
 }

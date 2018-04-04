@@ -19,6 +19,5 @@ import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
 public interface SplashView extends BaseView {
     void onGetImgListPageResult(ImgListInfo imgListInfo);
 
-
     void onGetImgListPageError(Throwable e);
 }

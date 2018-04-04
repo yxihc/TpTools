@@ -66,10 +66,14 @@ public abstract class BaseMvpFragment<P extends BasePresenter<V>, V extends Base
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+
+    }
+    @Override
+    public void onDetach() {
+        super.onDetach();
         //判断是否非空 以防子类并没有使用此架构
         if (mPresenter != null) {
             mPresenter.detachView();
         }
     }
-
 }

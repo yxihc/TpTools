@@ -202,4 +202,10 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         }
     }
 
+
+    @Override
+    public void onBackPressed() {
+        //不退出程序 进入后台
+        moveTaskToBack(true);
+    }
 }

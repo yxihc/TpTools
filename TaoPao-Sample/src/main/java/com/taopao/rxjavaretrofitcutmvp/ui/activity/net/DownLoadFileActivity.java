@@ -154,4 +154,9 @@ public class DownLoadFileActivity extends BaseMvpActivity<DownLoadFilePresenter,
     protected void initMvpData() {
 
     }
+
+    @Override
+    public void onLoading() {
+
+    }
 }

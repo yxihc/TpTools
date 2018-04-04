@@ -1,10 +1,19 @@
 package com.taopao.rxjavaretrofitcutmvp.ui.model;
 
+import com.taopao.rxjavaretrofitcutmvp.http.ApiRetrofit;
 import com.taopao.rxjavaretrofitcutmvp.model.base.BaseResult;
 import com.taopao.rxjavaretrofitcutmvp.model.response.BannerInfo;
 import com.taopao.rxjavaretrofitcutmvp.model.response.ImgListInfo;
+import com.taopao.rxjavaretrofitcutmvp.rx.RxObserver;
+import com.taopao.rxjavaretrofitcutmvp.rx.RxTransformer;
+import com.taopao.rxjavaretrofitcutmvp.ui.contacts.CutMvpContract;
+import com.taopao.rxjavaretrofitcutmvp.ui.contacts.IPresenterCallBack;
 
 import java.util.ArrayList;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * @Author：淘跑
@@ -19,15 +28,43 @@ import java.util.ArrayList;
  * @EditContent: 修改内容
  */
 
-public class CutMvpModel implements ICutMvpModel{
+public class CutMvpModel implements CutMvpContract.Model {
 
     @Override
-    public void getBanner(String loaction) {
+    public void getBanner(String loaction, final IPresenterCallBack<BaseResult<ArrayList<BannerInfo>>> callBack) {
+        ApiRetrofit.getInstance()
+                .getBanner(loaction)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new RxObserver<BaseResult<ArrayList<BannerInfo>>>() {
+                    @Override
+                    public void onSuccess(BaseResult<ArrayList<BannerInfo>> arrayListBaseResult) {
+                        callBack.onSuccess(arrayListBaseResult);
+                    }
 
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        //统一管理订阅者(此步不可省略)
+//                        addDisposable(d);
+                    }
+                });
     }
 
     @Override
-    public void getImgList(String url) {
+    public void getImgList(String url, final IPresenterCallBack<ImgListInfo> callBack) {
+        ApiRetrofit.getInstance()
+                .getImgList(url)
+                .compose(RxTransformer.<ImgListInfo>switchSchedulers())
+                .subscribe(new RxObserver<ImgListInfo>() {
+                    @Override
+                    public void onSuccess(ImgListInfo imgListInfo) {
+                        callBack.onSuccess(imgListInfo);
+                    }
 
+                    @Override
+                    public void onSubscribe(Disposable d) {
+//                        addDisposable(d);
+                    }
+                });
     }
 }

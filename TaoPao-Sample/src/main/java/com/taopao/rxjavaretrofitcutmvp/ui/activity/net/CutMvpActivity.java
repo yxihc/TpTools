@@ -3,6 +3,7 @@ package com.taopao.rxjavaretrofitcutmvp.ui.activity.net;
 import com.taopao.rxjavaretrofitcutmvp.ui.activity.design.ZC1Activity;
 import com.taopao.rxjavaretrofitcutmvp.ui.adapter.StaggerdAdapter;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseMvpActivity;
+import com.taopao.rxjavaretrofitcutmvp.ui.contacts.CutMvpContract;
 import com.taopao.rxjavaretrofitcutmvp.ui.presenter.CutMvpPresenter;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +18,8 @@ import com.taopao.rxjavaretrofitcutmvp.model.ContactsUrl;
 import com.taopao.rxjavaretrofitcutmvp.model.base.BaseResult;
 import com.taopao.rxjavaretrofitcutmvp.model.response.BannerInfo;
 import com.taopao.rxjavaretrofitcutmvp.model.response.ImgListInfo;
-import com.taopao.rxjavaretrofitcutmvp.ui.view.CutMvpView;
+import com.taopao.rxjavaretrofitcutmvp.utils.UIUtils;
+
 import java.util.ArrayList;
 
 /**
@@ -26,7 +28,7 @@ import java.util.ArrayList;
  * @Use:
  */
 
-public class CutMvpActivity extends BaseMvpActivity<CutMvpPresenter, CutMvpView> implements CutMvpView {
+public class CutMvpActivity extends BaseMvpActivity<CutMvpPresenter, CutMvpContract.View> implements CutMvpContract.View {
 
 
     private TextView mTv_content;
@@ -70,9 +72,10 @@ public class CutMvpActivity extends BaseMvpActivity<CutMvpPresenter, CutMvpView>
     }
 
     @Override
-    public CutMvpView createView() {
+    public CutMvpContract.View createView() {
         return this;
     }
+
 
     @Override
     public void onNetChanged(int netState) {
@@ -80,12 +83,12 @@ public class CutMvpActivity extends BaseMvpActivity<CutMvpPresenter, CutMvpView>
     }
 
     @Override
-    public void onGetBannerResult(BaseResult<ArrayList<BannerInfo>> banner) {
+    public void onBannerResult(BaseResult<ArrayList<BannerInfo>> banner) {
         mTv_content.setText(banner.getData().get(0).getImg());
     }
 
     @Override
-    public void onGetImgListResult(ImgListInfo imgListInfo) {
+    public void onImgListResult(ImgListInfo imgListInfo) {
         ImgListInfo.ResultsBean resultsBean = new ImgListInfo.ResultsBean();
         resultsBean.setUrl("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518024199898&di=5c2976d82553c111e43340de0c7dc1d6&imgtype=0&src=http%3A%2F%2Fold.bz55.com%2Fuploads1%2Fallimg%2F120303%2F1_120303174421_2.jpg");
         imgListInfo.getResults().add(resultsBean);
@@ -110,4 +113,8 @@ public class CutMvpActivity extends BaseMvpActivity<CutMvpPresenter, CutMvpView>
     }
 
 
+    @Override
+    public void onLoading() {
+        UIUtils.showWaitingDialog(this, "请骚等...");
+    }
 }

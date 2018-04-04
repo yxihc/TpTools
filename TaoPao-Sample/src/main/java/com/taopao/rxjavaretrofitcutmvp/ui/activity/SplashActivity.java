@@ -137,4 +137,9 @@ public class SplashActivity extends BaseMvpActivity<SplashPresenter, SplashView>
         super.onDestroy();
         mHandler.removeMessages(JUMP_TO_ACTIVITY);
     }
+
+    @Override
+    public void onLoading() {
+
+    }
 }
