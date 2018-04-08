@@ -29,7 +29,6 @@ public class SplashActivity extends BaseMvpActivity<SplashPresenter, SplashView>
     @BindView(R.id.iv_bg)
     ImageView iv_bg;
 
-
     Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
