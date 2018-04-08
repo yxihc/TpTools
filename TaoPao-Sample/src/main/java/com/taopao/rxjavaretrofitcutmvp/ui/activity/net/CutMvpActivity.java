@@ -3,7 +3,7 @@ package com.taopao.rxjavaretrofitcutmvp.ui.activity.net;
 import com.taopao.rxjavaretrofitcutmvp.ui.activity.design.ZC1Activity;
 import com.taopao.rxjavaretrofitcutmvp.ui.adapter.StaggerdAdapter;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseMvpActivity;
-import com.taopao.rxjavaretrofitcutmvp.ui.contacts.CutMvpContract;
+import com.taopao.rxjavaretrofitcutmvp.ui.contract.ICutMvpContract;
 import com.taopao.rxjavaretrofitcutmvp.ui.presenter.CutMvpPresenter;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,7 +28,7 @@ import java.util.ArrayList;
  * @Use:
  */
 
-public class CutMvpActivity extends BaseMvpActivity<CutMvpPresenter, CutMvpContract.View> implements CutMvpContract.View {
+public class CutMvpActivity extends BaseMvpActivity<CutMvpPresenter, ICutMvpContract.View> implements ICutMvpContract.View {
 
 
     private TextView mTv_content;
@@ -58,7 +58,7 @@ public class CutMvpActivity extends BaseMvpActivity<CutMvpPresenter, CutMvpContr
 
     @Override
     protected void initMvpData() {
-        mPresenter.getImgList(ContactsUrl.IMGLIST);
+        getPresenter().getImgList(ContactsUrl.IMGLIST);
     }
 
     @Override
@@ -72,7 +72,7 @@ public class CutMvpActivity extends BaseMvpActivity<CutMvpPresenter, CutMvpContr
     }
 
     @Override
-    public CutMvpContract.View createView() {
+    public ICutMvpContract.View createView() {
         return this;
     }
 
@@ -108,7 +108,7 @@ public class CutMvpActivity extends BaseMvpActivity<CutMvpPresenter, CutMvpContr
     }
 
     public void getbanner(View view) {
-        mPresenter.getBanner("2");
+        getPresenter().getBanner("2");
         
     }
 

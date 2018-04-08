@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 /**
  * @Author：淘跑
@@ -24,7 +26,10 @@ import butterknife.Unbinder;
  */
 
 public abstract class BaseFragment extends Fragment {
-
+    /**
+     * 管理订阅者
+     */
+    private CompositeDisposable mCompositeDisposable;
     private Unbinder mBind;
 
     @Nullable
@@ -51,7 +56,6 @@ public abstract class BaseFragment extends Fragment {
      * @return
      */
     protected abstract int getContentViewLayoutID();
-
     /**
      * 初始化布局
      *
@@ -70,6 +74,7 @@ public abstract class BaseFragment extends Fragment {
         if(mBind!=null) {
             mBind.unbind();
         }
+        unsubscribe();
     }
 
 
@@ -86,4 +91,27 @@ public abstract class BaseFragment extends Fragment {
         lastClick = System.currentTimeMillis();
         return true;
     }
+
+    /**
+     * 添加Fragment里的订阅者 对订阅者统一管理
+     * @param disposable
+     */
+    public void addFragmentDisposable(Disposable disposable) {
+        if (mCompositeDisposable == null) {
+            mCompositeDisposable = new CompositeDisposable();
+        }
+        mCompositeDisposable.add(disposable);
+    }
+
+    /**
+     *解绑
+     */
+    private void unsubscribe() {
+        if (this.mCompositeDisposable != null) {
+            mCompositeDisposable.dispose();
+            this.mCompositeDisposable.clear();
+            mCompositeDisposable=null;
+        }
+    }
+
 }

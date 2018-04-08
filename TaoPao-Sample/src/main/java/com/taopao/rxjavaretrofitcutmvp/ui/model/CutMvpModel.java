@@ -6,8 +6,8 @@ import com.taopao.rxjavaretrofitcutmvp.model.response.BannerInfo;
 import com.taopao.rxjavaretrofitcutmvp.model.response.ImgListInfo;
 import com.taopao.rxjavaretrofitcutmvp.rx.RxObserver;
 import com.taopao.rxjavaretrofitcutmvp.rx.RxTransformer;
-import com.taopao.rxjavaretrofitcutmvp.ui.contacts.CutMvpContract;
-import com.taopao.rxjavaretrofitcutmvp.ui.contacts.IPresenterCallBack;
+import com.taopao.rxjavaretrofitcutmvp.ui.contract.ICutMvpContract;
+import com.taopao.rxjavaretrofitcutmvp.ui.contract.IPresenterCallBack;
 
 import java.util.ArrayList;
 
@@ -28,7 +28,7 @@ import io.reactivex.schedulers.Schedulers;
  * @EditContent: 修改内容
  */
 
-public class CutMvpModel implements CutMvpContract.Model {
+public class CutMvpModel implements ICutMvpContract.Model {
 
     @Override
     public void getBanner(String loaction, final IPresenterCallBack<BaseResult<ArrayList<BannerInfo>>> callBack) {

@@ -6,8 +6,8 @@ import com.taopao.rxjavaretrofitcutmvp.model.base.BaseResult;
 import com.taopao.rxjavaretrofitcutmvp.model.response.BannerInfo;
 import com.taopao.rxjavaretrofitcutmvp.model.response.ImgListInfo;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
-import com.taopao.rxjavaretrofitcutmvp.ui.contacts.CutMvpContract;
-import com.taopao.rxjavaretrofitcutmvp.ui.contacts.IPresenterCallBack;
+import com.taopao.rxjavaretrofitcutmvp.ui.contract.ICutMvpContract;
+import com.taopao.rxjavaretrofitcutmvp.ui.contract.IPresenterCallBack;
 import com.taopao.rxjavaretrofitcutmvp.ui.model.CutMvpModel;
 
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * @Use:
  */
 
-public class CutMvpPresenter extends BasePresenter<CutMvpContract.View> implements CutMvpContract.Presenter{
+public class CutMvpPresenter extends BasePresenter<ICutMvpContract.View> implements ICutMvpContract.Presenter{
     private final CutMvpModel mCutMvpModel;
 
     public CutMvpPresenter(Context context) {
