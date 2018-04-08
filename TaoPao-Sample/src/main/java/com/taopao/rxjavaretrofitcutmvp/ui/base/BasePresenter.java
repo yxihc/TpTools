@@ -28,16 +28,16 @@ public abstract class BasePresenter<V extends BaseView> {
         mView = new WeakReference<V>(view);
 
         //动态代理
-//        mProxyView = (V) Proxy.newProxyInstance(view.getClass().getClassLoader(),
-//                view.getClass().getInterfaces(), new InvocationHandler() {
-//                    @Override
-//                    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-//                        if (mView != null && mView.get() != null) {
-//                            return method.invoke(mView, args);
-//                        }
-//                        return null;
-//                    }
-//                });
+        mProxyView = (V) Proxy.newProxyInstance(view.getClass().getClassLoader(),
+                view.getClass().getInterfaces(), new InvocationHandler() {
+                    @Override
+                    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                        if (mView != null && mView.get() != null) {
+                            return method.invoke(mView.get(), args);
+                        }
+                        return null;
+                    }
+                });
 
     }
     public void detachView() {
@@ -55,8 +55,8 @@ public abstract class BasePresenter<V extends BaseView> {
      * @return V
      */
     public V getView() {
-        return mView != null ? mView.get() : null;
-//        return mProxyView;
+//        return mView != null ? mView.get() : null;
+        return mProxyView;
     }
 
     /**
