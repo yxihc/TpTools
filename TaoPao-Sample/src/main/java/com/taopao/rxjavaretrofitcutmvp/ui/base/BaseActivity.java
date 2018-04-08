@@ -26,7 +26,7 @@ import io.reactivex.disposables.Disposable;
 public abstract class BaseActivity extends AppCompatActivity implements INetEvent {
     // 管理运行的所有的activity
     public final static List<AppCompatActivity> mActivities = new LinkedList<AppCompatActivity>();
-    protected CompositeDisposable mCompositeDisposable;
+    private CompositeDisposable mCompositeDisposable;
     private Toolbar mToolbar;
     public static INetEvent mINetEvent;
     @Override
@@ -43,6 +43,7 @@ public abstract class BaseActivity extends AppCompatActivity implements INetEven
         //初始化网络状态的监听
         mINetEvent=this;
         //初始化toolbar
+
         initStatusBar();
         init();
         initView();
@@ -150,7 +151,7 @@ public abstract class BaseActivity extends AppCompatActivity implements INetEven
      * 注:在程序第一次启动的时候,没网并不会回调,需要自己在启动页面,或者主页自己再判断一次
      * @param netWorkState 网络状态    -1:没网络 0:移动网络 1:WiFi网络
      */
-    protected abstract void onNetChanged(int netWorkState);
+    public abstract void onNetChanged(int netWorkState);
 
 
 
@@ -163,7 +164,23 @@ public abstract class BaseActivity extends AppCompatActivity implements INetEven
         synchronized (mActivities) {
             mActivities.add(this);
         }
+
     }
+
+    /**
+     * 添加activity里的订阅者 对订阅者统一管理
+     * @param disposable
+     */
+    protected void addActivityDisposable(Disposable disposable) {
+        if (mCompositeDisposable == null) {
+            mCompositeDisposable = new CompositeDisposable();
+        }
+        mCompositeDisposable.add(disposable);
+    }
+
+
+
+    private CustomDialog mDialogWaiting;
 
 
     public void killAll() {
@@ -189,7 +206,7 @@ public abstract class BaseActivity extends AppCompatActivity implements INetEven
     /**
      * 透明状态栏沉浸式 要改的话 子类重写此方法
      */
-    private void initStatusBar() {
+    protected void initStatusBar() {
         StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary), 0);
 //        StatusBarUtil.setTranslucent(this, 0);
 
@@ -197,7 +214,7 @@ public abstract class BaseActivity extends AppCompatActivity implements INetEven
     /**
      * 设置ToolBar 要改的话 子类重写此方法
      */
-    public void initToolBar() {
+    protected void initToolBar() {
         setSupportActionBar(getToolBar());
     }
 
@@ -217,31 +234,9 @@ public abstract class BaseActivity extends AppCompatActivity implements INetEven
         synchronized (mActivities) {
             mActivities.remove(this);
         }
-        unsubscribe();
-    }
-
-
-
-    /**
-     * 添加activity里的订阅者 对订阅者统一管理
-     * @param disposable
-     */
-    public void addActivityDisposable(Disposable disposable) {
-        if (mCompositeDisposable == null) {
-            mCompositeDisposable = new CompositeDisposable();
-        }
-        mCompositeDisposable.add(disposable);
-    }
-    /**
-     *解绑
-     */
-    public void unsubscribe() {
         if (this.mCompositeDisposable != null) {
-            mCompositeDisposable.dispose();
             this.mCompositeDisposable.clear();
             mCompositeDisposable=null;
         }
     }
-
-
 }

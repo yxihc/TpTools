@@ -1,8 +1,8 @@
-package com.taopao.rxjavaretrofitcutmvp.ui.contract;
+package com.taopao.rxjavaretrofitcutmvp.ui.base;
 
 /**
  * @Author： 淘跑
- * @Date: 2018/4/4 14:26
+ * @Date: 2018/4/4 14:34
  * @Use：
  * @
  * @-------------------修改记录-------------------@
@@ -13,7 +13,5 @@ package com.taopao.rxjavaretrofitcutmvp.ui.contract;
  * @EditContent: 修改内容
  */
 
-public interface IPresenterCallBack<T> {
-    void onSuccess(T data);
-    void onFailure(String msg);
+public interface BaseModel {
 }

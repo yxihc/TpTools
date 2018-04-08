@@ -1,8 +1,9 @@
-package com.taopao.rxjavaretrofitcutmvp.ui.contract;
+package com.taopao.rxjavaretrofitcutmvp.ui.contacts;
 
 import com.taopao.rxjavaretrofitcutmvp.model.base.BaseResult;
 import com.taopao.rxjavaretrofitcutmvp.model.response.BannerInfo;
 import com.taopao.rxjavaretrofitcutmvp.model.response.ImgListInfo;
+import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseModel;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ import java.util.ArrayList;
  * @EditContent: 修改内容
  */
 
-public interface ICutMvpContract {
+public interface CutMvpContract {
 
     interface View extends BaseView {
         void onBannerResult(BaseResult<ArrayList<BannerInfo>> banner);
@@ -33,7 +34,7 @@ public interface ICutMvpContract {
         void getImgList(String url);
     }
 
-    interface Model {
+    interface Model extends BaseModel{
 
         void getBanner(String loaction,IPresenterCallBack<BaseResult<ArrayList<BannerInfo>>> callBack);
 

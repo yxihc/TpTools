@@ -14,7 +14,6 @@ import com.taopao.rxjavaretrofitcutmvp.model.ModelSVG;
 import com.taopao.rxjavaretrofitcutmvp.model.response.ImgListInfo;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseMvpActivity;
-import com.taopao.rxjavaretrofitcutmvp.ui.contract.ISplashContract;
 import com.taopao.rxjavaretrofitcutmvp.ui.presenter.SplashPresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.view.SplashView;
 import com.taopao.rxjavaretrofitcutmvp.utils.LogUtils;
@@ -24,7 +23,7 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SplashActivity extends BaseMvpActivity<SplashPresenter, ISplashContract.View> implements ISplashContract.View {
+public class SplashActivity extends BaseMvpActivity<SplashPresenter, SplashView> implements SplashView {
 
     public final static int JUMP_TO_ACTIVITY = 10;
     @BindView(R.id.iv_bg)
@@ -94,7 +93,7 @@ public class SplashActivity extends BaseMvpActivity<SplashPresenter, ISplashCont
     protected void initMvpData() {
         LogUtils.d("===="+1);
         int i = new Random().nextInt(10);
-        getPresenter().getImagePage(i + "");
+        mPresenter.getImagePage(i + "");
     }
 
     @Override
@@ -103,32 +102,17 @@ public class SplashActivity extends BaseMvpActivity<SplashPresenter, ISplashCont
     }
 
     @Override
-    protected ISplashContract.View createView() {
+    public SplashView createView() {
         return this;
     }
-
 
     @Override
     public void onNetChanged(int netWorkState) {
 
     }
 
-
-
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mHandler.removeMessages(JUMP_TO_ACTIVITY);
-        mHandler=null;
-    }
-
-    @Override
-    public void onLoading() {
-
-    }
-
-    @Override
-    public void onImgListPageResult(ImgListInfo imgListInfo) {
+    public void onGetImgListPageResult(ImgListInfo imgListInfo) {
         Random random = new Random();
         int i = random.nextInt(imgListInfo.getResults().size());
         Glide.with(this).load(imgListInfo.getResults().get(i).getUrl()).into(iv_bg);
@@ -142,9 +126,21 @@ public class SplashActivity extends BaseMvpActivity<SplashPresenter, ISplashCont
     }
 
     @Override
-    public void onImgListPageError(String e) {
+    public void onGetImgListPageError(Throwable e) {
         //判断是否有网
         //提示错误信息
         //弹出弹窗 或是 直接跳转页面
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mHandler.removeMessages(JUMP_TO_ACTIVITY);
+    }
+
+    @Override
+    public void onLoading() {
+
     }
 }
