@@ -27,6 +27,7 @@
     <!--Material Design-->
     <string name="tab_md">Material Design</string>
     <string name="tab_utils">工具类</string>
+    <string name="tab_rxjava">RxJava</string>
 
 
 </resources>

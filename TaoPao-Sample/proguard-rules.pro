@@ -39,7 +39,6 @@
 -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
 
 
-
 #使用okhttp3的时候的混淆
 -dontwarn okhttp3.**
 -dontwarn okio.**
@@ -47,7 +46,6 @@
 -dontwarn org.conscrypt.**
 # A resource is loaded with a relative path so the package of this class must be preserved.
 -keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
-
 
 
 
@@ -64,22 +62,15 @@
 -keep class com.umeng.commonsdk.** {*;}
 
 
-
 #知乎图片选择混淆
 -dontwarn com.bumptech.glide.**
 -dontwarn com.squareup.picasso.**
 
 
 ###小米推送的混淆
-#-keep com.taopao.rxjavaretrofitcutmvp.receiver.XiaoMiPushReceiver {*;}
-###可以防止一个误报的 warning 导致无法成功编译，如果编译使用的 Android 版本是 23。
-##-dontwarn com.xiaomi.push.**
-#-keepclasseswithmembernames class com.xiaomi.**{*;}
-#-keep public class * extends com.xiaomi.mipush.sdk.PushMessageReceiver
+#可以防止一个误报的 warning 导致无法成功编译，如果编译使用的 Android 版本是 23。
+-dontwarn com.xiaomi.push.**
+
 
 #忽略所有警告 不建议使用(使用后可能会到导致程序异常崩溃)
 #-ignorewarnings
-
-
-
-

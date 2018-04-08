@@ -76,8 +76,6 @@ dependencies {
 
      compileOnly:只会在编译时有效，不会参与打包
      */
-
-
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     //Material Design
@@ -112,13 +110,16 @@ dependencies {
     //    implementation 'com.r0adkll:slidableactivity:2.0.5'
 
     //图片加载
-//    implementation 'com.github.bumptech.glide:glide:4.6.1'
-//    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+
+    //    implementation 'com.github.bumptech.glide:glide:4.6.1'
+
+    //    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
     implementation 'com.github.bumptech.glide:glide:3.7.0'
 
     //RecyclerView适配器
-//    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
-    api("com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30") {
+
+    //    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    api('com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30') {
         //group:表示只要包含com.android.support的都排除
         exclude group: 'com.android.support'
     }
@@ -138,16 +139,18 @@ dependencies {
     implementation 'com.jaredrummler:animated-svg-view:1.0.5'
 
     //Android6.0及以上权限管理  注意，easypermissions取决于Android支持库27.1.0所以你需要compilesdkversion 27或更高。这种变化应该是安全的compilesdkversion不会改变应用程序的行为。
-//    implementation 'pub.devrel:easypermissions:1.2.0'
 
-    api("pub.devrel:easypermissions:1.2.0") {
+    //    implementation 'pub.devrel:easypermissions:1.2.0'
+    api('pub.devrel:easypermissions:1.2.0') {
         //group:表示只要包含com.android.support的都排除
         exclude group: 'com.android.support'
     }
 
     //下拉刷新
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3'
-    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-3'//没有使用特殊Header，可以不加这行
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-3'
+
+    //没有使用特殊Header，可以不加这行
 
     //友盟统计
     implementation 'com.umeng.sdk:common:latest.integration'
@@ -161,4 +164,5 @@ dependencies {
 
     //底部导航栏or顶部导航栏
     implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    implementation files('libs/MiPush_SDK_Client_3_5_2.jar')
 }

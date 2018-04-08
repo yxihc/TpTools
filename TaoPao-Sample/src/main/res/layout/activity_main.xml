@@ -47,5 +47,11 @@
             style="@style/radiobutton_style"
             android:drawableTop="@drawable/radiobutton_bg_me"
             android:text="@string/tab_utils"/>
+        <RadioButton
+            android:id="@+id/rb_rxava"
+            style="@style/radiobutton_style"
+            android:drawableTop="@drawable/radiobutton_bg_me"
+            android:text="@string/tab_rxjava"/>
+
     </RadioGroup>
 </LinearLayout>

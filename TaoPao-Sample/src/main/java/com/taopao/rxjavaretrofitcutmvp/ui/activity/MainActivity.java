@@ -13,19 +13,18 @@ import android.widget.Toast;
 
 import com.taopao.rxjavaretrofitcutmvp.R;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
-import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
-import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
 import com.taopao.rxjavaretrofitcutmvp.ui.fragment.MDFragment;
 import com.taopao.rxjavaretrofitcutmvp.ui.fragment.NetFragment;
+import com.taopao.rxjavaretrofitcutmvp.ui.fragment.RxJavaFragment;
 import com.taopao.rxjavaretrofitcutmvp.ui.fragment.UiFragment;
 import com.taopao.rxjavaretrofitcutmvp.ui.fragment.UtilsFragment;
 import com.taopao.rxjavaretrofitcutmvp.utils.NetUtils;
+import com.taopao.rxjavaretrofitcutmvp.utils.UIUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import pub.devrel.easypermissions.AppSettingsDialog;
 import pub.devrel.easypermissions.EasyPermissions;
 import pub.devrel.easypermissions.PermissionRequest;
@@ -54,6 +53,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     RadioButton mRbMd;
     @BindView(R.id.rb_utils)
     RadioButton mRbUtils;
+    @BindView(R.id.rb_rxava)
+    RadioButton mRbRxava;
     private ArrayList<Fragment> mFragments;
 
     @Override
@@ -61,6 +62,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         super.onCreate(savedInstanceState);
         getPermission();
     }
+
     @Override
     protected void initView() {
         getToolBar().setNavigationIcon(null);
@@ -69,6 +71,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         mFragments.add(UiFragment.getInstance("UI"));
         mFragments.add(MDFragment.getInstance("MD"));
         mFragments.add(UtilsFragment.getInstance("工具类"));
+        mFragments.add(RxJavaFragment.getInstance("RxJava"));
         mVpHome.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -88,7 +91,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     @Override
     protected void setContentView() {
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
     }
 
     @Override
@@ -111,13 +113,13 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     public void onNetChanged(int netState) {
         switch (netState) {
             case NetUtils.NETWORK_NONE:
-                Toast.makeText(MainActivity.this, "没有网络", Toast.LENGTH_SHORT).show();
+                UIUtils.showToast("没有网络");
                 break;
             case NetUtils.NETWORK_MOBILE:
-                Toast.makeText(MainActivity.this, "移动网络", Toast.LENGTH_SHORT).show();
+                UIUtils.showToast("移动网络");
                 break;
             case NetUtils.NETWORK_WIFI:
-                Toast.makeText(MainActivity.this, "WiFi网络", Toast.LENGTH_SHORT).show();
+                UIUtils.showToast("WiFi网络");
                 break;
         }
     }
@@ -139,6 +141,10 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 break;
             case R.id.rb_utils:
                 mVpHome.setCurrentItem(3);
+                mToolbarTitle.setText(R.string.tab_utils);
+                break;
+            case R.id.rb_rxava:
+                mVpHome.setCurrentItem(4);
                 mToolbarTitle.setText(R.string.tab_utils);
                 break;
         }
@@ -163,6 +169,9 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 break;
             case 3:
                 mRbUtils.setChecked(true);
+                break;
+            case 4:
+                mRbRxava.setChecked(true);
                 break;
         }
     }
