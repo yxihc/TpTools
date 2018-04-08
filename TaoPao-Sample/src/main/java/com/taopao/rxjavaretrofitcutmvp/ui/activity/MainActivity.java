@@ -145,7 +145,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 break;
             case R.id.rb_rxava:
                 mVpHome.setCurrentItem(4);
-                mToolbarTitle.setText(R.string.tab_utils);
+                mToolbarTitle.setText(R.string.tab_rxjava);
                 break;
         }
     }

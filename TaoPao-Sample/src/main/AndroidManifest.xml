@@ -180,6 +180,7 @@
         <!-- 仿京东到家下拉刷新 -->
         <activity android:name=".ui.activity.customview.refresh.JDRefreshActivity" />
         <activity android:name=".ui.activity.customview.TakePhotoActivity" />
+        <activity android:name=".ui.activity.rxjava.RxMapActivity"></activity>
     </application>
 
 </manifest>
