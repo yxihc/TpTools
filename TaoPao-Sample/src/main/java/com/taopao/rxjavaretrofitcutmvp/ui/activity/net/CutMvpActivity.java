@@ -13,6 +13,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.taopao.rxjavaretrofitcutmvp.R;
 import com.taopao.rxjavaretrofitcutmvp.model.ContactsUrl;
 import com.taopao.rxjavaretrofitcutmvp.model.base.BaseResult;
@@ -85,6 +87,7 @@ public class CutMvpActivity extends BaseMvpActivity<CutMvpPresenter, ICutMvpCont
     @Override
     public void onBannerResult(BaseResult<ArrayList<BannerInfo>> banner) {
         mTv_content.setText(banner.getData().get(0).getImg());
+        Toast.makeText(CutMvpActivity.this, ""+banner.getData().get(0).getId(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -109,6 +112,8 @@ public class CutMvpActivity extends BaseMvpActivity<CutMvpPresenter, ICutMvpCont
 
     public void getbanner(View view) {
         getPresenter().getBanner("2");
+
+
         
     }
 

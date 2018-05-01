@@ -72,5 +72,33 @@
 -dontwarn com.xiaomi.push.**
 
 
+
+
+
+##---------------Begin: proguard configuration for Gson  ----------
+# Gson uses generic type information stored in a class file when working with fields. Proguard
+# removes such information by default, so configure it to keep all of it.
+-keepattributes Signature
+# Gson specific classes
+-keep class sun.misc.Unsafe { *; }
+#-keep class com.google.gson.stream.** { *; }
+# Application classes that will be serialized/deserialized over Gson
+-keep class com.glavesoft.artauction.model.** { *; }  ##这里需要改成解析到哪个  **********敲黑板非常重要***********
+
+##---------------End: proguard configuration for Gson  ----------
+
+#Serializable 的配置
+-keep class com.google.**{*;}
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}
+
+
+
 #忽略所有警告 不建议使用(使用后可能会到导致程序异常崩溃)
 #-ignorewarnings

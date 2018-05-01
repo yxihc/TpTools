@@ -9,16 +9,16 @@ package com.taopao.rxjavaretrofitcutmvp.model.response;
 
 public class BannerInfo {
 
-    private String id;
+    private int id;
     private String img;
     private String redirectContent;
     private String redirectType;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
