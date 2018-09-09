@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://E:\WorkSpace\RxJava-Retrofit-CutMvp\RxJava.iml" filepath="E:\WorkSpace\RxJava-Retrofit-CutMvp\RxJava.iml" />
+      <module fileurl="file://E:/WorkSpace/RxJava-Retrofit-CutMvp/RxJava.iml" filepath="E:/WorkSpace/RxJava-Retrofit-CutMvp/RxJava.iml" />
       <module fileurl="file://$PROJECT_DIR$/RxJava-Retrofit-CutMvp.iml" filepath="$PROJECT_DIR$/RxJava-Retrofit-CutMvp.iml" />
       <module fileurl="file://$PROJECT_DIR$/TaoPao-Sample/TaoPao-Sample.iml" filepath="$PROJECT_DIR$/TaoPao-Sample/TaoPao-Sample.iml" />
     </modules>

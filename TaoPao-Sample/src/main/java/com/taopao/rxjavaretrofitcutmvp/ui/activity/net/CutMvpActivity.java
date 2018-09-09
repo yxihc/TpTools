@@ -5,6 +5,7 @@ import com.taopao.rxjavaretrofitcutmvp.ui.adapter.StaggerdAdapter;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseMvpActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.contract.ICutMvpContract;
 import com.taopao.rxjavaretrofitcutmvp.ui.presenter.CutMvpPresenter;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -29,10 +30,7 @@ import java.util.ArrayList;
  * @Data: 2018/1/29 22:17
  * @Use:
  */
-
 public class CutMvpActivity extends BaseMvpActivity<CutMvpPresenter, ICutMvpContract.View> implements ICutMvpContract.View {
-
-
     private TextView mTv_content;
     private RecyclerView mRv_context;
     private StaggeredGridLayoutManager mLayout;
@@ -87,7 +85,7 @@ public class CutMvpActivity extends BaseMvpActivity<CutMvpPresenter, ICutMvpCont
     @Override
     public void onBannerResult(BaseResult<ArrayList<BannerInfo>> banner) {
         mTv_content.setText(banner.getData().get(0).getImg());
-        Toast.makeText(CutMvpActivity.this, ""+banner.getData().get(0).getId(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(CutMvpActivity.this, "" + banner.getData().get(0).getId(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -102,7 +100,7 @@ public class CutMvpActivity extends BaseMvpActivity<CutMvpPresenter, ICutMvpCont
             public void onItemClick(ImgListInfo.ResultsBean resultsBean, int position, View view) {
                 ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(CutMvpActivity.this, view, "iv");
                 Intent intent = new Intent(CutMvpActivity.this, ZC1Activity.class);
-                intent.putExtra("url",resultsBean.getUrl());
+                intent.putExtra("url", resultsBean.getUrl());
                 startActivity(intent, optionsCompat.toBundle());
             }
 
@@ -114,7 +112,6 @@ public class CutMvpActivity extends BaseMvpActivity<CutMvpPresenter, ICutMvpCont
         getPresenter().getBanner("2");
 
 
-        
     }
 
 
