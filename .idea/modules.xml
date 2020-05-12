@@ -5,6 +5,8 @@
       <module fileurl="file://E:/WorkSpace/RxJava-Retrofit-CutMvp/RxJava.iml" filepath="E:/WorkSpace/RxJava-Retrofit-CutMvp/RxJava.iml" />
       <module fileurl="file://$PROJECT_DIR$/RxJava-Retrofit-CutMvp.iml" filepath="$PROJECT_DIR$/RxJava-Retrofit-CutMvp.iml" />
       <module fileurl="file://$PROJECT_DIR$/TaoPao-Sample/TaoPao-Sample.iml" filepath="$PROJECT_DIR$/TaoPao-Sample/TaoPao-Sample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TpMvp.iml" filepath="$PROJECT_DIR$/TpMvp.iml" group="TpMvp" />
+      <module fileurl="file://$PROJECT_DIR$/TaoPao-Sample/TpMvp-TaoPao-Sample.iml" filepath="$PROJECT_DIR$/TaoPao-Sample/TpMvp-TaoPao-Sample.iml" group="TpMvp/TaoPao-Sample" />
     </modules>
   </component>
 </project>

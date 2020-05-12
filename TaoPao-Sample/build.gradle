@@ -125,7 +125,7 @@ dependencies {
     }
 
     //仿58同城加载动画
-    implementation 'com.github.404NotFuond:ShapeLoading:1.0.0'
+//    implementation 'com.github.taopaox:ShapeLoading:1.0.0'
 
     //注解框架
     implementation 'com.jakewharton:butterknife:8.8.1'

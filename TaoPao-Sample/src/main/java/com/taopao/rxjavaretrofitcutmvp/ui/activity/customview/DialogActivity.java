@@ -1,6 +1,5 @@
 package com.taopao.rxjavaretrofitcutmvp.ui.activity.customview;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,26 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.taopao.rxjavaretrofitcutmvp.R;
-import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseMvpActivity;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BasePresenter;
 import com.taopao.rxjavaretrofitcutmvp.ui.base.BaseView;
 import com.taopao.rxjavaretrofitcutmvp.utils.SnackbarUtils;
-import com.taopao.rxjavaretrofitcutmvp.utils.UIUtils;
-import com.taopao.shapeloading.ShapeLoadingDialog;
 
 public class DialogActivity extends BaseMvpActivity {
-
     private RecyclerView mRv_context;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
-
     @Override
     protected void initView() {
         mRv_context = (RecyclerView) findViewById(R.id.rv_context);
@@ -66,8 +57,6 @@ public class DialogActivity extends BaseMvpActivity {
     public void onNetChanged(int netState) {
 
     }
-
-
     public class GridAdapter extends RecyclerView.Adapter<GridAdapter.GridViewHolder> {
 
         final int[] picResId = new int[]{R.mipmap.p22, R.mipmap.p22, R.mipmap.p22, R.mipmap.p22
@@ -109,9 +98,9 @@ public class DialogActivity extends BaseMvpActivity {
                         case  2:
                             break;
                         case  3:
-                            new ShapeLoadingDialog.Builder(DialogActivity.this)
-                                    .loadText("加载中")
-                                    .show();
+//                            new ShapeLoadingDialog.Builder(DialogActivity.this)
+//                                    .loadText("加载中")
+//                                    .show();
                             break;
                     }
                 }
