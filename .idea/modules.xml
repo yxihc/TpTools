@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://E:/WorkSpace/RxJava-Retrofit-CutMvp/RxJava.iml" filepath="E:/WorkSpace/RxJava-Retrofit-CutMvp/RxJava.iml" />
-      <module fileurl="file://$PROJECT_DIR$/RxJava-Retrofit-CutMvp.iml" filepath="$PROJECT_DIR$/RxJava-Retrofit-CutMvp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/TaoPao-Sample/TaoPao-Sample.iml" filepath="$PROJECT_DIR$/TaoPao-Sample/TaoPao-Sample.iml" />
-      <module fileurl="file://$PROJECT_DIR$/TpMvp.iml" filepath="$PROJECT_DIR$/TpMvp.iml" group="TpMvp" />
-      <module fileurl="file://$PROJECT_DIR$/TaoPao-Sample/TpMvp-TaoPao-Sample.iml" filepath="$PROJECT_DIR$/TaoPao-Sample/TpMvp-TaoPao-Sample.iml" group="TpMvp/TaoPao-Sample" />
+      <module fileurl="file://$PROJECT_DIR$/TpKit/TpKit.iml" filepath="$PROJECT_DIR$/TpKit/TpKit.iml" group="TpTools/TpKit" />
+      <module fileurl="file://$PROJECT_DIR$/TpTools.iml" filepath="$PROJECT_DIR$/TpTools.iml" group="TpTools" />
+      <module fileurl="file://$PROJECT_DIR$/TpUI/TpUI.iml" filepath="$PROJECT_DIR$/TpUI/TpUI.iml" group="TpTools/TpUI" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="TpTools/app" />
     </modules>
   </component>
 </project>

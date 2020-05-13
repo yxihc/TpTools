@@ -10,7 +10,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/TaoPao-Sample" />
+            <option value="$PROJECT_DIR$/TpKit" />
+            <option value="$PROJECT_DIR$/TpUI" />
+            <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
