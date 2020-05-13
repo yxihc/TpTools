@@ -1,1 +1,4 @@
-include ':TaoPao-Sample'
+rootProject.name='TpTools'
+include ':app'
+include ':TpKit'
+include ':TpUI'
