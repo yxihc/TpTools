@@ -46,6 +46,6 @@ dependencies {
     //下拉刷新
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-3'
-
+    implementation 'com.airbnb.android:lottie:3.4.0'
 
 }

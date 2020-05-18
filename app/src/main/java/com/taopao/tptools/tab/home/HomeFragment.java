@@ -50,8 +50,4 @@ public class HomeFragment extends Fragment {
 
     }
 
-
-    //    public void jd(View view){
-//        startActivity(new Intent(getActivity(), JDRefreshActivity.class));
-//    }
 }
