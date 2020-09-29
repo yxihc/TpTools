@@ -12,6 +12,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/TpKit" />
             <option value="$PROJECT_DIR$/TpUI" />
+            <option value="$PROJECT_DIR$/UI" />
+            <option value="$PROJECT_DIR$/UI/TpVerificationCodeView" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>

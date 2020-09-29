@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="输入验证码"
+        android:textColor="#333333"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <com.taopao.tpverificationcodeview.VerificationCodeInputView
+        android:id="@+id/vciv_code1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:vciv_et_background="@drawable/bg_verification"
+        app:vciv_et_cursor_color="@android:color/holo_red_dark"
+        app:vciv_et_foucs_background="@drawable/vciv_et_focus_bg"
+        app:vciv_et_height="65dp"
+        app:vciv_et_inputType="number"
+        app:vciv_et_number="4"
+        app:vciv_et_spacing="10dp"
+        app:vciv_et_text_color="@android:color/white"
+        app:vciv_et_text_size="21sp"
+        app:vciv_et_width="65dp" />
+
+
+    <Button
+        android:id="@+id/btn_clear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="清除验证码"
+        android:textSize="18sp" />
+
+</LinearLayout>

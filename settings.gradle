@@ -1,3 +1,4 @@
+include ':UI:TpVerificationCodeView'
 rootProject.name='TpTools'
 include ':app'
 include ':TpKit'

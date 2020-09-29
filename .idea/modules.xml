@@ -4,7 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TpKit/TpKit.iml" filepath="$PROJECT_DIR$/TpKit/TpKit.iml" group="TpTools/TpKit" />
       <module fileurl="file://$PROJECT_DIR$/TpTools.iml" filepath="$PROJECT_DIR$/TpTools.iml" group="TpTools" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/UI/TpVerificationCodeView/TpTools.UI-TpVerificationCodeView.iml" filepath="$PROJECT_DIR$/.idea/modules/UI/TpVerificationCodeView/TpTools.UI-TpVerificationCodeView.iml" group="TpTools/UI/TpVerificationCodeView" />
       <module fileurl="file://$PROJECT_DIR$/TpUI/TpUI.iml" filepath="$PROJECT_DIR$/TpUI/TpUI.iml" group="TpTools/TpUI" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/UI/UI.iml" filepath="$PROJECT_DIR$/.idea/modules/UI/UI.iml" group="TpTools/UI" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="TpTools/app" />
     </modules>
   </component>

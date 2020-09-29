@@ -19,4 +19,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </Button>
+
+
+    <Button
+        android:id="@+id/inputcode"
+        android:text="验证码输入"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </Button>
+
 </LinearLayout>

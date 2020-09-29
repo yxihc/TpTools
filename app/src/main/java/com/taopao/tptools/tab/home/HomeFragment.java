@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import com.taopao.tptools.R;
 import com.taopao.tptools.databinding.FragmentHomeBinding;
 import com.taopao.tptools.ui.JDRefreshActivity;
+import com.taopao.tptools.ui.VerificationCodeViewActivity;
 import com.taopao.tptools.ui.refresh.MeiTuanRefreshActivity;
 
 
@@ -47,7 +50,9 @@ public class HomeFragment extends Fragment {
                 startActivity(new Intent(getActivity(), MeiTuanRefreshActivity.class));
             }
         });
-
+        mBind.inputcode.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), VerificationCodeViewActivity.class));
+        });
     }
 
 }

@@ -24,11 +24,16 @@ android {
     viewBinding {
         enabled = true
     }
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
 
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':UI:TpVerificationCodeView')
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
@@ -45,7 +50,7 @@ dependencies {
 
 
 
-    
+
     //下拉刷新
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-3'
