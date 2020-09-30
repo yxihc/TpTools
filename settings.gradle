@@ -1,5 +1,7 @@
-include ':UI:TpVerificationCodeView'
 rootProject.name='TpTools'
 include ':app'
 include ':TpKit'
 include ':TpUI'
+
+include ':UI:TpAreaSelect'
+include ':UI:TpVerificationCodeView'

@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.taopao.tptools.R;
 import com.taopao.tptools.databinding.FragmentHomeBinding;
+import com.taopao.tptools.ui.AreaSelectActivity;
 import com.taopao.tptools.ui.JDRefreshActivity;
 import com.taopao.tptools.ui.VerificationCodeViewActivity;
 import com.taopao.tptools.ui.refresh.MeiTuanRefreshActivity;
@@ -52,6 +53,10 @@ public class HomeFragment extends Fragment {
         });
         mBind.inputcode.setOnClickListener(v -> {
             startActivity(new Intent(getActivity(), VerificationCodeViewActivity.class));
+        });
+
+        mBind.area.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), AreaSelectActivity.class));
         });
     }
 

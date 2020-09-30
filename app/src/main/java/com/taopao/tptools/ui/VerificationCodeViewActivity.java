@@ -25,6 +25,7 @@ public class VerificationCodeViewActivity extends AppCompatActivity implements V
         mVerificationCodeInputView1.setOnInputListener(this);
         findViewById(R.id.btn_clear).setOnClickListener(view -> {
             mVerificationCodeInputView1.clearCode();
+            SoftInputUtils.showSoftInput(this,mVerificationCodeInputView1);
         });
     }
     @Override

@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--设置contentFeature,可使用切换动画-->
+        <item name="android:windowTranslucentStatus">true</item>
+        <!--这个属性可以防止启动的时候黑/白屏,但随之而来的问题就是:startActivity跳转页面的时候如果双击程序会进入后台前台不可见-->
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+    </style>
+
+</resources>

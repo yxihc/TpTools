@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".tab.home.HomeFragment">
 
     <Button
         android:id="@+id/jd"
-        android:text="京东到家下拉刷新"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </Button>
+        android:layout_height="wrap_content"
+        android:text="京东到家下拉刷新"></Button>
+
     <Button
         android:id="@+id/mt"
-        android:text="美团下拉刷新"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </Button>
+        android:layout_height="wrap_content"
+        android:text="美团下拉刷新"></Button>
 
 
     <Button
         android:id="@+id/inputcode"
-        android:text="验证码输入"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </Button>
+        android:layout_height="wrap_content"
+        android:text="验证码输入"></Button>
+
+    <Button
+        android:id="@+id/area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="地区选择"></Button>
 
 </LinearLayout>

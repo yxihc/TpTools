@@ -33,7 +33,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(path: ':UI:TpVerificationCodeView')
+
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
@@ -55,5 +55,14 @@ dependencies {
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-3'
     implementation 'com.airbnb.android:lottie:3.4.0'
+
+
+    //验证码输入
+//    implementation project(path: ':UI:TpVerificationCodeView')
+    implementation 'com.github.TaoPaox.TpTools:TpVerificationCodeView:1.0.0'
+
+
+    //仿淘宝地址选择
+    implementation project(path: ':UI:TpAreaSelect')
 
 }
